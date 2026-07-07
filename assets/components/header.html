@@ -1,0 +1,251 @@
+<!-- Salla DS · Header · <s-button> · 7 variants -->
+<!-- Runtime: https://dashboard-ui-components.pages.dev (admin-ui.esm.js + styles.css) -->
+
+<!-- variant: default -->
+<style>
+.slh{font-family:'PingARLT','Ping AR + LT',sans-serif;direction:rtl}
+.slh-bar{background:#004956;display:flex;align-items:center;gap:20px;padding:16px 56px}
+.slh-logo{color:#fff;font-size:36px;line-height:1;display:flex;align-items:center}
+.slh-nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.slh-nav a{display:inline-flex;align-items:center;gap:6px;color:#F8F8F8;font-size:14px;font-weight:400;text-decoration:none;padding:8px 12px;border-radius:9999px;white-space:nowrap}
+.slh-nav a i{font-size:16px}
+.slh-nav a.slh-active{background:#A4FFE5;color:#004956;font-weight:500}
+.slh-end{display:flex;align-items:center;gap:14px;margin-inline-start:auto}
+.slh-ring{position:relative;width:36px;height:36px;border-radius:9999px;background:conic-gradient(#00AF6C 0 240deg,rgba(255,255,255,.25) 240deg 360deg);display:flex;align-items:center;justify-content:center}
+.slh-ring span{width:28px;height:28px;border-radius:9999px;background:#fff;color:#004956;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.slh-ai{width:32px;height:32px;border-radius:9999px;background:#062B33;display:flex;align-items:center;justify-content:center}
+.slh-ai i{font-size:16px;color:#A4FFE5}
+.slh-icons{display:flex;align-items:center;gap:14px}
+.slh-icons i{font-size:22px;color:#fff}
+.slh-flag{width:26px;height:26px;border-radius:9999px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;overflow:hidden}
+.slh-user{display:flex;align-items:center;gap:8px;padding:4px 8px;border-radius:8px;cursor:pointer}
+.slh-user:hover{background:rgba(255,255,255,.06)}
+.slh-user-meta{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.slh-user-name{color:#F8F8F8;font-size:14px;line-height:normal}
+.slh-tag{display:inline-flex;align-items:center;justify-content:center;min-height:24px;padding:4px 8px;border:1px solid #DBFFF6;border-radius:140px;color:#fff;font-size:12px;line-height:16px}
+.slh-user>i{color:#fff;font-size:16px}
+.slh-avatar{width:48px;height:48px;border-radius:9999px;object-fit:cover;background:#fff}
+.slh-sub{background:#fff;display:flex;align-items:center;gap:24px;min-height:64px;padding:12px 56px}
+.slh-tabs{display:flex;align-items:center;gap:16px;flex:1;flex-wrap:wrap}
+.slh-tab{padding:8px 2px;font-size:16px;line-height:24px;color:#737373;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
+.slh-tab.slh-active{color:#004956;font-weight:700;border-bottom-color:#004956}
+.slh-actions{display:flex;align-items:center;gap:12px}
+</style>
+<div class="slh">
+  <div class="slh-bar">
+    <div class="slh-logo"><i class="sicon-light-salla"></i></div>
+    <nav class="slh-nav">
+      <a href="#"><i class="hgi-stroke hgi-menu-01"></i> الكل</a>
+      <a href="#"><i class="hgi-stroke hgi-home-01"></i> الرئيسية</a>
+      <a href="#" class="slh-active"><i class="hgi-stroke hgi-archive-02"></i> الطلبات</a>
+      <a href="#"><i class="hgi-stroke hgi-shirt-01"></i> المنتجات</a>
+      <a href="#"><i class="hgi-stroke hgi-megaphone-02"></i> التسويق</a>
+      <a href="#"><i class="hgi-stroke hgi-store-verified-01"></i> المتجر وقنوات البيع</a>
+      <a href="#"><i class="hgi-stroke hgi-chart-line-data-01"></i> التقارير</a>
+    </nav>
+    <div class="slh-end">
+      <div class="slh-ring" title="اكتمال المتجر"><span>4/6</span></div>
+      <div class="slh-ai" title="مساعد سلة الذكي"><i class="hgi-stroke hgi-ai-magic"></i></div>
+      <div class="slh-icons">
+        <i class="hgi-stroke hgi-search-01"></i>
+        <i class="hgi-stroke hgi-dashboard-square-01"></i>
+        <i class="hgi-stroke hgi-message-01"></i>
+        <i class="hgi-stroke hgi-notification-01"></i>
+        <i class="hgi-stroke hgi-settings-01"></i>
+      </div>
+      <div class="slh-flag">🇸🇦</div>
+      <div class="slh-user">
+        <img class="slh-avatar" src="https://i.pravatar.cc/100" alt="شعار المتجر">
+        <div class="slh-user-meta">
+          <span class="slh-user-name">waleed</span>
+          <span class="slh-tag">سبيشل</span>
+        </div>
+        <i class="hgi-stroke hgi-arrow-down-01"></i>
+      </div>
+    </div>
+  </div>
+  <div class="slh-sub">
+    <div class="slh-tabs">
+      <span class="slh-tab slh-active">إدارة الطلبات</span>
+      <span class="slh-tab">إعدادات الطلبات</span>
+      <span class="slh-tab">حالات الطلب</span>
+      <span class="slh-tab">تحديث حالة مجموعة طلبات</span>
+      <span class="slh-tab">الإسناد التلقائي</span>
+      <span class="slh-tab">تخصيص الفواتير</span>
+      <span class="slh-tab">••• المزيد</span>
+    </div>
+    <div class="slh-actions">
+      <s-button theme="default" size="sm"><i class="sicon-add"></i> طلب جديد</s-button>
+      <s-button theme="default" outlined="" size="sm"><i class="sicon-question-circle"></i> مساعدة</s-button>
+    </div>
+  </div>
+</div>
+
+<!-- variant: top-bar -->
+<style>
+.slh{font-family:'PingARLT','Ping AR + LT',sans-serif;direction:rtl}
+.slh-bar{background:#004956;display:flex;align-items:center;gap:20px;padding:16px 56px}
+.slh-logo{color:#fff;font-size:36px;line-height:1;display:flex;align-items:center}
+.slh-nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.slh-nav a{display:inline-flex;align-items:center;gap:6px;color:#F8F8F8;font-size:14px;font-weight:400;text-decoration:none;padding:8px 12px;border-radius:9999px;white-space:nowrap}
+.slh-nav a i{font-size:16px}
+.slh-nav a.slh-active{background:#A4FFE5;color:#004956;font-weight:500}
+.slh-end{display:flex;align-items:center;gap:14px;margin-inline-start:auto}
+.slh-ring{position:relative;width:36px;height:36px;border-radius:9999px;background:conic-gradient(#00AF6C 0 240deg,rgba(255,255,255,.25) 240deg 360deg);display:flex;align-items:center;justify-content:center}
+.slh-ring span{width:28px;height:28px;border-radius:9999px;background:#fff;color:#004956;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.slh-ai{width:32px;height:32px;border-radius:9999px;background:#062B33;display:flex;align-items:center;justify-content:center}
+.slh-ai i{font-size:16px;color:#A4FFE5}
+.slh-icons{display:flex;align-items:center;gap:14px}
+.slh-icons i{font-size:22px;color:#fff}
+.slh-flag{width:26px;height:26px;border-radius:9999px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;overflow:hidden}
+.slh-user{display:flex;align-items:center;gap:8px;padding:4px 8px;border-radius:8px;cursor:pointer}
+.slh-user:hover{background:rgba(255,255,255,.06)}
+.slh-user-meta{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.slh-user-name{color:#F8F8F8;font-size:14px;line-height:normal}
+.slh-tag{display:inline-flex;align-items:center;justify-content:center;min-height:24px;padding:4px 8px;border:1px solid #DBFFF6;border-radius:140px;color:#fff;font-size:12px;line-height:16px}
+.slh-user>i{color:#fff;font-size:16px}
+.slh-avatar{width:48px;height:48px;border-radius:9999px;object-fit:cover;background:#fff}
+</style>
+<div class="slh">
+  <div class="slh-bar">
+    <div class="slh-logo"><i class="sicon-light-salla"></i></div>
+    <nav class="slh-nav">
+      <a href="#"><i class="hgi-stroke hgi-menu-01"></i> الكل</a>
+      <a href="#" class="slh-active"><i class="hgi-stroke hgi-home-01"></i> الرئيسية</a>
+      <a href="#"><i class="hgi-stroke hgi-archive-02"></i> الطلبات</a>
+      <a href="#"><i class="hgi-stroke hgi-shirt-01"></i> المنتجات</a>
+      <a href="#"><i class="hgi-stroke hgi-megaphone-02"></i> التسويق</a>
+      <a href="#"><i class="hgi-stroke hgi-store-verified-01"></i> المتجر وقنوات البيع</a>
+      <a href="#"><i class="hgi-stroke hgi-chart-line-data-01"></i> التقارير</a>
+    </nav>
+    <div class="slh-end">
+      <div class="slh-ring" title="اكتمال المتجر"><span>4/6</span></div>
+      <div class="slh-ai" title="مساعد سلة الذكي"><i class="hgi-stroke hgi-ai-magic"></i></div>
+      <div class="slh-icons">
+        <i class="hgi-stroke hgi-search-01"></i>
+        <i class="hgi-stroke hgi-dashboard-square-01"></i>
+        <i class="hgi-stroke hgi-message-01"></i>
+        <i class="hgi-stroke hgi-notification-01"></i>
+        <i class="hgi-stroke hgi-settings-01"></i>
+      </div>
+      <div class="slh-flag">🇸🇦</div>
+      <div class="slh-user">
+        <img class="slh-avatar" src="https://i.pravatar.cc/100" alt="شعار المتجر">
+        <div class="slh-user-meta">
+          <span class="slh-user-name">waleed</span>
+          <span class="slh-tag">سبيشل</span>
+        </div>
+        <i class="hgi-stroke hgi-arrow-down-01"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- variant: subcategory-tabs -->
+<style>
+.slh{font-family:'PingARLT','Ping AR + LT',sans-serif;direction:rtl}
+.slh-sub{background:#fff;display:flex;align-items:center;gap:24px;min-height:64px;padding:12px 56px}
+.slh-tabs{display:flex;align-items:center;gap:16px;flex:1;flex-wrap:wrap}
+.slh-tab{padding:8px 2px;font-size:16px;line-height:24px;color:#737373;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
+.slh-tab.slh-active{color:#004956;font-weight:700;border-bottom-color:#004956}
+.slh-actions{display:flex;align-items:center;gap:12px}
+</style>
+<div class="slh">
+  <div class="slh-sub">
+    <div class="slh-tabs">
+      <span class="slh-tab slh-active">الشحن و التوصيل</span>
+      <span class="slh-tab">إدارة التشغيل</span>
+      <span class="slh-tab">مواد التغليف</span>
+      <span class="slh-tab">التقارير</span>
+      <span class="slh-tab">أرشيف البوليصات</span>
+      <span class="slh-tab">جاهزية الشحن الدولي</span>
+      <span class="slh-tab">••• المزيد</span>
+    </div>
+    <div class="slh-actions">
+      <s-button theme="default" size="sm"><i class="sicon-add"></i> شكوى جديدة</s-button>
+      <s-button theme="default" outlined="" size="sm"><i class="sicon-question-circle"></i> مساعدة</s-button>
+    </div>
+  </div>
+</div>
+
+<!-- variant: page-title -->
+<style>
+.slh{font-family:'PingARLT','Ping AR + LT',sans-serif;direction:rtl}
+.slh-title-row{display:flex;align-items:center;padding:16px 56px;background:#fff}
+.slh-title-row p{margin:0;font-weight:700;font-size:24px;line-height:32px;color:#004956}
+</style>
+<div class="slh">
+  <div class="slh-title-row"><p>عنوان</p></div>
+</div>
+
+<!-- variant: breadcrumb -->
+<div style="direction:rtl;padding:16px 56px;background:#F8F8F8;font-family:'PingARLT','Ping AR + LT',sans-serif">
+  <s-breadcrumbs items="[{&quot;id&quot;:0,&quot;label&quot;:&quot;الطلبات&quot;,&quot;route&quot;:&quot;/orders&quot;},{&quot;id&quot;:1,&quot;label&quot;:&quot;طلب #1329728330&quot;,&quot;route&quot;:&quot;/orders/1329728330&quot;}]" max-visible-items="5" class="s-breadcrumbs"></s-breadcrumbs>
+</div>
+
+<!-- variant: avatar-chip -->
+<style>
+.slh{font-family:'PingARLT','Ping AR + LT',sans-serif;direction:rtl}
+.slh-chipdemo{background:#004956;display:flex;flex-direction:column;gap:12px;padding:16px;border-radius:12px;width:max-content}
+.slh-user{display:flex;align-items:center;gap:8px;padding:4px 8px;border-radius:8px;cursor:pointer}
+.slh-user.slh-hover,.slh-user:hover{background:rgba(255,255,255,.06)}
+.slh-user-meta{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.slh-user-name{color:#F8F8F8;font-size:14px;line-height:normal}
+.slh-tag{display:inline-flex;align-items:center;justify-content:center;min-height:24px;padding:4px 8px;border:1px solid #DBFFF6;border-radius:140px;color:#fff;font-size:12px;line-height:16px}
+.slh-user>i{color:#fff;font-size:16px}
+.slh-avatar{width:48px;height:48px;border-radius:9999px;object-fit:cover;background:#fff}
+</style>
+<div class="slh">
+  <div class="slh-chipdemo">
+    <div class="slh-user">
+      <img class="slh-avatar" src="https://i.pravatar.cc/100" alt="إبراهيم شمس">
+      <div class="slh-user-meta">
+        <span class="slh-user-name">إبراهيم شمس</span>
+        <span class="slh-tag">جديد</span>
+      </div>
+      <i class="hgi-stroke hgi-arrow-down-01"></i>
+    </div>
+    <div class="slh-user slh-hover">
+      <img class="slh-avatar" src="https://i.pravatar.cc/100" alt="إبراهيم شمس">
+      <div class="slh-user-meta">
+        <span class="slh-user-name">إبراهيم شمس</span>
+        <span class="slh-tag">سبيشل</span>
+      </div>
+      <i class="hgi-stroke hgi-arrow-down-01"></i>
+    </div>
+  </div>
+</div>
+
+<!-- variant: mobile -->
+<style>
+.slh{font-family:'PingARLT','Ping AR + LT',sans-serif;direction:rtl}
+.slh-m{width:375px;border-radius:8px;overflow:hidden}
+.slh-m-bar{background:#004956;display:flex;align-items:center;gap:12px;padding:16px 20px}
+.slh-m-logo{color:#fff;font-size:30px;line-height:1;display:flex;align-items:center}
+.slh-m-icons{display:flex;align-items:center;gap:14px;margin-inline-start:auto}
+.slh-m-icons i{font-size:22px;color:#fff}
+.slh-m-user{display:flex;align-items:center;gap:6px;cursor:pointer}
+.slh-m-avatar{width:36px;height:36px;border-radius:9999px;object-fit:cover;background:#fff}
+.slh-m-user i{color:#fff;font-size:14px}
+.slh-m-sub{background:#fff;display:flex;align-items:center;padding:12px 20px}
+.slh-m-tab{padding:8px 2px;font-size:16px;line-height:24px;color:#004956;font-weight:700;border-bottom:2px solid #004956}
+</style>
+<div class="slh">
+  <div class="slh-m">
+    <div class="slh-m-bar">
+      <div class="slh-m-logo"><i class="sicon-light-salla"></i></div>
+      <div class="slh-m-icons">
+        <i class="hgi-stroke hgi-search-01"></i>
+        <i class="hgi-stroke hgi-message-01"></i>
+        <i class="hgi-stroke hgi-notification-01"></i>
+      </div>
+      <div class="slh-m-user">
+        <img class="slh-m-avatar" src="https://i.pravatar.cc/100" alt="شعار المتجر">
+        <i class="hgi-stroke hgi-arrow-down-01"></i>
+      </div>
+    </div>
+    <div class="slh-m-sub">
+      <span class="slh-m-tab">ملخص المتجر</span>
+    </div>
+  </div>
+</div>

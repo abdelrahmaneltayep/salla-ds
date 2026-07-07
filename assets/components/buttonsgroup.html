@@ -1,0 +1,86 @@
+<!-- Salla DS · ButtonsGroup · <s-buttons-group> · 5 variants -->
+<!-- Runtime: https://dashboard-ui-components.pages.dev (admin-ui.esm.js + styles.css) -->
+
+<!-- variant: default -->
+<s-buttons-group class="s-btn-group s-btn-group--horizontal">
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--start">First Button</s-button>
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--end">Second Button</s-button>
+</s-buttons-group>
+
+<!-- variant: button-count-variants -->
+<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<span class="text-sm font-medium text-dark-100">Two Buttons</span>
+<s-buttons-group class="s-btn-group s-btn-group--horizontal">
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--start">First Button</s-button>
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--end">Second Button</s-button>
+</s-buttons-group>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-sm font-medium text-dark-100">Three Buttons</span>
+<s-buttons-group class="s-btn-group s-btn-group--horizontal">
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--start">First Button</s-button>
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item">Second Button</s-button>
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--end is-last">Third Button</s-button>
+</s-buttons-group>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-sm font-medium text-dark-100">Four Buttons</span>
+<s-buttons-group class="s-btn-group s-btn-group--horizontal">
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--start">First Button</s-button>
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item">Second Button</s-button>
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item">Third Button</s-button>
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--end is-last">Fourth Button</s-button>
+</s-buttons-group>
+</div>
+</div>
+
+<!-- variant: theme-variants -->
+<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<span class="text-sm font-medium text-dark-100">Default Theme</span>
+<s-buttons-group class="s-btn-group s-btn-group--horizontal">
+<s-button class="s-btn s-btn--default default md s-btn-group-item s-btn-group-item--start" theme="default">First Button</s-button>
+<s-button class="s-btn s-btn--default default md s-btn-group-item" theme="default">Second Button</s-button>
+<s-button class="s-btn s-btn--default default md s-btn-group-item s-btn-group-item--end is-last" theme="default">Third Button</s-button>
+</s-buttons-group>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-sm font-medium text-dark-100">White Outlined</span>
+<s-buttons-group class="s-btn-group s-btn-group--horizontal">
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--start">First Button</s-button>
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item">Second Button</s-button>
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--end is-last">Third Button</s-button>
+</s-buttons-group>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-sm font-medium text-dark-100">Secondary Theme</span>
+<s-buttons-group class="s-btn-group s-btn-group--horizontal">
+<s-button theme="secondary" class="s-btn s-btn--secondary default md s-btn-group-item s-btn-group-item--start">First Button</s-button>
+<s-button theme="secondary" class="s-btn s-btn--secondary default md s-btn-group-item">Second Button</s-button>
+<s-button theme="secondary" class="s-btn s-btn--secondary default md s-btn-group-item s-btn-group-item--end is-last">Third Button</s-button>
+</s-buttons-group>
+</div>
+</div>
+
+<!-- variant: with-dropdown -->
+<s-buttons-group class="s-btn-group s-btn-group--horizontal">
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--start">First Button</s-button>
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item">Second Button</s-button>
+<s-dropdown name="input-name" layout="end" items="[{&quot;id&quot;:0,&quot;label&quot;:&quot;Sort Items&quot;,&quot;icon&quot;:&quot;hgi-stroke hgi-sorting-01&quot;},{&quot;id&quot;:1,&quot;label&quot;:&quot;Settings&quot;,&quot;icon&quot;:&quot;hgi-stroke hgi-settings-01&quot;},{&quot;id&quot;:2,&quot;label&quot;:&quot;Copy Selected Products&quot;,&quot;icon&quot;:&quot;hgi-stroke hgi-copy-01&quot;,&quot;route&quot;:&quot;/&quot;},{&quot;id&quot;:3,&quot;label&quot;:&quot;Export&quot;,&quot;icon&quot;:&quot;hgi-stroke hgi-share-05&quot;,&quot;route&quot;:&quot;/&quot;},{&quot;id&quot;:4,&quot;label&quot;:&quot;Delete&quot;,&quot;icon&quot;:&quot;hgi-stroke hgi-delete-02&quot;,&quot;route&quot;:&quot;/&quot;,&quot;type&quot;:&quot;danger&quot;}]" class="h-fit end s-btn-group-item s-btn-group-item--end is-last">
+<s-button theme="white" outlined="" slot="dropdown-head" data-toggle="true" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--end is-last">
+<i class="hgi-stroke hgi-more-horizontal"></i>
+</s-button>
+</s-dropdown>
+</s-buttons-group>
+
+<!-- variant: dropdown-in-middle -->
+<s-buttons-group class="s-btn-group s-btn-group--horizontal">
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--start">First Button</s-button>
+<s-dropdown name="input-name" layout="end" items="[{&quot;id&quot;:0,&quot;label&quot;:&quot;Sort Items&quot;,&quot;icon&quot;:&quot;hgi-stroke hgi-sorting-01&quot;},{&quot;id&quot;:1,&quot;label&quot;:&quot;Settings&quot;,&quot;icon&quot;:&quot;hgi-stroke hgi-settings-01&quot;},{&quot;id&quot;:2,&quot;label&quot;:&quot;Copy Selected Products&quot;,&quot;icon&quot;:&quot;hgi-stroke hgi-copy-01&quot;,&quot;route&quot;:&quot;/&quot;},{&quot;id&quot;:3,&quot;label&quot;:&quot;Export&quot;,&quot;icon&quot;:&quot;hgi-stroke hgi-share-05&quot;,&quot;route&quot;:&quot;/&quot;},{&quot;id&quot;:4,&quot;label&quot;:&quot;Delete&quot;,&quot;icon&quot;:&quot;hgi-stroke hgi-delete-02&quot;,&quot;route&quot;:&quot;/&quot;,&quot;type&quot;:&quot;danger&quot;}]" class="h-fit end s-btn-group-item">
+<s-button theme="white" outlined="" slot="dropdown-head" data-toggle="true" class="s-btn s-btn--white default md outlined s-btn-group-item">
+<i class="hgi-stroke hgi-arrow-down-01"></i>
+</s-button>
+</s-dropdown>
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined s-btn-group-item s-btn-group-item--end is-last">Second Button</s-button>
+</s-buttons-group>

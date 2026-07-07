@@ -1,0 +1,153 @@
+<!-- Salla DS · Button · <s-button> · 8 variants -->
+<!-- Runtime: https://dashboard-ui-components.pages.dev (admin-ui.esm.js + styles.css) -->
+
+<!-- variant: default -->
+<s-button theme="default" size="md" class="s-btn s-btn--default default md">نص بديل</s-button>
+
+<!-- variant: figma-theme-variants -->
+<div class="flex flex-wrap gap-4">
+<div class="flex flex-col items-center gap-2">
+<s-button theme="default" class="s-btn s-btn--default default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">--primary → theme="default"</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="white" class="s-btn s-btn--white default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">--secondary → theme="white"</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="danger" class="s-btn s-btn--danger default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">--danger → theme="danger"</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<button type="button" style="background:#00AF6C;color:#fff;font:500 14px/20px 'PingARLT','PT Sans',system-ui,sans-serif;border-radius:12px;padding:10px 12px;border:0;display:inline-flex;align-items:center;gap:8px;cursor:pointer;">نص بديل</button>
+<span class="text-xs text-dark-100">--success ⚠ Figma-only (no runtime theme) — exact tokens: bg #00AF6C, text #FFF</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="info" class="s-btn s-btn--info default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">--info → theme="info"</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="warning" class="s-btn s-btn--warning default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">--warning → theme="warning"</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="feature" class="s-btn s-btn--feature default md"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 16 3 6l5.5 4L12 4l3.5 6L21 6l-2 10H5Zm0 2h14v2H5v-2Z"/></svg> نص بديل</s-button>
+<span class="text-xs text-dark-100">--upgrade → theme="feature" (crown icon)</span>
+</div>
+</div>
+
+<!-- variant: appearance-variants -->
+<div class="flex flex-wrap gap-4 items-center">
+<div class="flex flex-col items-center gap-2">
+<s-button theme="default" class="s-btn s-btn--default default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">--default</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="default" outlined="" class="s-btn s-btn--default default md outlined">نص بديل</s-button>
+<span class="text-xs text-dark-100">--outlined</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="transparent" no-padding="" class="text-primary underline s-btn s-btn--transparent default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">--link (text #004956)</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="transparent" no-padding="" class="text-primary s-btn s-btn--transparent default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">--link-auxiliary (no underline, no side padding)</span>
+</div>
+</div>
+
+<!-- variant: size-variants -->
+<div class="flex flex-wrap gap-4 items-end">
+<div class="flex flex-col items-center gap-2">
+<s-button size="lg" theme="default" class="s-btn s-btn--default default lg">نص بديل</s-button>
+<span class="text-xs text-dark-100">lg — 48px</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button size="md" theme="default" class="s-btn s-btn--default default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">md — 40px</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button size="sm" theme="default" class="s-btn s-btn--default default sm">نص بديل</s-button>
+<span class="text-xs text-dark-100">sm — 32px</span>
+</div>
+</div>
+
+<!-- variant: state-variants -->
+<div class="flex flex-wrap gap-4 items-center">
+<div class="flex flex-col items-center gap-2">
+<s-button theme="default" class="s-btn s-btn--default default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">--default (hover/pressed via CSS)</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="default" disabled="" class="s-btn s-btn--default default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">--disabled (pointer-events:none, opacity .8)</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="default" loading="" class="s-btn s-btn--default default md loading">نص بديل</s-button>
+<span class="text-xs text-dark-100">--loading (spinner replaces label)</span>
+</div>
+</div>
+
+<!-- variant: circular-icon-only -->
+<div class="flex flex-wrap gap-4 items-end">
+<div class="flex flex-col items-center gap-2">
+<s-button theme="default" layout="circular" size="lg" class="s-btn s-btn--default default lg"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></s-button>
+<span class="text-xs text-dark-100">circular lg</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="default" layout="circular" size="md" class="s-btn s-btn--default default md"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></s-button>
+<span class="text-xs text-dark-100">circular md</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="white" layout="circular" size="sm" class="s-btn s-btn--white default sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></s-button>
+<span class="text-xs text-dark-100">circular sm (white)</span>
+</div>
+</div>
+
+<!-- variant: outlined-theme-variants -->
+<div class="flex flex-wrap gap-4">
+<div class="flex flex-col items-center gap-2">
+<s-button theme="default" outlined="" class="s-btn s-btn--default default md outlined">نص بديل</s-button>
+<span class="text-xs text-dark-100">--primary outlined</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="white" outlined="" class="s-btn s-btn--white default md outlined">نص بديل</s-button>
+<span class="text-xs text-dark-100">--secondary outlined</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="danger" outlined="" class="s-btn s-btn--danger default md outlined">نص بديل</s-button>
+<span class="text-xs text-dark-100">--danger outlined</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="info" outlined="" class="s-btn s-btn--info default md outlined">نص بديل</s-button>
+<span class="text-xs text-dark-100">--info outlined</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="warning" outlined="" class="s-btn s-btn--warning default md outlined">نص بديل</s-button>
+<span class="text-xs text-dark-100">--warning outlined</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="feature" outlined="" class="s-btn s-btn--feature default md outlined">نص بديل</s-button>
+<span class="text-xs text-dark-100">--upgrade outlined</span>
+</div>
+</div>
+
+<!-- variant: extra-runtime-themes -->
+<div class="flex flex-wrap gap-4">
+<div class="flex flex-col items-center gap-2">
+<s-button theme="primary" class="s-btn s-btn--primary default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">primary (dark teal — legacy)</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="secondary" class="s-btn s-btn--secondary default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">secondary (gray — legacy)</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="transparent" class="s-btn s-btn--transparent default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">transparent</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<s-button theme="mahally" class="s-btn s-btn--mahally default md">نص بديل</s-button>
+<span class="text-xs text-dark-100">mahally</span>
+</div>
+</div>

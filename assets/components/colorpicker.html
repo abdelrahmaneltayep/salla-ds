@@ -1,0 +1,27 @@
+<!-- Salla DS · ColorPicker · <s-color-picker> · 5 variants -->
+<!-- Runtime: https://dashboard-ui-components.pages.dev (admin-ui.esm.js + styles.css) -->
+
+<!-- variant: default -->
+<s-color-picker value="#000000" @colorchanged="ev=&gt;console.log(" color="" changed:",ev.detail)"="">
+<s-icon icon="hgi-stroke hgi-color-picker" slot="start"></s-icon>
+</s-color-picker>
+
+<!-- variant: initial-value -->
+<s-color-picker value="#ab1c1c" @colorchanged="ev=&gt;console.log(" color="" changed:",ev.detail)"="">
+<s-icon icon="hgi-stroke hgi-color-picker" slot="start"></s-icon>
+</s-color-picker>
+
+<!-- variant: has-error -->
+<s-color-picker value="#000000" has-error="" @colorchanged="ev=&gt;console.log(" color="" changed:",ev.detail)"="" class="has-error">
+<s-icon icon="hgi-stroke hgi-color-picker" slot="start"></s-icon>
+</s-color-picker>
+
+<!-- variant: label-less -->
+<s-color-picker value="#000000" no-label="" @colorchanged="ev=&gt;console.log(" color="" changed:",ev.detail)"="">
+<s-icon icon="hgi-stroke hgi-color-picker" slot="start"></s-icon>
+</s-color-picker>
+
+<!-- variant: disabled -->
+<s-color-picker value="#000000" disabled="" @colorchanged="ev=&gt;console.log(" color="" changed:",ev.detail)"="" class="disabled">
+<s-icon icon="hgi-stroke hgi-color-picker" slot="start"></s-icon>
+</s-color-picker>

@@ -1,0 +1,29 @@
+<!-- Salla DS · Modal · <s-button> · 1 variants -->
+<!-- Runtime: https://dashboard-ui-components.pages.dev (admin-ui.esm.js + styles.css) -->
+
+<!-- variant: default -->
+<div>
+<div class="relative w-full h-full min-h-[600px] flex items-center justify-center">
+<s-button id="s_modal_toggle_s_modal" class="s-btn s-btn--default default md" theme="default">Show Modal</s-button>
+<s-modal id="s_modal" name="" size="md" theme="default" class="s-modal s-modal--default md" role="dialog" data-scrollable="" scrollable="">
+<s-modal-head>
+<h4 class="text-base font-bold">Modal Title</h4>
+<s-button size="sm" theme="danger" outlined="" data-modal-close="" class="s-btn s-btn--danger default sm outlined">
+<i class="hgi-stroke hgi-cancel-01"></i>
+</s-button>
+</s-modal-head>
+<s-modal-body>
+<div class="flex flex-col w-full gap-4">
+<article class="text-sm leading-[1.5]">
+<h4 class="block font-bold mb-2">Sample Content</h4>
+<p>This is the default modal content. You can customize it using the content control.</p>
+</article>
+</div>
+</s-modal-body>
+<s-modal-footer>
+<s-button class="s-btn s-btn--default default md" theme="default">Confirm</s-button>
+<s-button theme="danger" outlined="" data-modal-close="" class="s-btn s-btn--danger default md outlined">Cancel</s-button>
+</s-modal-footer>
+</s-modal>
+</div>
+</div>

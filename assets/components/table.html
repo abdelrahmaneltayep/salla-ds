@@ -1,0 +1,376 @@
+<!-- Salla DS · Table · <s-panel> · 11 variants -->
+<!-- Runtime: https://dashboard-ui-components.pages.dev (admin-ui.esm.js + styles.css) -->
+
+<!-- variant: default -->
+<s-panel no-padding="" class="s-panel no-padding">
+<s-panel-head data-collapsed="true">
+<h2 slot="title">Table Component</h2>
+</s-panel-head>
+<s-panel-body>
+<s-table items="[{&quot;name&quot;:&quot;John Wick&quot;,&quot;age&quot;:&quot;24&quot;,&quot;visits&quot;:&quot;100&quot;,&quot;progress&quot;:&quot;54&quot;},{&quot;name&quot;:&quot;James Bond&quot;,&quot;age&quot;:&quot;24&quot;,&quot;visits&quot;:&quot;100&quot;,&quot;progress&quot;:&quot;54&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;}]" layout="scroll" pagination="" headers="[&quot;Name&quot;,&quot;Age&quot;,&quot;Visits&quot;,&quot;Progress&quot;]" items-per-page="[&quot;10&quot;, &quot;20&quot;, &quot;30&quot;, &quot;40&quot;, &quot;50&quot;]" search-placeholder="Search..." class="s-table scroll">
+</s-table>
+</s-panel-body>
+</s-panel>
+
+<!-- variant: with-search -->
+<s-panel no-padding="" class="s-panel no-padding">
+<s-panel-head data-collapsed="true">
+<h2 slot="title">Table Component</h2>
+</s-panel-head>
+<s-panel-body>
+<s-table items="[{&quot;name&quot;:&quot;John Wick&quot;,&quot;age&quot;:&quot;24&quot;,&quot;visits&quot;:&quot;100&quot;,&quot;progress&quot;:&quot;54&quot;},{&quot;name&quot;:&quot;James Bond&quot;,&quot;age&quot;:&quot;24&quot;,&quot;visits&quot;:&quot;100&quot;,&quot;progress&quot;:&quot;54&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;}]" layout="scroll" pagination="" searchable="" headers="[&quot;Name&quot;,&quot;Age&quot;,&quot;Visits&quot;,&quot;Progress&quot;]" items-per-page="[&quot;10&quot;, &quot;20&quot;, &quot;30&quot;, &quot;40&quot;, &quot;50&quot;]" search-placeholder="Search users..." class="s-table scroll">
+</s-table>
+</s-panel-body>
+</s-panel>
+
+<!-- variant: sorting -->
+<s-panel no-padding="" class="s-panel no-padding">
+<s-panel-head data-collapsed="true">
+<h2 slot="title">Table Component</h2>
+</s-panel-head>
+<s-panel-body>
+<s-table items="[{&quot;name&quot;:&quot;John Wick&quot;,&quot;age&quot;:&quot;24&quot;,&quot;visits&quot;:&quot;100&quot;,&quot;progress&quot;:&quot;54&quot;},{&quot;name&quot;:&quot;James Bond&quot;,&quot;age&quot;:&quot;24&quot;,&quot;visits&quot;:&quot;100&quot;,&quot;progress&quot;:&quot;54&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;}]" layout="scroll" pagination="" sortable="" headers="[&quot;Name&quot;,&quot;Age&quot;,&quot;Visits&quot;,&quot;Progress&quot;]" sort-by="[&quot;name&quot;,&quot;age&quot;,&quot;visits&quot;]" items-per-page="[&quot;10&quot;, &quot;20&quot;, &quot;30&quot;, &quot;40&quot;, &quot;50&quot;]" search-placeholder="Search..." class="s-table scroll">
+</s-table>
+</s-panel-body>
+</s-panel>
+
+<!-- variant: selection -->
+<s-panel no-padding="" class="s-panel no-padding">
+<s-panel-head data-collapsed="true">
+<h2 slot="title">Table Component</h2>
+</s-panel-head>
+<s-panel-body>
+<s-table items="[{&quot;name&quot;:&quot;John Wick&quot;,&quot;age&quot;:&quot;24&quot;,&quot;visits&quot;:&quot;100&quot;,&quot;progress&quot;:&quot;54&quot;},{&quot;name&quot;:&quot;James Bond&quot;,&quot;age&quot;:&quot;24&quot;,&quot;visits&quot;:&quot;100&quot;,&quot;progress&quot;:&quot;54&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;}]" layout="scroll" pagination="" selectable="" headers="[&quot;Name&quot;,&quot;Age&quot;,&quot;Visits&quot;,&quot;Progress&quot;]" items-per-page="[&quot;10&quot;, &quot;20&quot;, &quot;30&quot;, &quot;40&quot;, &quot;50&quot;]" search-placeholder="Search..." class="s-table scroll">
+</s-table>
+</s-panel-body>
+</s-panel>
+
+<!-- variant: custom-pagination -->
+<s-panel no-padding="" class="s-panel no-padding">
+<s-panel-head data-collapsed="true">
+<h2 slot="title">Table Component</h2>
+</s-panel-head>
+<s-panel-body>
+<s-table items="[{&quot;name&quot;:&quot;John Wick&quot;,&quot;age&quot;:&quot;24&quot;,&quot;visits&quot;:&quot;100&quot;,&quot;progress&quot;:&quot;54&quot;},{&quot;name&quot;:&quot;James Bond&quot;,&quot;age&quot;:&quot;24&quot;,&quot;visits&quot;:&quot;100&quot;,&quot;progress&quot;:&quot;54&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;}]" layout="scroll" pagination="" headers="[&quot;Name&quot;,&quot;Age&quot;,&quot;Visits&quot;,&quot;Progress&quot;]" items-per-page="[&quot;5&quot;,&quot;10&quot;,&quot;15&quot;,&quot;20&quot;]" search-placeholder="Search..." has-next-page="" class="s-table scroll">
+</s-table>
+</s-panel-body>
+</s-panel>
+
+<!-- variant: figma-status-chips -->
+<div dir="rtl" class="slt-chips-demo">
+<style>
+.slt-chips-demo{display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:#fff;padding:16px;font-family:'PingARLT','PT Sans',system-ui,sans-serif}
+.slt-chip{display:inline-flex;align-items:center;gap:4px;padding:6px 8px;border-radius:30px;border:1px solid transparent;font-size:12px;line-height:16px;font-weight:400;white-space:nowrap}
+.slt-chip .slt-dot{width:10px;height:10px;border-radius:9999px;flex:none}
+.slt-chip .hgi{font-size:16px;line-height:1}
+/* danger — bg danger/danger-lighter, border border/status/danger-light, text danger/danger-darker, dot danger/danger-dark */
+.slt-chip--danger{background:#FEECEC;border-color:#FBB9BC;color:#7A1F1E}.slt-chip--danger .slt-dot{background:#CA4146}
+/* neutral — bg background/default/neutrals-dark, border border/hover, text text/gray/lighter, dot background/default/neutrals-darkest */
+.slt-chip--neutral{background:#EEEEEE;border-color:#DDDDDD;color:#737373}.slt-chip--neutral .slt-dot{background:#BBBBBB}
+/* warning — bg warning/warning-lighter, border border/status/warning-light, text warning/warning-darker, dot warning/warning-dark */
+.slt-chip--warning{background:#FFF9EB;border-color:#FFE7C7;color:#8F5F22}.slt-chip--warning .slt-dot{background:#D18F36}
+/* info — bg info/info-lighter, border border/status/info-light, text info/info-darker, dot info/info-dark */
+.slt-chip--info{background:#ECF3FE;border-color:#CBE0FB;color:#204374}.slt-chip--info .slt-dot{background:#417AC8}
+/* success — bg success/success-lighter, border border/status/success-light, text success/success-darker, dot success/success-dark */
+.slt-chip--success{background:#EFFBF6;border-color:#97E7C8;color:#005232}.slt-chip--success .slt-dot{background:#008C56}
+/* gold — bg foreground/supporting-colors/gold/lighter, border border/supporting-colors/gold/primary, dot supporting-colors/gold/dark */
+.slt-chip--gold{background:#FFFBEA;border-color:#FFE895;color:#554300}.slt-chip--gold .slt-dot{background:#D1B44C}
+</style>
+<span class="slt-chip slt-chip--danger"><span class="slt-dot"></span>تم الإلغاء</span>
+<span class="slt-chip slt-chip--danger"><span class="slt-dot"></span>محذوف</span>
+<span class="slt-chip slt-chip--neutral"><span class="slt-dot"></span>تم الشحن</span>
+<span class="slt-chip slt-chip--neutral"><span class="slt-dot"></span>مسترجع</span>
+<span class="slt-chip slt-chip--warning"><span class="slt-dot"></span>قيد التنفيذ<i class="hgi hgi-stroke hgi-arrow-down-01"></i></span>
+<span class="slt-chip slt-chip--warning"><span class="slt-dot"></span>جاري التوصيل</span>
+<span class="slt-chip slt-chip--info"><span class="slt-dot"></span>بإنتظار الدفع<i class="hgi hgi-stroke hgi-arrow-down-01"></i></span>
+<span class="slt-chip slt-chip--info"><span class="slt-dot"></span>بإنتظار المراجعة</span>
+<span class="slt-chip slt-chip--success"><span class="slt-dot"></span>تم التوصيل</span>
+<span class="slt-chip slt-chip--gold"><span class="slt-dot"></span>تم شراؤه</span>
+</div>
+
+<!-- variant: figma-header-bar -->
+<div dir="rtl" class="slt-header">
+<style>
+.slt-header{display:flex;flex-direction:column;gap:16px;padding:20px 26px;background:#fff;font-family:'PingARLT','PT Sans',system-ui,sans-serif}
+.slt-title{margin:0;font-size:18px;font-weight:700;line-height:28px;color:#333}
+.slt-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.slt-search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #EEE;border-radius:8px;padding:8px 12px;color:#666}
+.slt-search .hgi{font-size:14px}
+.slt-search input{border:0;outline:0;flex:1;font-family:inherit;font-size:12px;color:#333;background:transparent}
+.slt-search input::placeholder{color:#666}
+.slt-btn{display:inline-flex;align-items:center;gap:4px;min-height:32px;max-height:32px;padding:0 8px;background:#fff;border:1px solid #EEE;border-radius:8px;font-family:inherit;font-size:12px;font-weight:500;color:#333;cursor:pointer}
+.slt-btn .hgi{font-size:16px;line-height:1}
+.slt-filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.slt-filter-cancel{display:inline-flex;align-items:center;padding:8px 12px;border:1px solid #F55157;color:#F55157;border-radius:8px;font-size:12px;line-height:16px;cursor:pointer;background:#fff}
+.slt-filter-chip{display:inline-flex;align-items:center;gap:4px;padding:8px 12px;background:#E6FFF9;border:1px solid #A4FFE5;border-radius:9999px;font-size:12px;line-height:16px;color:#004956}
+.slt-filter-chip b{font-weight:700}
+.slt-filter-chip .hgi{font-size:16px;line-height:1;cursor:pointer}
+.slt-tabs{display:flex;border-bottom:1px solid #EEE;overflow-x:auto}
+.slt-tab{padding:8px 16px;font-size:14px;line-height:20px;color:#737373;cursor:pointer;white-space:nowrap}
+.slt-tab--active{color:#004956;font-weight:700;border-bottom:2px solid #004956;margin-bottom:-1px}
+</style>
+<h2 class="slt-title">عنوان الجدول</h2>
+<div class="slt-toolbar">
+<div class="slt-search"><i class="hgi hgi-stroke hgi-search-01"></i><input type="text" placeholder="بحث"></div>
+<button class="slt-btn"><i class="hgi hgi-stroke hgi-arrow-up-down"></i>ترتيب</button>
+<button class="slt-btn">جميع الفروع<i class="hgi hgi-stroke hgi-arrow-down-01"></i></button>
+<button class="slt-btn"><i class="hgi hgi-stroke hgi-filter"></i>تصفية</button>
+</div>
+<div class="slt-filters">
+<span class="slt-filter-cancel">إلغاء</span>
+<span class="slt-filter-chip"><i class="hgi hgi-stroke hgi-cancel-01"></i><span><b>طريقة الدفع:</b> الدفع عند الاستلام, أبل باي</span></span>
+<span class="slt-filter-chip"><i class="hgi hgi-stroke hgi-cancel-01"></i><span><b>حالة الطلب:</b> محذوف</span></span>
+<span class="slt-filter-chip"><i class="hgi hgi-stroke hgi-cancel-01"></i><span><b>الفروع:</b> فرع جدة الدولي</span></span>
+</div>
+<div class="slt-tabs">
+<span class="slt-tab slt-tab--active">الكل (30)</span>
+<span class="slt-tab">تنفيذ الأن</span>
+<span class="slt-tab">قيد التنفيذ</span>
+<span class="slt-tab">بإنتظار المراجعة</span>
+<span class="slt-tab">بإنتظار الدفع</span>
+<span class="slt-tab">محذوف</span>
+</div>
+</div>
+
+<!-- variant: figma-data-rows -->
+<div dir="rtl" class="slt-rows-demo">
+  <style>
+    .slt-rows-demo{background:#fff;font-family:'PingARLT','PT Sans',system-ui,sans-serif;overflow-x:auto}
+    .slt-table{width:100%;border-collapse:collapse;min-width:900px}
+    .slt-table thead th{background:#FCFCFC;height:48px;padding:0 16px;font-size:14px;font-weight:500;color:#333;text-align:right;white-space:nowrap}
+    .slt-table thead th .hgi{font-size:16px;vertical-align:middle;color:#737373;margin-inline-start:4px}
+    .slt-table tbody td{height:72px;padding:0 16px;border-bottom:1px solid #EEE;font-size:14px;color:#333;white-space:nowrap} /* divider: live-inferred */
+    .slt-cell-name{display:flex;align-items:center;gap:10px;height:72px}
+    .slt-cell-name input[type=checkbox]{width:20px;height:20px;accent-color:#004956;border-radius:4px} /* border/selected */
+    .slt-avatar{width:32px;height:32px;border-radius:9999px;border:1px solid #EEE;background:#F4F4F4;display:flex;align-items:center;justify-content:center;font-size:12px;color:#737373;flex:none}
+    .slt-name-stack{display:flex;flex-direction:column;gap:2px}
+    .slt-name-stack .slt-name{font-size:14px;font-weight:500;color:#333}
+    .slt-name-stack .slt-ref{font-size:14px;color:#737373}
+    .slt-products{display:flex;align-items:center}
+    .slt-prod{width:32px;height:32px;border-radius:8px;border:2px solid #fff;background:#DDD;flex:none}
+    .slt-prod + .slt-prod,.slt-prod + .slt-count{margin-inline-start:-8px}
+    .slt-count{width:32px;height:32px;border-radius:8px;border:2px solid #fff;background:#F4F4F4;color:#BBB;font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;flex:none}
+    .slt-amount{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;color:#333}
+    .slt-amount .hgi{font-size:14px} /* live-inferred icon: hgi-saudi-riyal */
+    .slt-date{display:flex;flex-direction:column;gap:2px;font-size:14px;color:#333}
+    .slt-date span:last-child{color:#737373}
+    .slt-actions{display:inline-flex;align-items:center;gap:12px;color:#737373}
+    .slt-actions .hgi{font-size:16px;cursor:pointer}
+    /* status chips (shared tokens with figma-status-chips) */
+    .slt-chip{display:inline-flex;align-items:center;gap:4px;padding:6px 8px;border-radius:30px;border:1px solid transparent;font-size:12px;line-height:16px;white-space:nowrap}
+    .slt-chip .slt-dot{width:10px;height:10px;border-radius:9999px;flex:none}
+    .slt-chip--success{background:#EFFBF6;border-color:#97E7C8;color:#005232}.slt-chip--success .slt-dot{background:#008C56}
+    .slt-chip--warning{background:#FFF9EB;border-color:#FFE7C7;color:#8F5F22}.slt-chip--warning .slt-dot{background:#D18F36}
+    .slt-chip--danger{background:#FEECEC;border-color:#FBB9BC;color:#7A1F1E}.slt-chip--danger .slt-dot{background:#CA4146}
+  </style>
+  <table class="slt-table">
+    <thead>
+      <tr>
+        <th><span style="display:inline-flex;align-items:center;gap:10px"><input type="checkbox" style="width:20px;height:20px;accent-color:#004956"> رقم الطلب <i class="hgi hgi-stroke hgi-arrow-up-down"></i></span></th>
+        <th>المنتجات</th>
+        <th>السعر <i class="hgi hgi-stroke hgi-arrow-up-down"></i></th>
+        <th>تاريخ الطلب <i class="hgi hgi-stroke hgi-arrow-up-down"></i></th>
+        <th>الحالة <i class="hgi hgi-stroke hgi-arrow-down-01"></i></th>
+        <th>الإجراءات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="slt-cell-name"><input type="checkbox"><div class="slt-avatar">ب</div><div class="slt-name-stack"><span class="slt-name">بدر رجب</span><span class="slt-ref">#646374</span></div></div></td>
+        <td><div class="slt-products"><div class="slt-prod"></div><div class="slt-prod"></div><div class="slt-prod"></div><div class="slt-count">+25</div></div></td>
+        <td><span class="slt-amount">100.00 <i class="hgi hgi-stroke hgi-saudi-riyal"></i></span></td>
+        <td><div class="slt-date"><span>الأربعاء 8 أغسطس 2024</span><span>11:52م</span></div></td>
+        <td><span class="slt-chip slt-chip--success"><span class="slt-dot"></span> تم التوصيل</span></td>
+        <td><span class="slt-actions"><i class="hgi hgi-stroke hgi-edit-02"></i><i class="hgi hgi-stroke hgi-more-horizontal"></i></span></td>
+      </tr>
+      <tr>
+        <td><div class="slt-cell-name"><input type="checkbox"><div class="slt-avatar">س</div><div class="slt-name-stack"><span class="slt-name">سارة العتيبي</span><span class="slt-ref">#646375</span></div></div></td>
+        <td><div class="slt-products"><div class="slt-prod"></div><div class="slt-prod"></div><div class="slt-count">+3</div></div></td>
+        <td><span class="slt-amount">245.50 <i class="hgi hgi-stroke hgi-saudi-riyal"></i></span></td>
+        <td><div class="slt-date"><span>الخميس 9 أغسطس 2024</span><span>09:14ص</span></div></td>
+        <td><span class="slt-chip slt-chip--warning"><span class="slt-dot"></span> قيد التنفيذ <i class="hgi hgi-stroke hgi-arrow-down-01"></i></span></td>
+        <td><span class="slt-actions"><i class="hgi hgi-stroke hgi-edit-02"></i><i class="hgi hgi-stroke hgi-more-horizontal"></i></span></td>
+      </tr>
+      <tr>
+        <td><div class="slt-cell-name"><input type="checkbox"><div class="slt-avatar">م</div><div class="slt-name-stack"><span class="slt-name">محمد الغامدي</span><span class="slt-ref">#646376</span></div></div></td>
+        <td><div class="slt-products"><div class="slt-prod"></div></div></td>
+        <td><span class="slt-amount">59.00 <i class="hgi hgi-stroke hgi-saudi-riyal"></i></span></td>
+        <td><div class="slt-date"><span>الجمعة 10 أغسطس 2024</span><span>04:30م</span></div></td>
+        <td><span class="slt-chip slt-chip--danger"><span class="slt-dot"></span> تم الإلغاء</span></td>
+        <td><span class="slt-actions"><i class="hgi hgi-stroke hgi-edit-02"></i><i class="hgi hgi-stroke hgi-more-horizontal"></i></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- variant: figma-footer-pagination -->
+<div dir="rtl" class="slt-footer">
+  <style>
+    .slt-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px;padding:12px 26px;background:#fff;font-family:'PingARLT','PT Sans',system-ui,sans-serif;flex-wrap:wrap}
+    .slt-perpage{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#666}
+    .slt-perpage-select{display:inline-flex;align-items:center;gap:4px;background:#fff;border:1px solid #EEE;border-radius:12px;min-height:32px;padding:0 12px;font-size:14px;color:#333;cursor:pointer}
+    .slt-perpage-select .hgi{font-size:16px;line-height:1}
+    .slt-pages{display:inline-flex;align-items:center;gap:12px;font-size:14px;color:#666}
+    .slt-pages b{font-weight:700;color:#333}
+    .slt-pages .hgi{font-size:16px;color:#737373;cursor:pointer} /* live-inferred icons: pagination chevrons */
+  </style>
+  <span class="slt-perpage">
+    عدد العناصر لكل صفحة
+    <span class="slt-perpage-select">10 <i class="hgi hgi-stroke hgi-arrow-down-01"></i></span>
+  </span>
+  <span class="slt-pages">
+    <i class="hgi hgi-stroke hgi-arrow-right-01"></i>
+    صفحة <b>1</b> من <b>6</b>
+    <i class="hgi hgi-stroke hgi-arrow-left-01"></i>
+  </span>
+</div>
+
+<!-- variant: figma-mobile-order-card -->
+<div dir="rtl" class="slt-mobile-card">
+  <style>
+    .slt-mobile-card{width:347px;display:flex;flex-direction:column;gap:14px;padding:14px;background:#fff;border:1px solid #EEE;border-radius:8px;font-family:'PingARLT','PT Sans',system-ui,sans-serif} /* border+radius: live-inferred */
+    .slt-mc-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+    .slt-mc-col{display:flex;flex-direction:column;gap:6px}
+    .slt-mc-amount{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;color:#333}
+    .slt-mc-amount .hgi{font-size:14px} /* live-inferred icon: hgi-saudi-riyal */
+    .slt-mc-ago{font-size:14px;color:#333}
+    .slt-mc-side{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+    .slt-mc-products{display:flex;align-items:center}
+    .slt-mc-prod{width:32px;height:32px;border-radius:8px;border:2px solid #fff;background:#DDD;flex:none}
+    .slt-mc-prod + .slt-mc-prod,.slt-mc-prod + .slt-mc-count{margin-inline-start:-8px}
+    .slt-mc-count{width:32px;height:32px;border-radius:8px;border:2px solid #fff;background:#F4F4F4;color:#BBB;font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;flex:none}
+    .slt-mc-ref{font-size:14px;color:#737373}
+    .slt-mc-check{width:20px;height:20px;accent-color:#004956}
+    .slt-mc-name{font-size:12px;font-weight:500;color:#333}
+    .slt-chip{display:inline-flex;align-items:center;gap:4px;padding:6px 8px;border-radius:30px;border:1px solid transparent;font-size:12px;line-height:16px;white-space:nowrap}
+    .slt-chip .slt-dot{width:10px;height:10px;border-radius:9999px;flex:none}
+    .slt-chip--warning{background:#FFF9EB;border-color:#FFE7C7;color:#8F5F22}.slt-chip--warning .slt-dot{background:#D18F36}
+  </style>
+  <div class="slt-mc-row">
+    <div class="slt-mc-col">
+      <span class="slt-mc-amount">100.00 <i class="hgi hgi-stroke hgi-saudi-riyal"></i></span>
+      <span class="slt-mc-ago">قبل 3 أيام</span>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:10px">
+      <div class="slt-mc-side">
+        <div class="slt-mc-products"><div class="slt-mc-prod"></div><div class="slt-mc-prod"></div><div class="slt-mc-prod"></div><div class="slt-mc-count">+25</div></div>
+        <span class="slt-mc-ref">#646374</span>
+      </div>
+      <input type="checkbox" class="slt-mc-check">
+    </div>
+  </div>
+  <div class="slt-mc-row" style="align-items:center;justify-content:flex-start;gap:10px">
+    <span class="slt-chip slt-chip--warning"><span class="slt-dot"></span> قيد التنفيذ <i class="hgi hgi-stroke hgi-arrow-down-01"></i></span>
+    <span class="slt-mc-name">بدر رجب</span>
+  </div>
+</div>
+
+<!-- variant: figma-full -->
+<div dir="rtl" class="slt-full">
+  <style>
+    .slt-full{background:#fff;border:1px solid #EEE;border-radius:16px;overflow:hidden;font-family:'PingARLT','PT Sans',system-ui,sans-serif} /* border+radius: live-inferred */
+    .slt-full .slt-header{display:flex;flex-direction:column;gap:16px;padding:20px 26px}
+    .slt-full .slt-title{margin:0;font-size:18px;font-weight:700;line-height:28px;color:#333}
+    .slt-full .slt-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .slt-full .slt-search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;border:1px solid #EEE;border-radius:8px;padding:8px 12px;color:#666}
+    .slt-full .slt-search .hgi{font-size:14px}
+    .slt-full .slt-search input{border:0;outline:0;flex:1;font-family:inherit;font-size:12px;color:#333;background:transparent}
+    .slt-full .slt-search input::placeholder{color:#666}
+    .slt-full .slt-btn{display:inline-flex;align-items:center;gap:4px;min-height:32px;padding:0 8px;background:#fff;border:1px solid #EEE;border-radius:8px;font-family:inherit;font-size:12px;font-weight:500;color:#333;cursor:pointer}
+    .slt-full .slt-btn .hgi{font-size:16px;line-height:1}
+    .slt-full .slt-tabs{display:flex;border-bottom:1px solid #EEE;overflow-x:auto}
+    .slt-full .slt-tab{padding:8px 16px;font-size:14px;line-height:20px;color:#737373;cursor:pointer;white-space:nowrap}
+    .slt-full .slt-tab--active{color:#004956;font-weight:700;border-bottom:2px solid #004956;margin-bottom:-1px}
+    .slt-full .slt-table{width:100%;border-collapse:collapse;min-width:900px}
+    .slt-full .slt-table thead th{background:#FCFCFC;height:48px;padding:0 16px;font-size:14px;font-weight:500;color:#333;text-align:right;white-space:nowrap}
+    .slt-full .slt-table thead th .hgi{font-size:16px;vertical-align:middle;color:#737373;margin-inline-start:4px}
+    .slt-full .slt-table tbody td{height:72px;padding:0 16px;border-bottom:1px solid #EEE;font-size:14px;color:#333;white-space:nowrap}
+    .slt-full .slt-cell-name{display:flex;align-items:center;gap:10px;height:72px}
+    .slt-full .slt-cell-name input[type=checkbox]{width:20px;height:20px;accent-color:#004956}
+    .slt-full .slt-avatar{width:32px;height:32px;border-radius:9999px;border:1px solid #EEE;background:#F4F4F4;display:flex;align-items:center;justify-content:center;font-size:12px;color:#737373;flex:none}
+    .slt-full .slt-name-stack{display:flex;flex-direction:column;gap:2px}
+    .slt-full .slt-name{font-size:14px;font-weight:500;color:#333}
+    .slt-full .slt-ref{font-size:14px;color:#737373}
+    .slt-full .slt-products{display:flex;align-items:center}
+    .slt-full .slt-prod{width:32px;height:32px;border-radius:8px;border:2px solid #fff;background:#DDD;flex:none}
+    .slt-full .slt-prod + .slt-prod,.slt-full .slt-prod + .slt-count{margin-inline-start:-8px}
+    .slt-full .slt-count{width:32px;height:32px;border-radius:8px;border:2px solid #fff;background:#F4F4F4;color:#BBB;font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;flex:none}
+    .slt-full .slt-amount{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;color:#333}
+    .slt-full .slt-amount .hgi{font-size:14px}
+    .slt-full .slt-date{display:flex;flex-direction:column;gap:2px;font-size:14px;color:#333}
+    .slt-full .slt-date span:last-child{color:#737373}
+    .slt-full .slt-actions{display:inline-flex;align-items:center;gap:12px;color:#737373}
+    .slt-full .slt-actions .hgi{font-size:16px;cursor:pointer}
+    .slt-full .slt-chip{display:inline-flex;align-items:center;gap:4px;padding:6px 8px;border-radius:30px;border:1px solid transparent;font-size:12px;line-height:16px;white-space:nowrap}
+    .slt-full .slt-chip .slt-dot{width:10px;height:10px;border-radius:9999px;flex:none}
+    .slt-full .slt-chip--success{background:#EFFBF6;border-color:#97E7C8;color:#005232}.slt-full .slt-chip--success .slt-dot{background:#008C56}
+    .slt-full .slt-chip--warning{background:#FFF9EB;border-color:#FFE7C7;color:#8F5F22}.slt-full .slt-chip--warning .slt-dot{background:#D18F36}
+    .slt-full .slt-chip--danger{background:#FEECEC;border-color:#FBB9BC;color:#7A1F1E}.slt-full .slt-chip--danger .slt-dot{background:#CA4146}
+    .slt-full .slt-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px;padding:12px 26px;flex-wrap:wrap}
+    .slt-full .slt-perpage{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#666}
+    .slt-full .slt-perpage-select{display:inline-flex;align-items:center;gap:4px;border:1px solid #EEE;border-radius:12px;min-height:32px;padding:0 12px;font-size:14px;color:#333;cursor:pointer}
+    .slt-full .slt-perpage-select .hgi{font-size:16px}
+    .slt-full .slt-pages{display:inline-flex;align-items:center;gap:12px;font-size:14px;color:#666}
+    .slt-full .slt-pages b{font-weight:700;color:#333}
+    .slt-full .slt-pages .hgi{font-size:16px;color:#737373;cursor:pointer}
+  </style>
+  <div class="slt-header">
+    <h2 class="slt-title">الطلبات</h2>
+    <div class="slt-toolbar">
+      <span class="slt-search"><i class="hgi hgi-stroke hgi-search-01"></i><input type="text" placeholder="بحث"></span>
+      <button class="slt-btn"><i class="hgi hgi-stroke hgi-arrow-up-down"></i> ترتيب</button>
+      <button class="slt-btn">جميع الفروع <i class="hgi hgi-stroke hgi-arrow-down-01"></i></button>
+      <button class="slt-btn"><i class="hgi hgi-stroke hgi-filter"></i> تصفية</button>
+    </div>
+    <div class="slt-tabs">
+      <span class="slt-tab slt-tab--active">الكل (30)</span>
+      <span class="slt-tab">تنفيذ الأن</span>
+      <span class="slt-tab">قيد التنفيذ</span>
+      <span class="slt-tab">بإنتظار المراجعة</span>
+      <span class="slt-tab">بإنتظار الدفع</span>
+      <span class="slt-tab">محذوف</span>
+    </div>
+  </div>
+  <table class="slt-table">
+    <thead>
+      <tr>
+        <th><span style="display:inline-flex;align-items:center;gap:10px"><input type="checkbox" style="width:20px;height:20px;accent-color:#004956"> رقم الطلب <i class="hgi hgi-stroke hgi-arrow-up-down"></i></span></th>
+        <th>المنتجات</th>
+        <th>السعر <i class="hgi hgi-stroke hgi-arrow-up-down"></i></th>
+        <th>تاريخ الطلب <i class="hgi hgi-stroke hgi-arrow-up-down"></i></th>
+        <th>الحالة <i class="hgi hgi-stroke hgi-arrow-down-01"></i></th>
+        <th>الإجراءات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="slt-cell-name"><input type="checkbox"><div class="slt-avatar">ب</div><div class="slt-name-stack"><span class="slt-name">بدر رجب</span><span class="slt-ref">#646374</span></div></div></td>
+        <td><div class="slt-products"><div class="slt-prod"></div><div class="slt-prod"></div><div class="slt-prod"></div><div class="slt-count">+25</div></div></td>
+        <td><span class="slt-amount">100.00 <i class="hgi hgi-stroke hgi-saudi-riyal"></i></span></td>
+        <td><div class="slt-date"><span>الأربعاء 8 أغسطس 2024</span><span>11:52م</span></div></td>
+        <td><span class="slt-chip slt-chip--success"><span class="slt-dot"></span> تم التوصيل</span></td>
+        <td><span class="slt-actions"><i class="hgi hgi-stroke hgi-edit-02"></i><i class="hgi hgi-stroke hgi-more-horizontal"></i></span></td>
+      </tr>
+      <tr>
+        <td><div class="slt-cell-name"><input type="checkbox"><div class="slt-avatar">س</div><div class="slt-name-stack"><span class="slt-name">سارة العتيبي</span><span class="slt-ref">#646375</span></div></div></td>
+        <td><div class="slt-products"><div class="slt-prod"></div><div class="slt-prod"></div><div class="slt-count">+3</div></div></td>
+        <td><span class="slt-amount">245.50 <i class="hgi hgi-stroke hgi-saudi-riyal"></i></span></td>
+        <td><div class="slt-date"><span>الخميس 9 أغسطس 2024</span><span>09:14ص</span></div></td>
+        <td><span class="slt-chip slt-chip--warning"><span class="slt-dot"></span> قيد التنفيذ <i class="hgi hgi-stroke hgi-arrow-down-01"></i></span></td>
+        <td><span class="slt-actions"><i class="hgi hgi-stroke hgi-edit-02"></i><i class="hgi hgi-stroke hgi-more-horizontal"></i></span></td>
+      </tr>
+      <tr>
+        <td><div class="slt-cell-name"><input type="checkbox"><div class="slt-avatar">م</div><div class="slt-name-stack"><span class="slt-name">محمد الغامدي</span><span class="slt-ref">#646376</span></div></div></td>
+        <td><div class="slt-products"><div class="slt-prod"></div></div></td>
+        <td><span class="slt-amount">59.00 <i class="hgi hgi-stroke hgi-saudi-riyal"></i></span></td>
+        <td><div class="slt-date"><span>الجمعة 10 أغسطس 2024</span><span>04:30م</span></div></td>
+        <td><span class="slt-chip slt-chip--danger"><span class="slt-dot"></span> تم الإلغاء</span></td>
+        <td><span class="slt-actions"><i class="hgi hgi-stroke hgi-edit-02"></i><i class="hgi hgi-stroke hgi-more-horizontal"></i></span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="slt-footer">
+    <span class="slt-perpage">عدد العناصر لكل صفحة <span class="slt-perpage-select">10 <i class="hgi hgi-stroke hgi-arrow-down-01"></i></span></span>
+    <span class="slt-pages"><i class="hgi hgi-stroke hgi-arrow-right-01"></i> صفحة <b>1</b> من <b>6</b> <i class="hgi hgi-stroke hgi-arrow-left-01"></i></span>
+  </div>
+</div>

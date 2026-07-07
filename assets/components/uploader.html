@@ -1,0 +1,27 @@
+<!-- Salla DS · Uploader · <s-uploader> · 5 variants -->
+<!-- Runtime: https://dashboard-ui-components.pages.dev (admin-ui.esm.js + styles.css) -->
+
+<!-- variant: default -->
+<s-uploader name="file" layout="drag-drop" label="Browse or drag and drop files here" placeholder="Choose a file..." button-label="Submit" files-allowed="all" max="-1" file-size="2MB" selectable="" editable="" sortable="" items="[]" class="s-uploader--selectable s-uploader--sortable drag-drop">
+<p slot="feedback">The suitable image size is 350X263 pixels</p>
+</s-uploader>
+
+<!-- variant: inline -->
+<s-uploader name="file" layout="inline" label="Browse or drag and drop files here" placeholder="Choose a file..." button-label="Submit" files-allowed="all" max="-1" file-size="2MB" selectable="" editable="" sortable="" items="[]" class="s-uploader--selectable s-uploader--sortable inline">
+<p slot="feedback">The suitable image size is 350X263 pixels</p>
+</s-uploader>
+
+<!-- variant: thumbnail -->
+<s-uploader name="file" layout="thumbnail" label="Browse or drag and drop files here" placeholder="Choose a file..." button-label="Submit" files-allowed="all" multiple="" max="-1" file-size="2MB" selectable="" editable="" sortable="" items="[{&quot;source&quot;:&quot;https://i.pravatar.cc/300?img=1&quot;,&quot;alt&quot;:&quot;Sample Image&quot;}, {&quot;source&quot;:&quot;https://i.pravatar.cc/300?img=2&quot;,&quot;alt&quot;:&quot;Sample Image&quot;}]" class="s-uploader--selectable s-uploader--sortable thumbnail">
+<p slot="feedback">The suitable image size is 350X263 pixels</p>
+</s-uploader>
+
+<!-- variant: thumbnail-multiple -->
+<s-uploader name="file" layout="thumbnail" label="Browse or drag and drop files here" placeholder="Choose a file..." button-label="Submit" files-allowed="all" multiple="" max="5" file-size="2MB" selectable="" editable="" sortable="" items="[{&quot;source&quot;:&quot;https://i.pravatar.cc/300?img=3&quot;,&quot;alt&quot;:&quot;Image 1&quot;}, {&quot;source&quot;:&quot;https://i.pravatar.cc/300?img=4&quot;,&quot;alt&quot;:&quot;Image 2&quot;}, {&quot;source&quot;:&quot;https://i.pravatar.cc/300?img=5&quot;,&quot;alt&quot;:&quot;Image 3&quot;}]" class="s-uploader--selectable s-uploader--sortable thumbnail">
+<p slot="feedback">The suitable image size is 350X263 pixels</p>
+</s-uploader>
+
+<!-- variant: disabled -->
+<s-uploader name="file" layout="drag-drop" label="Browse or drag and drop files here" placeholder="Choose a file..." button-label="Submit" files-allowed="all" multiple="" max="-1" file-size="2MB" selectable="" editable="" sortable="" items="[{&quot;source&quot;:&quot;https://i.pravatar.cc/300?img=1&quot;,&quot;alt&quot;:&quot;Sample Image&quot;}, {&quot;source&quot;:&quot;https://i.pravatar.cc/300?img=2&quot;,&quot;alt&quot;:&quot;Sample Image&quot;}]" disabled="" class="disabled s-uploader--selectable s-uploader--sortable drag-drop">
+<p slot="feedback">The suitable image size is 350X263 pixels</p>
+</s-uploader>

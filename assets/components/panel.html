@@ -1,0 +1,55 @@
+<!-- Salla DS · Panel · <s-panel> · 5 variants -->
+<!-- Runtime: https://dashboard-ui-components.pages.dev (admin-ui.esm.js + styles.css) -->
+
+<!-- variant: default -->
+<s-panel collapsed="" layout="relaxed" class="s-panel">
+<s-panel-head data-collapsed="true">
+<div slot="title">Panel Title</div>
+</s-panel-head>
+<s-panel-body> Panel content, you can add any content here inside this slot </s-panel-body>
+</s-panel>
+
+<!-- variant: no-padding -->
+<s-panel no-padding="" collapsed="" layout="relaxed" class="s-panel no-padding">
+<s-panel-head data-collapsed="true">
+<div slot="title">Panel Title</div>
+</s-panel-head>
+<s-panel-body>
+<s-table searchable="true" selectable="true" sortable="true" sort-by="[&quot;name&quot;, &quot;age&quot;, &quot;visits&quot;, &quot;progress&quot;]" items-per-page="[&quot;5&quot;, &quot;8&quot;, &quot;10&quot;]" headers="[&quot;one&quot;, &quot;two&quot;]" search-placeholder="Insert your search text..." items="[{&quot;name&quot;:&quot;John Wick&quot;,&quot;age&quot;:&quot;24&quot;,&quot;visits&quot;:&quot;100&quot;,&quot;progress&quot;:&quot;54&quot;},{&quot;name&quot;:&quot;James Bond&quot;,&quot;age&quot;:&quot;24&quot;,&quot;visits&quot;:&quot;100&quot;,&quot;progress&quot;:&quot;54&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;},{&quot;name&quot;:&quot;Joe&quot;,&quot;age&quot;:&quot;45&quot;,&quot;visits&quot;:&quot;20&quot;,&quot;progress&quot;:&quot;68&quot;,&quot;options&quot;:&quot;&quot;}]" class="s-table scroll">
+</s-table>
+</s-panel-body>
+</s-panel>
+
+<!-- variant: collapsable -->
+<s-panel collapsable="" collapsed="" layout="relaxed" class="s-panel" data-collapsed="true">
+<s-panel-head data-collapsed="true" collapsable="true">
+<div slot="title">Panel Title</div>
+</s-panel-head>
+<s-panel-body data-collapsed="true"> Panel content, you can add any content here inside this slot </s-panel-body>
+</s-panel>
+
+<!-- variant: header-actions-slot -->
+<s-panel collapsed="" layout="relaxed" class="s-panel">
+<s-panel-head data-collapsed="true">
+<div slot="title">Panel Title</div>
+<div slot="actions">
+<div class="flex gap-2">
+<s-button size="sm" outlined="" class="s-btn s-btn--default default sm outlined" theme="default">
+<i class="hgi-stroke hgi-add-01"></i> Add New </s-button>
+<s-dropdown items="[{&quot;id&quot;:0,&quot;label&quot;:&quot;Option 1&quot;},{&quot;id&quot;:1,&quot;label&quot;:&quot;Option 2&quot;}]" layout="end" class="end">
+<s-button size="sm" outlined="" data-toggle="true" slot="dropdown-head" class="s-btn s-btn--default default sm outlined" theme="default">
+<i class="hgi-stroke hgi-settings-01"></i> Settings </s-button>
+</s-dropdown>
+</div>
+</div>
+</s-panel-head>
+<s-panel-body> Panel content, you can add any content here inside this slot </s-panel-body>
+</s-panel>
+
+<!-- variant: compact-layout -->
+<s-panel collapsed="" layout="compact" class="s-panel s-panel--compact">
+<s-panel-head data-collapsed="true">
+<div slot="title">Panel Title</div>
+</s-panel-head>
+<s-panel-body> Panel content, you can add any content here inside this slot </s-panel-body>
+</s-panel>
