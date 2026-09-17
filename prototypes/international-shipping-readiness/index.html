@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>جاهزية الشحن الدولي</title>
+<link rel="stylesheet" href="https://cdn.salla.network/fonts/pingarlt.css?v=0.2">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+/* ============ Salla merchant-dashboard tokens (Twilight) ============ */
+:root{
+  --primary:#004A57; --primary-400:#348D9D; --primary-100:#F1F8F9; --primary-50:#F7FBFC;
+  --topbar:#0E3D49;
+  --secondary:#A3FFE5; --secondary-100:#F0FFFB; --secondary-200:#DBFFF4;
+  --gray-100:#FCFCFC; --gray-200:#F7F7F7; --gray-300:#F3F3F3; --gray-400:#EDEDED; --gray-500:#DEDEDE; --gray-600:#BBBBBB;
+  --dark:#333333; --dark-100:#737373; --dark-200:#666666; --dark-300:#999999;
+  --danger:#F55157; --danger-100:#FEECEC; --danger-200:#FBB9BC; --danger-700:#7A1F1E;
+  --success:#00AD6B; --success-100:#EFFBF6; --success-200:#97E7C8; --success-700:#005232;
+  --warning:#D18F36; --warning-100:#FFF9EB; --warning-200:#FFE7C7; --warning-700:#8F5F22;
+  --info:#417AC8; --info-100:#ECF3FE; --info-200:#CBE0FB; --info-700:#204374;
+  --gold-100:#FFFBEA; --gold-200:#FFE895; --gold-700:#554300;
+  --radius-sm:6px; --radius:8px; --radius-lg:12px; --radius-xl:16px;
+  --shadow-sm:0 2px 4px rgba(0,0,0,.08); --shadow:0 4px 16px rgba(0,0,0,.10); --shadow-lg:0 12px 40px rgba(0,0,0,.16);
+  --font:'PingARLT','IBM Plex Sans Arabic',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --footer-h:72px;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{font-family:var(--font);font-size:14px;color:var(--dark);direction:rtl;height:100%}
+body{margin:0;background:var(--gray-200);min-height:100%;padding-bottom:calc(var(--footer-h) + 24px);-webkit-font-smoothing:antialiased;line-height:1.5}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--primary-400);outline-offset:2px}
+input::placeholder{color:var(--dark-300)}
+.num{font-variant-numeric:tabular-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.2em}
+
+/* ============ App shell ============ */
+.topbar{background:var(--topbar);color:#fff;height:64px;display:flex;align-items:center;padding:0 40px;gap:28px}
+.topbar .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;margin-inline-end:8px}
+.topbar .logo .mark{width:36px;height:36px;border-radius:50%;background:var(--secondary);color:var(--topbar);display:grid;place-items:center;font-size:18px}
+.topbar nav{display:flex;gap:26px;font-size:14px}
+.topbar nav a{color:#E4F4F1;text-decoration:none;display:flex;align-items:center;gap:8px;opacity:.92}
+.topbar nav a svg{width:20px;height:20px}
+.topbar .spacer{flex:1}
+.topbar .tools{display:flex;align-items:center;gap:20px}
+.topbar .tools svg{width:20px;height:20px}
+.topbar .store{display:flex;align-items:center;gap:12px}
+.topbar .store .nm{font-weight:700;font-size:15px}
+.topbar .store .plan{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:1px 12px;font-size:12px;display:inline-block;margin-top:2px}
+.topbar .avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#F7C6A3,#B37B54);border:2px solid var(--secondary)}
+.subnav{background:#fff;border-bottom:1px solid var(--gray-400);height:56px;display:flex;align-items:center;padding:0 40px;gap:24px}
+.subnav a{color:var(--dark-100);text-decoration:none;padding:16px 2px;border-bottom:2px solid transparent;white-space:nowrap}
+.subnav a.active{color:var(--primary);font-weight:700;border-bottom-color:var(--primary)}
+.subnav .spacer{flex:1}
+.subnav .more{display:flex;align-items:center;gap:6px;color:var(--dark-100)}
+.chip-mint{background:var(--secondary-100);border:1px solid var(--secondary);color:var(--primary);border-radius:var(--radius);padding:7px 14px;display:inline-flex;align-items:center;gap:8px;font-size:13px}
+.chip-mint .dot{width:14px;height:14px;border-radius:50%;background:var(--primary-400);display:inline-block}
+@media (max-width:1100px){.topbar nav{display:none}.topbar,.subnav{padding:0 16px}.subnav{overflow-x:auto}}
+
+/* ============ Page ============ */
+.page{padding:24px 40px 0;max-width:1880px;margin:0 auto}
+@media (max-width:1100px){.page{padding:16px 16px 0}}
+.crumbs{display:flex;align-items:center;gap:8px;color:var(--dark-100);font-size:13px;margin-bottom:18px}
+.crumbs b{color:var(--dark);font-weight:500}
+.crumbs svg{width:14px;height:14px}
+
+/* Info banner (matches production) */
+.banner{background:var(--info-100);border:1px solid var(--info-200);border-inline-start:4px solid var(--info);border-radius:var(--radius-lg);padding:12px 18px;display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.banner .t{display:flex;align-items:center;gap:10px;flex:1;color:var(--dark)}
+.banner .t svg{color:var(--info)}
+.banner .x{width:28px;height:28px;border:1px solid var(--danger-200);border-radius:var(--radius-sm);display:grid;place-items:center;color:var(--danger)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--radius);padding:9px 16px;font-weight:500;font-size:14px;line-height:20px;border:1px solid transparent;white-space:nowrap;transition:background .15s,box-shadow .15s}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover:not(:disabled){background:#003944}
+.btn-mint{background:var(--secondary);color:var(--primary);font-weight:700}
+.btn-mint:hover:not(:disabled){background:#8DF6D8}
+.btn-white{background:#fff;color:var(--dark);border-color:var(--gray-500)}
+.btn-white:hover:not(:disabled){border-color:var(--primary-400);color:var(--primary)}
+.btn-ghost{color:var(--primary);background:transparent}
+.btn-ghost:hover:not(:disabled){background:var(--primary-100)}
+.btn-danger-o{background:#fff;color:var(--danger);border-color:var(--danger-200)}
+.btn-sm{padding:6px 12px;font-size:13px;border-radius:var(--radius-sm)}
+.btn-lg{padding:12px 24px;font-size:15px;border-radius:var(--radius-lg)}
+
+/* Panels */
+.panel{background:#fff;border:1px solid var(--gray-400);border-radius:var(--radius-xl)}
+.panel-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--gray-400)}
+.panel-head h2{font-size:15px;font-weight:700;margin:0;display:flex;align-items:center;gap:8px}
+.panel-head .sub{color:var(--dark-100);font-size:12.5px;margin-top:2px}
+.panel-body{padding:20px}
+
+/* ============ Summary strip ============ */
+.summary{display:grid;grid-template-columns:minmax(300px,1.4fr) repeat(4,minmax(150px,1fr));gap:16px;margin-bottom:16px}
+@media (max-width:1100px){.summary{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.summary{grid-template-columns:1fr}}
+.tile{background:#fff;border:1px solid var(--gray-400);border-radius:var(--radius-xl);padding:16px 18px;display:flex;flex-direction:column;gap:8px;min-height:104px}
+.tile .lbl{color:var(--dark-100);font-size:12.5px;display:flex;align-items:center;gap:6px}
+.tile .val{font-size:26px;font-weight:700;line-height:1.1}
+.tile .val small{font-size:13px;color:var(--dark-100);font-weight:400;margin-inline-start:6px}
+.tile.main{gap:10px}
+.tile .bar{height:8px;border-radius:99px;background:var(--gray-400);overflow:hidden;display:flex}
+.tile .bar i{display:block;height:100%}
+.tile .legend{display:flex;gap:14px;font-size:12px;color:var(--dark-100);flex-wrap:wrap}
+.tile .legend b{display:inline-block;width:8px;height:8px;border-radius:50%;margin-inline-end:5px;vertical-align:middle}
+.tile.filter{cursor:pointer;transition:border-color .15s,box-shadow .15s;text-align:start}
+.tile.filter:hover{border-color:var(--primary-400)}
+.tile.filter.on{border-color:var(--primary);box-shadow:inset 0 0 0 1px var(--primary);background:var(--primary-50)}
+.tile.filter .val{font-size:22px}
+.tile.filter .hint{font-size:12px;color:var(--primary-400);display:flex;align-items:center;gap:4px;margin-top:auto}
+.tile.filter.zero .val{color:var(--success)}
+
+/* ============ Defaults panel ============ */
+.defaults .panel-head{cursor:pointer;user-select:none}
+.defaults .panel-head .chev{margin-inline-start:auto;transition:transform .2s;color:var(--dark-100)}
+.defaults.collapsed .panel-head .chev{transform:rotate(180deg)}
+.defaults.collapsed .panel-body{display:none}
+.defaults .panel-head .badge{background:var(--secondary-100);color:var(--primary);border:1px solid var(--secondary);border-radius:20px;padding:2px 10px;font-size:12px;font-weight:500}
+.dgrid{display:grid;grid-template-columns:repeat(3,minmax(200px,1fr)) auto;gap:16px;align-items:end}
+@media (max-width:1100px){.dgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.dgrid{grid-template-columns:1fr}}
+.field label{display:block;font-size:13px;font-weight:500;margin-bottom:6px;color:var(--dark)}
+.field .help{font-size:12px;color:var(--dark-100);margin-top:6px;min-height:18px}
+.defaults .note{display:flex;gap:10px;align-items:flex-start;background:var(--gray-200);border-radius:var(--radius-lg);padding:12px 14px;font-size:12.5px;color:var(--dark-200);margin-top:16px}
+.defaults .note svg{color:var(--primary-400);margin-top:2px}
+
+/* Inputs */
+.inp{display:flex;align-items:center;gap:8px;height:42px;border:1px solid var(--gray-500);border-radius:var(--radius);background:#fff;padding:0 12px;transition:border-color .15s,box-shadow .15s;min-width:0}
+.inp:focus-within{border-color:var(--primary-400);box-shadow:0 0 0 3px rgba(52,141,157,.15)}
+.inp input{border:0;background:transparent;flex:1;min-width:0;height:100%;outline:none;padding:0}
+.inp select{border:0;background:transparent;outline:none;color:var(--dark-100);font-size:13px;padding-inline-end:4px}
+.inp.sm{height:38px;padding:0 10px}
+.inp .unit{color:var(--dark-100);font-size:13px;border-inline-start:1px solid var(--gray-400);padding-inline-start:10px;height:60%;display:flex;align-items:center}
+.inp.inherit{border-style:dashed;background:var(--gray-100)}
+.inp.inherit input{color:var(--dark-100)}
+.inp.warn{border-color:var(--danger-200)}
+/* combobox trigger */
+.combo{display:flex;align-items:center;gap:8px;height:42px;border:1px solid var(--gray-500);border-radius:var(--radius);background:#fff;padding:0 12px;width:100%;text-align:start;transition:border-color .15s,box-shadow .15s;min-width:0}
+.combo:hover{border-color:var(--primary-400)}
+.combo.open{border-color:var(--primary-400);box-shadow:0 0 0 3px rgba(52,141,157,.15)}
+.combo.sm{height:38px;padding:0 10px}
+.combo .v{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.combo .v .d{color:var(--dark-100);font-size:12px;margin-inline-start:6px}
+.combo .ph{color:var(--dark-300);flex:1}
+.combo .chev{color:var(--dark-100);width:16px;height:16px}
+.combo.inherit{border-style:dashed;background:var(--gray-100);color:var(--dark-100)}
+.combo .flag{font-size:18px;line-height:1}
+.src{display:inline-flex;align-items:center;gap:4px;font-size:11px;border-radius:20px;padding:1px 8px;white-space:nowrap;flex:none}
+.src.def{background:var(--gray-300);color:var(--dark-100);border:1px solid var(--gray-500)}
+.src.cus{background:var(--info-100);color:var(--info-700);border:1px solid var(--info-200)}
+.reset-def{width:26px;height:26px;border-radius:var(--radius-sm);display:grid;place-items:center;color:var(--dark-300);flex:none;opacity:0;transition:opacity .15s}
+.reset-def:hover{background:var(--primary-100);color:var(--primary)}
+.cell:hover .reset-def,.reset-def:focus-visible{opacity:1}
+
+/* Popover (shared) */
+.pop{position:fixed;z-index:80;background:#fff;border:1px solid var(--gray-400);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);min-width:280px;max-width:360px;display:none;flex-direction:column;overflow:hidden}
+.pop.show{display:flex}
+.pop .srch{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--gray-400);color:var(--dark-100)}
+.pop .srch input{border:0;outline:none;flex:1;background:transparent}
+.pop .list{max-height:280px;overflow:auto;padding:6px}
+.pop .opt{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:var(--radius);width:100%;text-align:start;cursor:pointer}
+.pop .opt:hover,.pop .opt.hl{background:var(--primary-100)}
+.pop .opt.sel{background:var(--secondary-100)}
+.pop .opt .code{font-weight:700;min-width:64px;letter-spacing:.02em}
+.pop .opt .desc{color:var(--dark-100);font-size:12px;line-height:1.4}
+.pop .opt .flag{font-size:20px}
+.pop .empty{padding:14px;color:var(--dark-100);font-size:13px;text-align:center}
+.pop .add{margin:6px;padding:10px;border-radius:var(--radius);background:var(--secondary-100);color:var(--primary);font-weight:500;width:calc(100% - 12px);text-align:start;display:flex;gap:8px;align-items:center}
+.pop .foot{border-top:1px solid var(--gray-400);padding:8px 10px;font-size:12px;color:var(--dark-100);display:flex;justify-content:space-between;align-items:center}
+
+/* ============ Suggestion card ============ */
+.suggest{background:linear-gradient(90deg,var(--secondary-100),#fff 60%);border:1px solid var(--secondary);border-radius:var(--radius-xl);padding:14px 18px;display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.suggest .ic{width:40px;height:40px;border-radius:12px;background:var(--secondary);color:var(--primary);display:grid;place-items:center;flex:none}
+.suggest .tx{flex:1;min-width:0}
+.suggest .tx b{display:block;font-weight:700}
+.suggest .tx span{color:var(--dark-200);font-size:13px}
+.suggest .acts{display:flex;gap:8px;flex:none}
+@media (max-width:760px){.suggest{flex-wrap:wrap}.suggest .acts{width:100%}}
+
+/* ============ Toolbar + table ============ */
+.toolbar{display:flex;gap:12px;align-items:center;margin-bottom:16px}
+.toolbar .inp{flex:1}
+.toolbar .fbtn{position:relative}
+.toolbar .fbtn .cnt{position:absolute;top:-6px;inset-inline-end:-6px;background:var(--primary);color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;display:grid;place-items:center}
+.activef{display:flex;gap:8px;flex-wrap:wrap;margin:-6px 0 14px}
+.activef .af{background:var(--primary-100);border:1px solid var(--primary-400);color:var(--primary);border-radius:20px;padding:3px 10px;font-size:12.5px;display:inline-flex;align-items:center;gap:6px}
+.activef .af button{display:grid;place-items:center;color:var(--primary)}
+
+/* bulk bar */
+.bulkbar{display:none;align-items:center;gap:12px;background:var(--primary);color:#fff;border-radius:var(--radius-lg);padding:10px 16px;margin-bottom:16px;position:sticky;top:12px;z-index:30;box-shadow:var(--shadow)}
+.bulkbar.show{display:flex}
+.bulkbar .cnt{font-weight:700;display:flex;align-items:center;gap:8px}
+.bulkbar .cnt .n{background:var(--secondary);color:var(--primary);border-radius:20px;padding:0 10px;min-width:28px;text-align:center}
+.bulkbar .all{color:var(--secondary);text-decoration:underline;font-size:13px}
+.bulkbar .spacer{flex:1}
+.bulkbar .btn-white{border-color:transparent}
+.bulkbar .close{color:#fff;opacity:.8;margin-inline-start:4px}
+@media (max-width:900px){.bulkbar{flex-wrap:wrap}.bulkbar .spacer{display:none}}
+
+.tblwrap{overflow-x:auto;border-radius:var(--radius-xl)}
+table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1240px}
+.tbl th{font-weight:500;font-size:13px;color:var(--dark);text-align:start;padding:14px 12px;background:var(--gray-100);border-bottom:1px solid var(--gray-400);white-space:nowrap;position:sticky;top:0;z-index:2}
+.tbl th .h{display:inline-flex;align-items:center;gap:6px}
+.tbl th .q{color:var(--dark-300);cursor:help}
+.tbl td{padding:10px 12px;border-bottom:1px solid var(--gray-400);vertical-align:middle;background:#fff}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tr.sel td{background:var(--primary-50)}
+.tbl tr.chg td:first-child{box-shadow:inset 4px 0 0 var(--warning)}
+.tbl tr:hover td{background:var(--gray-100)}
+.tbl tr.sel:hover td{background:var(--primary-100)}
+.cb{width:18px;height:18px;border:1.5px solid var(--gray-600);border-radius:5px;display:grid;place-items:center;background:#fff;color:#fff;cursor:pointer;flex:none}
+.cb.on{background:var(--primary);border-color:var(--primary)}
+.cb.ind{background:var(--primary);border-color:var(--primary)}
+.cb svg{width:12px;height:12px;stroke-width:3}
+.prod{display:flex;align-items:center;gap:12px;min-width:0}
+.prod .img{width:44px;height:44px;border-radius:var(--radius);background:var(--gray-300);border:1px solid var(--gray-400);display:grid;place-items:center;color:var(--gray-600);flex:none;overflow:hidden}
+.prod .img.sw{border:0}
+.prod .nm{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.prod .meta{font-size:12px;color:var(--dark-100);display:flex;gap:8px;margin-top:2px}
+.prod .meta .cat{background:var(--gray-300);border-radius:4px;padding:0 6px}
+.cell{display:flex;align-items:center;gap:6px;min-width:0}
+.cell .combo,.cell .inp{flex:1}
+.cell .combo.sm .v{font-size:13.5px}
+.weight-cell{display:flex;align-items:center;gap:6px}
+.weight-cell .inp{width:132px}
+.weight-cell .inp input{text-align:start;width:52px}
+.opts{color:var(--dark-100);font-size:12.5px;display:flex;align-items:center;gap:6px;height:38px;border:1px dashed var(--gray-500);border-radius:var(--radius);padding:0 10px;width:132px;justify-content:space-between}
+.ids{display:flex;gap:6px;flex-wrap:nowrap}
+.idc{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:4px 10px;font-size:12px;border:1px solid var(--gray-500);color:var(--dark-100);background:#fff;white-space:nowrap}
+.idc.ok{border-color:var(--success-200);background:var(--success-100);color:var(--success-700)}
+.idc svg{width:12px;height:12px}
+.idc.add{border-style:dashed}
+.idsbtn{display:flex;gap:6px;align-items:center;text-align:start}
+.idsbtn:hover .idc{border-color:var(--primary-400)}
+.ready{display:flex;align-items:center;gap:8px;justify-content:flex-start}
+.ready svg{width:24px;height:24px;transform:rotate(-90deg)}
+.ready .pct{font-weight:700;width:38px;text-align:start}
+.ready .todo{font-size:11.5px;color:var(--dark-100);white-space:nowrap}
+.pager{display:flex;align-items:center;gap:14px;padding:14px 16px;border-top:1px solid var(--gray-400);font-size:13px;color:var(--dark-100)}
+.pager .spacer{flex:1}
+.pager button{display:inline-flex;align-items:center;gap:4px;color:var(--dark)}
+.pager button:disabled{color:var(--gray-600);cursor:default}
+.pager select{border:1px solid var(--gray-500);border-radius:var(--radius-sm);padding:4px 8px;background:#fff}
+.emptyrow td{padding:48px;text-align:center;color:var(--dark-100)}
+
+/* ============ Footer ============ */
+.footer{position:fixed;bottom:0;inset-inline:0;background:#fff;border-top:1px solid var(--gray-400);box-shadow:0 -4px 16px rgba(0,0,0,.06);height:var(--footer-h);display:flex;align-items:center;padding:0 40px;padding-bottom:env(safe-area-inset-bottom,0px);gap:16px;z-index:40}
+.footer .spacer{flex:1}
+.footer .chg{color:var(--dark-100);font-size:13px}
+.footer .chg b{color:var(--dark)}
+@media (max-width:1100px){.footer{padding:0 16px}}
+
+/* ============ Drawer / modal ============ */
+.overlay{position:fixed;inset:0;background:rgba(14,61,73,.35);z-index:90;display:none;backdrop-filter:blur(1px)}
+.overlay.show{display:block}
+.drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;width:min(520px,100%);background:#fff;z-index:100;box-shadow:var(--shadow-lg);transform:translateX(-110%);transition:transform .25s ease;display:flex;flex-direction:column}
+[dir="rtl"] .drawer{transform:translateX(-110%)}
+.drawer.show{transform:none}
+.drawer.start{inset-inline-end:auto;inset-inline-start:0;transform:translateX(110%)}
+.drawer .dh{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid var(--gray-400)}
+.drawer .dh h3{margin:0;font-size:16px;font-weight:700;flex:1}
+.drawer .db{flex:1;overflow:auto;padding:22px}
+.drawer .df{padding:14px 22px;border-top:1px solid var(--gray-400);display:flex;gap:10px;justify-content:flex-start;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+.xbtn{width:32px;height:32px;border-radius:var(--radius-sm);display:grid;place-items:center;color:var(--dark-100)}
+.xbtn:hover{background:var(--gray-300);color:var(--dark)}
+.fs{display:flex;flex-direction:column;gap:16px}
+.fs h4{margin:8px 0 0;font-size:13px;color:var(--dark-100);font-weight:500;text-transform:none;letter-spacing:0;display:flex;align-items:center;gap:8px}
+.fs h4:after{content:"";flex:1;height:1px;background:var(--gray-400)}
+.pcard{display:flex;gap:12px;align-items:center;background:var(--gray-200);border-radius:var(--radius-lg);padding:12px}
+.pcard .img{width:52px;height:52px;border-radius:var(--radius);background:var(--gray-300);display:grid;place-items:center;color:var(--gray-600)}
+.pcard .nm{font-weight:700}
+.pcard .sub{font-size:12px;color:var(--dark-100)}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.twocol{grid-template-columns:1fr}}
+.modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:16px}
+.modal.show{display:grid}
+.modal .box{background:#fff;border-radius:var(--radius-xl);width:min(640px,100%);max-height:calc(100% - 32px);display:flex;flex-direction:column;box-shadow:var(--shadow-lg)}
+.modal .mh{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid var(--gray-400)}
+.modal .mh h3{margin:0;font-size:16px;flex:1}
+.modal .mb{padding:22px;overflow:auto}
+.modal .mf{padding:14px 22px;border-top:1px solid var(--gray-400);display:flex;gap:10px;align-items:center}
+.modal .mf .spacer{flex:1}
+.brow{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--gray-400)}
+.brow:last-of-type{border-bottom:0}
+.brow .lab{display:flex;align-items:center;gap:10px;font-weight:500;cursor:pointer}
+.brow .ctl{opacity:.45;pointer-events:none;transition:opacity .15s}
+.brow.on .ctl{opacity:1;pointer-events:auto}
+@media (max-width:520px){.brow{grid-template-columns:1fr}}
+.radio{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13.5px}
+.radio i{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--gray-600);display:grid;place-items:center;flex:none}
+.radio.on i{border-color:var(--primary)}
+.radio.on i:after{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}
+.preview{background:var(--primary-50);border:1px solid var(--primary-100);border-radius:var(--radius-lg);padding:12px 14px;font-size:13px;color:var(--dark-200);margin-top:16px;display:flex;gap:10px;align-items:flex-start}
+.preview svg{color:var(--primary-400);flex:none;margin-top:2px}
+.preview ul{margin:6px 0 0;padding-inline-start:18px}
+.check{display:flex;align-items:center;gap:10px;cursor:pointer}
+
+/* filter drawer body */
+.fgroup{border-bottom:1px solid var(--gray-400);padding:14px 0}
+.fgroup h4{margin:0 0 10px;font-size:13.5px;font-weight:700;display:flex;align-items:center;justify-content:space-between}
+.fgroup .opt{display:flex;align-items:center;gap:10px;padding:7px 0;cursor:pointer}
+.fgroup .opt .n{color:var(--dark-100);font-size:12px;margin-inline-start:auto}
+
+/* toast */
+.toast{position:fixed;bottom:calc(var(--footer-h) + 20px);inset-inline-start:50%;transform:translateX(50%);background:var(--dark);color:#fff;border-radius:var(--radius-lg);padding:12px 18px;display:flex;align-items:center;gap:14px;z-index:120;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:opacity .2s;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;pointer-events:auto}
+.toast .ok{color:var(--secondary)}
+.toast button{color:var(--secondary);font-weight:700;text-decoration:underline}
+
+/* proto toolbar (outside Salla chrome) */
+.proto{position:fixed;bottom:calc(var(--footer-h) + 16px);inset-inline-start:16px;z-index:60;display:flex;gap:6px;background:#1F2937;color:#fff;border-radius:30px;padding:6px 8px 6px 14px;align-items:center;font-size:12.5px;box-shadow:var(--shadow-lg)}
+.proto b{color:#A3FFE5;margin-inline-end:4px}
+.proto button{background:rgba(255,255,255,.12);color:#fff;border-radius:20px;padding:5px 12px}
+.proto button:hover{background:rgba(255,255,255,.22)}
+.notes h3{font-size:15px;margin:22px 0 8px;color:var(--primary)}
+.notes h3:first-child{margin-top:0}
+.notes p,.notes li{font-size:13.5px;line-height:1.75;color:var(--dark-200)}
+.notes ol,.notes ul{padding-inline-start:20px;margin:0}
+.notes table{width:100%;border-collapse:collapse;font-size:13px}
+.notes th,.notes td{border:1px solid var(--gray-400);padding:7px 10px;text-align:start;vertical-align:top}
+.notes th{background:var(--gray-200);font-weight:600}
+.notes .q{background:var(--gold-100);border:1px solid var(--gold-200);border-radius:var(--radius);padding:10px 12px;margin-bottom:8px}
+.notes .q b{color:var(--gold-700)}
+.notes .stat{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0 4px}
+.notes .stat div{background:var(--gray-200);border-radius:var(--radius-lg);padding:10px 12px}
+.notes .stat b{display:block;font-size:20px;color:var(--primary)}
+.notes .stat span{font-size:12px;color:var(--dark-100)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ===================== Salla top bar ===================== -->
+<header class="topbar">
+  <div class="logo"><span class="mark">🛍</span><span>سلة<br><small style="font-weight:400;font-size:11px;opacity:.8">salla</small></span></div>
+  <nav>
+    <a href="#"><svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>الكل</a>
+    <a href="#"><svg class="i" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>الرئيسية</a>
+    <a href="#"><svg class="i" viewBox="0 0 24 24"><path d="M3 7h18l-1.5 12h-15z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>الطلبات</a>
+    <a href="#"><svg class="i" viewBox="0 0 24 24"><path d="M7 4l2-1 3 2 3-2 2 1 3 4-3 2v10H7V10L4 8z"/></svg>المنتجات</a>
+    <a href="#"><svg class="i" viewBox="0 0 24 24"><path d="M3 10v4h3l7 5V5L6 10z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>التسويق</a>
+    <a href="#"><svg class="i" viewBox="0 0 24 24"><path d="M4 9l1-4h14l1 4M4 9h16v11H4zM9 20v-6h6v6"/></svg>المتجر وقنوات البيع</a>
+    <a href="#"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>التقارير</a>
+  </nav>
+  <div class="spacer"></div>
+  <div class="tools">
+    <div class="avatar" title="1/5"></div>
+    <svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    <svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
+    <svg class="i" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>
+    <svg class="i" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg>
+    <svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.3.9a7 7 0 0 0-1.7-1L14.5 3h-5l-.4 2.5a7 7 0 0 0-1.7 1L5.1 5.6l-2 3.4L5.1 10.5a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.3-.9a7 7 0 0 0 1.7 1l.4 2.5h5l.4-2.5a7 7 0 0 0 1.7-1l2.3.9 2-3.4-2-1.5c.1-.3.1-.7.1-1z"/></svg>
+    <div class="store"><div style="text-align:start"><div class="nm">أصايل لاين</div><span class="plan">برو</span></div><svg class="i" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+  </div>
+</header>
+<div class="subnav">
+  <a href="#">الشحن و التوصيل</a><a href="#">إدارة التشغيل</a><a href="#">التقارير</a><a href="#">التوصيل السريع</a><a href="#">مسارات الشحن</a><a href="#" class="active">جاهزية الشحن الدولي</a>
+  <span class="more">••• المزيد</span>
+  <div class="spacer"></div>
+  <span class="chip-mint"><span class="dot"></span>مشمر <svg class="i" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></span>
+</div>
+
+<!-- ===================== Page ===================== -->
+<main class="page">
+  <div class="crumbs">الشحن والتوصيل <svg class="i" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg> <b>جاهزية الشحن الدولي</b></div>
+
+  <div class="banner" id="banner">
+    <div class="t"><svg class="i" viewBox="0 0 24 24"><path d="M4 4h16v13H8l-4 3z"/><path d="M8 9h8M8 12h5"/></svg> جهّز بيانات الجمارك مرة واحدة كقيم افتراضية، ثم عدّل الاستثناءات فقط. هذه البيانات تُستخدم لاحقًا لحساب الرسوم الجمركية والضرائب وعرضها للعميل في صفحة الدفع.</div>
+    <button class="btn btn-primary btn-sm">اعرف أكثر</button>
+    <button class="x" aria-label="إغلاق" onclick="document.getElementById('banner').hidden=true"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+
+  <!-- Summary -->
+  <section class="summary" id="summary"></section>
+
+  <!-- Defaults -->
+  <section class="panel defaults" id="defaults">
+    <div class="panel-head" onclick="toggleDefaults(event)">
+      <div>
+        <h2><svg class="i" viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h6"/><circle cx="18" cy="16" r="3"/></svg> القيم الافتراضية للشحن الدولي <span class="badge" id="def-badge"></span></h2>
+        <div class="sub">تُطبَّق تلقائيًا على كل منتج لم تحدّد له قيمة. المنتجات ذات القيم المخصّصة لا تتأثر.</div>
+      </div>
+      <svg class="i chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="panel-body">
+      <div class="dgrid">
+        <div class="field">
+          <label for="def-country">بلد المنشأ الافتراضي</label>
+          <button class="combo" id="def-country" type="button" onclick="openCountryPop(this,{scope:'default'})"></button>
+          <div class="help" id="def-country-help"></div>
+        </div>
+        <div class="field">
+          <label for="def-weight">الوزن الافتراضي</label>
+          <div class="inp"><input id="def-weight" type="number" min="0" step="0.05" inputmode="decimal" placeholder="0.00" oninput="setDefaultWeight(this.value)"><select id="def-unit" aria-label="الوحدة" onchange="setDefaultUnit(this.value)"><option value="kg">كجم</option><option value="g">جم</option></select></div>
+          <div class="help" id="def-weight-help"></div>
+        </div>
+        <div class="field">
+          <label for="def-hs">رمز التنسيق الجمركي الافتراضي (HS)</label>
+          <button class="combo" id="def-hs" type="button" onclick="openHsPop(this,{scope:'default'})"></button>
+          <div class="help" id="def-hs-help"></div>
+        </div>
+        <div class="field" style="display:flex;flex-direction:column;gap:8px">
+          <button class="btn btn-white" type="button" onclick="clearDefaults()">مسح القيم</button>
+        </div>
+      </div>
+      <div class="note"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg><div>القيمة الافتراضية <b>مرتبطة</b> لا منسوخة: عندما تغيّرها لاحقًا تتحدّث كل المنتجات التي تعتمد عليها تلقائيًا، وتبقى الاستثناءات كما هي. يظهر مصدر القيمة في الجدول كـ <span class="src def">افتراضي</span> أو <span class="src cus">مخصّص</span>.</div></div>
+    </div>
+  </section>
+
+  <div style="height:16px"></div>
+
+  <!-- Suggestion -->
+  <section id="suggest"></section>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div class="inp"><svg class="i" viewBox="0 0 24 24" style="color:var(--dark-100)"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" placeholder="ابحث باسم المنتج أو رمز التخزين (SKU)" oninput="setQuery(this.value)"></div>
+    <button class="btn btn-white fbtn" type="button" onclick="openFilters()"><svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></svg> تصفية <span class="cnt" id="fcnt" hidden></span></button>
+  </div>
+  <div class="activef" id="activef"></div>
+
+  <!-- Bulk bar -->
+  <div class="bulkbar" id="bulkbar">
+    <div class="cnt">تم تحديد <span class="n num" id="selcount">0</span> <span id="selword"></span></div>
+    <button class="all" id="selall" type="button" onclick="selectAllMatching()" hidden></button>
+    <div class="spacer"></div>
+    <button class="btn btn-mint btn-sm" type="button" onclick="openBulk()"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> تعديل جماعي</button>
+    <button class="btn btn-white btn-sm" type="button" onclick="bulkUseDefaults()"><svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg> استخدام القيم الافتراضية</button>
+    <button class="close" type="button" aria-label="إلغاء التحديد" onclick="clearSelection()"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+
+  <!-- Table -->
+  <section class="panel" style="overflow:hidden">
+    <div class="tblwrap">
+      <table class="tbl" id="tbl">
+        <thead>
+          <tr>
+            <th style="width:44px"><span class="cb" id="cb-all" role="checkbox" aria-label="تحديد الكل" tabindex="0" onclick="togglePageSelection()" onkeydown="if(event.key===' '){event.preventDefault();togglePageSelection()}"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span></th>
+            <th>اسم المنتج</th>
+            <th><span class="h">رمز التنسيق الجمركي <span class="q" title="رمز HS المكوّن من 6 أرقام حسب النظام المنسّق. يُستخدم لتحديد الرسوم الجمركية.">ⓘ</span></span></th>
+            <th><span class="h">الوزن الفعلي <span class="q" title="الوزن الفعلي للمنتج بعد التغليف.">ⓘ</span></span></th>
+            <th><span class="h">بلد المنشأ <span class="q" title="البلد الذي صُنع فيه المنتج، لا بلد الشحن.">ⓘ</span></span></th>
+            <th><span class="h">الاسم بالإنجليزية <span class="q" title="اسم مستقل عن اسم المنتج في المتجر، يظهر في بوليصة الشحن والبيان الجمركي.">ⓘ</span></span></th>
+            <th><span class="h">المعرّفات <span class="q" title="SKU معرّف التاجر · MPN معرّف المصنّع · GTIN/EAN المعرّف القياسي">ⓘ</span></span></th>
+            <th><span class="h">جاهزية الشحن الدولي <span class="q" title="الرمز الجمركي 30% · الوزن 25% · بلد المنشأ 20% · الاسم الإنجليزي 15% · المعرّفات 10%">ⓘ</span></span></th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <div class="pager" id="pager"></div>
+  </section>
+</main>
+
+<!-- ===================== Sticky footer ===================== -->
+<footer class="footer">
+  <button class="btn btn-mint btn-lg" id="save" type="button" onclick="saveAll()" disabled>حفظ</button>
+  <span class="chg" id="chg"></span>
+  <div class="spacer"></div>
+  <button class="btn btn-white btn-lg" id="cancel" type="button" onclick="cancelAll()" disabled>إلغاء</button>
+</footer>
+
+<!-- ===================== Popover ===================== -->
+<div class="pop" id="pop" role="listbox"></div>
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<!-- Product drawer -->
+<aside class="drawer" id="pdrawer" aria-hidden="true">
+  <div class="dh"><h3 id="pd-title">بيانات الجمارك</h3><button class="xbtn" onclick="closeAll()" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="db" id="pd-body"></div>
+  <div class="df"><button class="btn btn-primary" onclick="closeAll()">تم</button><span style="color:var(--dark-100);font-size:12.5px;align-self:center">تُحفظ التعديلات مع زر «حفظ» أسفل الصفحة</span></div>
+</aside>
+
+<!-- Filter drawer -->
+<aside class="drawer start" id="fdrawer" aria-hidden="true">
+  <div class="dh"><h3>تصفية</h3><button class="xbtn" onclick="closeAll()" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="db" id="fd-body"></div>
+  <div class="df"><button class="btn btn-primary" onclick="closeAll()">عرض النتائج</button><button class="btn btn-white" onclick="resetFilters()">إعادة تعيين</button></div>
+</aside>
+
+<!-- Bulk edit modal -->
+<div class="modal" id="bulk">
+  <div class="box">
+    <div class="mh"><h3 id="bulk-title">تعديل جماعي</h3><button class="xbtn" onclick="closeAll()" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="mb">
+      <p style="margin:0 0 6px;color:var(--dark-100);font-size:13px">فعّل الحقول التي تريد تغييرها فقط، وستبقى بقية البيانات كما هي.</p>
+      <div class="brow" id="br-country">
+        <label class="lab"><span class="cb" id="bcb-country" onclick="toggleBulkField('country')"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span> بلد المنشأ</label>
+        <div class="ctl"><button class="combo" id="b-country" type="button" onclick="openCountryPop(this,{scope:'bulk'})"></button></div>
+      </div>
+      <div class="brow" id="br-weight">
+        <label class="lab"><span class="cb" id="bcb-weight" onclick="toggleBulkField('weight')"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span> الوزن الفعلي</label>
+        <div class="ctl"><div class="inp"><input id="b-weight" type="number" min="0" step="0.05" placeholder="0.00" oninput="bulk.weight=this.value;renderBulkPreview()"><select id="b-unit" onchange="bulk.unit=this.value;renderBulkPreview()"><option value="kg">كجم</option><option value="g">جم</option></select></div></div>
+      </div>
+      <div class="brow" id="br-hs">
+        <label class="lab"><span class="cb" id="bcb-hs" onclick="toggleBulkField('hs')"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span> الرمز الجمركي</label>
+        <div class="ctl"><button class="combo" id="b-hs" type="button" onclick="openHsPop(this,{scope:'bulk'})"></button></div>
+      </div>
+      <div style="display:flex;gap:22px;margin-top:18px;flex-wrap:wrap">
+        <label class="radio on" id="mode-fill" onclick="setBulkMode('fill')"><i></i> تعبئة الحقول الفارغة فقط</label>
+        <label class="radio" id="mode-replace" onclick="setBulkMode('replace')"><i></i> استبدال القيم الحالية أيضًا</label>
+      </div>
+      <div class="preview" id="bulk-preview"></div>
+    </div>
+    <div class="mf"><button class="btn btn-primary" id="bulk-apply" onclick="applyBulk()">تطبيق</button><button class="btn btn-white" onclick="closeAll()">إلغاء</button><div class="spacer"></div></div>
+  </div>
+</div>
+
+<!-- Proposal notes modal -->
+<div class="modal" id="notes">
+  <div class="box" style="width:min(820px,100%)">
+    <div class="mh"><h3>عن هذا المقترح</h3><button class="xbtn" onclick="closeAll()" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="mb notes" id="notes-body"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="proto"><b>نموذج مقترح</b><button type="button" onclick="openNotes()">عن المقترح</button><button type="button" onclick="resetData()">إعادة ضبط البيانات</button></div>
+
+<script>
+/* =====================================================================
+   Data
+===================================================================== */
+const HS = [
+  {code:'620444', label:'فساتين وعبايات نسائية من ألياف اصطناعية'},
+  {code:'621142', label:'ملابس نسائية أخرى من قطن'},
+  {code:'621430', label:'شالات وطرح وأوشحة من ألياف تركيبية'},
+  {code:'611780', label:'إكسسوارات ملابس أخرى (أحزمة، أربطة)'},
+  {code:'610443', label:'فساتين محبوكة من ألياف تركيبية'},
+  {code:'330300', label:'عطور وماء تواليت (Eau de Parfum, Cologne)'},
+  {code:'420222', label:'حقائب يد بسطح خارجي من لدائن أو نسيج'},
+  {code:'711719', label:'حلي مقلّدة أخرى'},
+  {code:'640419', label:'أحذية بنعل خارجي من مطاط أو لدائن'},
+  {code:'330499', label:'مستحضرات تجميل وعناية بالبشرة'},
+];
+const COUNTRIES = [
+  {code:'SA',name:'السعودية',flag:'🇸🇦'},{code:'AE',name:'الإمارات',flag:'🇦🇪'},{code:'KW',name:'الكويت',flag:'🇰🇼'},{code:'QA',name:'قطر',flag:'🇶🇦'},
+  {code:'BH',name:'البحرين',flag:'🇧🇭'},{code:'OM',name:'عُمان',flag:'🇴🇲'},{code:'TR',name:'تركيا',flag:'🇹🇷'},{code:'CN',name:'الصين',flag:'🇨🇳'},{code:'IN',name:'الهند',flag:'🇮🇳'},{code:'EG',name:'مصر',flag:'🇪🇬'},
+];
+const SWATCH = {'عبايات':'linear-gradient(135deg,#2B2B2B,#4A4A4A)','شيلات وطرح':'linear-gradient(135deg,#6B4E3D,#A67C5B)','إكسسوارات':'linear-gradient(135deg,#C9A24D,#E8D28C)','عطور':'linear-gradient(135deg,#7C5CBF,#B49BE8)','حقائب':'linear-gradient(135deg,#8C3B3B,#C97C7C)'};
+
+function P(n,ar,en,cat,o={}){ return Object.assign({id:n,name:ar,cat,sku:'ASL-'+String(n).padStart(3,'0'),hs:'',weight:null,unit:'kg',country:'',nameEn:'',mpn:'',gtinType:'GTIN-13',gtin:''},o,{nameEn:o.nameEn??''}); }
+const SEED = [
+  P(1,'عباية كلاسيك سوداء كريب','Classic Black Crepe Abaya','عبايات',{hs:'620444',weight:0.6,country:'SA',nameEn:'Classic Black Crepe Abaya',mpn:'ASL-CR-BLK',gtin:'6281000012345'}),
+  P(2,'عباية مطرزة بخيوط ذهبية','','عبايات',{hs:'620444',weight:0.75,country:'SA',nameEn:'Gold Embroidered Abaya'}),
+  P(3,'عباية كلوش بأكمام واسعة','','عبايات',{hs:'620444',nameEn:'Flared Wide-Sleeve Abaya'}),
+  P(4,'عباية ملكية بحرير مطفي','','عبايات',{hs:'620444',weight:0.8}),
+  P(5,'عباية بشت بني فاتح','','عبايات',{hs:'620444',country:'AE'}),
+  P(6,'عباية يومية بسيطة — رمادي','','عبايات',{hs:'620444'}),
+  P(7,'عباية حرير مع شيلة مطابقة','','عبايات',{hs:'620444',weight:0.9,nameEn:'Silk Abaya with Matching Shayla'}),
+  P(8,'عباية مفتوحة بأزرار لؤلؤ','','عبايات',{hs:'620444'}),
+  P(9,'عباية دبل شيفون كحلي','','عبايات',{hs:'620444',country:'SA'}),
+  P(10,'عباية كتان صيفية بيج','','عبايات',{}),
+  P(11,'عباية رياضية قابلة للطي','','عبايات',{}),
+  P(12,'عباية مقلمة نيود','','عبايات',{weight:0.55}),
+  P(13,'عباية كاب بقصة كيمونو','','عبايات',{}),
+  P(14,'شيلة شيفون سوداء','','شيلات وطرح',{hs:'621430',weight:0.12,country:'SA',nameEn:'Black Chiffon Shayla',gtin:'6281000012352'}),
+  P(15,'شيلة كريب مطرزة','','شيلات وطرح',{hs:'621430',weight:0.15}),
+  P(16,'طرحة قطن ناعمة — عرض 3','','شيلات وطرح',{}),
+  P(17,'نقاب طبقتين','','شيلات وطرح',{hs:'621430'}),
+  P(18,'حزام عباية جلد أسود','','إكسسوارات',{hs:'611780',weight:0.2,country:'TR',nameEn:'Black Leather Abaya Belt',mpn:'BLT-09'}),
+  P(19,'بروش عباية ذهبي','','إكسسوارات',{hs:'711719',weight:0.05,country:'CN'}),
+  P(20,'دبابيس شيلة مغناطيسية (6 قطع)','','إكسسوارات',{country:'CN'}),
+  P(21,'عطر أصايل عود 50 مل','','عطور',{hs:'330300',weight:0.35,country:'AE',nameEn:'Asayel Oud EDP 50ml',gtin:'6281000019876'}),
+  P(22,'بخور عود معتق 100 جم','','عطور',{weight:0.18,country:'SA'}),
+  P(23,'حقيبة يد جلد صناعي — بيج','','حقائب',{hs:'420222',country:'CN'}),
+  P(24,'حقيبة كروس صغيرة سوداء','','حقائب',{hs:'420222',weight:0.4,country:'CN',nameEn:'Mini Black Crossbody Bag'}),
+];
+function seedState(){
+  return {
+    defaults:{country:'SA',weight:0.5,unit:'kg',hs:''},
+    products: SEED.map(p=>({...p})),
+  };
+}
+let S = seedState();
+let saved = JSON.stringify({defaults:S.defaults,products:S.products});
+const ui = { selected:new Set(), q:'', missing:new Set(), source:'all', cat:'', page:1, per:10, suggestDismissed:false, lastBulk:null };
+const bulk = { fields:new Set(), country:'', weight:'', unit:'kg', hs:'', mode:'fill' };
+const catSet = [...new Set(SEED.map(p=>p.cat))];
+
+/* =====================================================================
+   Helpers
+===================================================================== */
+const $ = s=>document.querySelector(s);
+const esc = s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const hsOf = c=>HS.find(h=>h.code===c);
+const ctryOf = c=>COUNTRIES.find(x=>x.code===c);
+function plural(n,f){ if(n===0)return f[0]; if(n===1)return f[1]; if(n===2)return f[2]; if(n<=10)return `${n} ${f[3]}`; return `${n} ${f[4]}`; }
+const prodN = n=>plural(n,['لا منتجات','منتج واحد','منتجان','منتجات','منتجًا']);
+const fieldN = n=>plural(n,['لا حقول','حقل واحد','حقلان','حقول','حقلًا']);
+const wUnit = u=>u==='g'?'جم':'كجم';
+const fmtW = (w,u)=>`<bdi class="num">${w}</bdi> ${wUnit(u)}`;
+
+/* Effective value + its source */
+function eff(p,f){
+  const d=S.defaults;
+  if(f==='hs'){ if(p.hs) return {v:p.hs,src:'custom'}; if(d.hs) return {v:d.hs,src:'default'}; return {v:'',src:'none'}; }
+  if(f==='country'){ if(p.country) return {v:p.country,src:'custom'}; if(d.country) return {v:d.country,src:'default'}; return {v:'',src:'none'}; }
+  if(f==='weight'){ if(p.weight!=null&&p.weight!=='') return {v:p.weight,u:p.unit,src:'custom'}; if(d.weight!=null&&d.weight!=='') return {v:d.weight,u:d.unit,src:'default'}; return {v:null,src:'none'}; }
+}
+const W = {hs:30,weight:25,country:20,nameEn:15,ids:10};
+function readiness(p){
+  let s=0, todo=[];
+  if(eff(p,'hs').src!=='none') s+=W.hs; else todo.push('الرمز الجمركي');
+  if(eff(p,'weight').src!=='none') s+=W.weight; else todo.push('الوزن');
+  if(eff(p,'country').src!=='none') s+=W.country; else todo.push('بلد المنشأ');
+  if(p.nameEn.trim()) s+=W.nameEn; else todo.push('الاسم الإنجليزي');
+  const idn=(p.sku?1:0)+((p.mpn||p.gtin)?1:0);
+  s+= idn===2?W.ids : idn===1?W.ids/2 : 0; if(idn<2) todo.push('المعرّفات');
+  return {pct:s,todo};
+}
+const ringColor = pct=> pct>=100?'var(--success)': pct>=60?'var(--info)': pct>=30?'var(--danger)':'var(--gray-600)';
+function ring(pct){ const r=9, c=2*Math.PI*r; return `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="${r}" fill="none" stroke="var(--gray-400)" stroke-width="4"/><circle cx="12" cy="12" r="${r}" fill="none" stroke="${ringColor(pct)}" stroke-width="4" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-pct/100)}" stroke-linecap="round"/></svg>`; }
+
+function isMissing(p,k){
+  if(k==='hs') return eff(p,'hs').src==='none';
+  if(k==='weight') return eff(p,'weight').src==='none';
+  if(k==='country') return eff(p,'country').src==='none';
+  if(k==='nameEn') return !p.nameEn.trim();
+  if(k==='ids') return !(p.mpn||p.gtin);
+}
+function usesDefault(p){ return ['hs','weight','country'].some(f=>eff(p,f).src==='default'); }
+function hasCustom(p){ return ['hs','weight','country'].some(f=>eff(p,f).src==='custom'); }
+
+function filtered(){
+  const q=ui.q.trim().toLowerCase();
+  return S.products.filter(p=>{
+    if(q && !(p.name.toLowerCase().includes(q)||p.sku.toLowerCase().includes(q)||p.nameEn.toLowerCase().includes(q))) return false;
+    if(ui.missing.size && ![...ui.missing].some(k=>isMissing(p,k))) return false;
+    if(ui.source==='default' && !usesDefault(p)) return false;
+    if(ui.source==='custom' && !hasCustom(p)) return false;
+    if(ui.cat && p.cat!==ui.cat) return false;
+    return true;
+  });
+}
+function changedIds(){
+  const sv=JSON.parse(saved); const map=new Map(sv.products.map(p=>[p.id,JSON.stringify(p)]));
+  return S.products.filter(p=>map.get(p.id)!==JSON.stringify(p)).map(p=>p.id);
+}
+function defaultsChanged(){ return JSON.stringify(JSON.parse(saved).defaults)!==JSON.stringify(S.defaults); }
+
+/* =====================================================================
+   Render
+===================================================================== */
+function render(){ renderSummary(); renderDefaults(); renderSuggest(); renderTable(); renderBulkBar(); renderFooter(); renderActiveFilters(); }
+
+function renderSummary(){
+  const all=S.products, n=all.length;
+  const ready=all.filter(p=>readiness(p).pct>=100).length;
+  const partial=all.filter(p=>{const r=readiness(p).pct;return r>0&&r<100}).length;
+  const none=n-ready-partial;
+  const miss=k=>all.filter(p=>isMissing(p,k)).length;
+  const viaDefault=all.reduce((a,p)=>a+['hs','weight','country'].filter(f=>eff(p,f).src==='default').length,0);
+  const tile=(k,lbl,icon)=>{const c=miss(k);return `<button class="tile filter ${ui.missing.has(k)?'on':''} ${c===0?'zero':''}" type="button" onclick="toggleMissing('${k}')">
+    <div class="lbl">${icon} ${lbl}</div><div class="val num">${c===0?'✓':c}<small>${c===0?'مكتمل':'بدون قيمة'}</small></div>
+    <div class="hint">${ui.missing.has(k)?'إلغاء التصفية':'تصفية الجدول'} <svg class="i" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></div></button>`};
+  $('#summary').innerHTML = `
+    <div class="tile main">
+      <div class="lbl">جاهزية المتجر للشحن الدولي</div>
+      <div class="val num">${ready} <small>من ${n} منتج مكتمل البيانات</small></div>
+      <div class="bar" aria-hidden="true"><i style="width:${ready/n*100}%;background:var(--success)"></i><i style="width:${partial/n*100}%;background:var(--info)"></i></div>
+      <div class="legend"><span><b style="background:var(--success)"></b>مكتمل ${ready}</span><span><b style="background:var(--info)"></b>ناقص جزئيًا ${partial}</span><span><b style="background:var(--gray-500)"></b>بدون بيانات ${none}</span><span style="margin-inline-start:auto">القيم الافتراضية تغطي <bdi class="num">${viaDefault}</bdi> ${viaDefault===1?'حقلًا':'حقلًا'}</span></div>
+    </div>
+    ${tile('hs','بدون رمز جمركي','<svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>')}
+    ${tile('weight','بدون وزن فعلي','<svg class="i" viewBox="0 0 24 24"><path d="M6 8h12l2 12H4z"/><circle cx="12" cy="5" r="2"/></svg>')}
+    ${tile('country','بدون بلد منشأ','<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>')}
+    ${tile('nameEn','بدون اسم إنجليزي','<svg class="i" viewBox="0 0 24 24"><path d="M4 5h9M8.5 5v14M12 19l4-9 4 9M13.5 16h5"/></svg>')}`;
+}
+
+function comboHtml(kind,val,opts={}){
+  const {src='custom',sm=false,ph} = opts;
+  const inherit = src==='default';
+  if(kind==='hs'){
+    const h=hsOf(val);
+    if(!val) return `<span class="ph">${ph||'اختر رمزًا'}</span><svg class="i chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>`;
+    return `<span class="v"><b class="num">${esc(val)}</b><span class="d">${h?esc(h.label):'رمز مخصّص'}</span></span>${inherit?'<span class="src def">افتراضي</span>':''}<svg class="i chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>`;
+  }
+  if(kind==='country'){
+    const c=ctryOf(val);
+    if(!c) return `<span class="ph">${ph||'اختر البلد'}</span><svg class="i chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>`;
+    return `<span class="flag">${c.flag}</span><span class="v">${c.name}</span>${inherit?'<span class="src def">افتراضي</span>':''}<svg class="i chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>`;
+  }
+}
+
+function renderDefaults(){
+  const d=S.defaults;
+  const n=[d.country,d.weight!=null&&d.weight!=='',d.hs].filter(Boolean).length;
+  $('#def-badge').textContent = n? `${n} من 3 محدّدة` : 'غير محدّدة';
+  const cb=$('#def-country'); cb.className='combo'; cb.innerHTML=comboHtml('country',d.country,{ph:'اختر بلد المنشأ'});
+  const hb=$('#def-hs'); hb.className='combo'; hb.innerHTML=comboHtml('hs',d.hs,{ph:'اختر رمزًا جمركيًا'});
+  const wi=$('#def-weight'); if(document.activeElement!==wi) wi.value=d.weight??''; $('#def-unit').value=d.unit;
+  const cnt=f=>S.products.filter(p=>eff(p,f).src==='default').length;
+  const ex=f=>S.products.filter(p=>eff(p,f).src==='custom').length;
+  const help=(f)=> (f==='hs'?d.hs:f==='country'?d.country:(d.weight!=null&&d.weight!=='')) ? `يستخدمها <bdi class="num">${cnt(f)}</bdi> منتج · <bdi class="num">${ex(f)}</bdi> استثناء` : 'لم تُحدّد بعد';
+  $('#def-country-help').innerHTML=help('country'); $('#def-weight-help').innerHTML=help('weight'); $('#def-hs-help').innerHTML=help('hs');
+}
+
+function suggestion(){
+  if(ui.suggestDismissed) return null;
+  let best=null;
+  for(const cat of catSet){
+    const ps=S.products.filter(p=>p.cat===cat);
+    const counts={}; ps.forEach(p=>{ if(p.hs) counts[p.hs]=(counts[p.hs]||0)+1; });
+    const top=Object.entries(counts).sort((a,b)=>b[1]-a[1])[0]; if(!top) continue;
+    const missing=ps.filter(p=>!p.hs);
+    if(top[1]>=3 && missing.length && (!best||missing.length>best.missing.length)) best={cat,code:top[0],n:top[1],total:ps.length,missing};
+  }
+  return best;
+}
+function renderSuggest(){
+  const s=suggestion(); const el=$('#suggest');
+  if(!s){ el.innerHTML=''; return; }
+  el.innerHTML=`<div class="suggest"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg></div>
+    <div class="tx"><b>اقتراح: <bdi class="num">${s.n}</bdi> من <bdi class="num">${s.total}</bdi> منتجًا في «${s.cat}» تستخدم الرمز <bdi class="num">${s.code}</bdi></b><span>تطبيق الرمز نفسه على ${prodN(s.missing.length)} في التصنيف بدون رمز جمركي؟ (${esc(hsOf(s.code)?.label||'')})</span></div>
+    <div class="acts"><button class="btn btn-primary btn-sm" type="button" onclick="applySuggestion()">تطبيق على ${prodN(s.missing.length)}</button><button class="btn btn-ghost btn-sm" type="button" onclick="ui.suggestDismissed=true;renderSuggest()">تجاهل</button></div></div>`;
+}
+
+function renderTable(){
+  const list=filtered(); const pages=Math.max(1,Math.ceil(list.length/ui.per)); if(ui.page>pages) ui.page=pages;
+  const rows=list.slice((ui.page-1)*ui.per, ui.page*ui.per);
+  const changed=new Set(changedIds());
+  const tb=$('#tbody');
+  if(!rows.length){ tb.innerHTML=`<tr class="emptyrow"><td colspan="8">لا توجد منتجات مطابقة للتصفية الحالية. <button class="btn btn-ghost btn-sm" onclick="resetFilters()">إعادة تعيين التصفية</button></td></tr>`; }
+  else tb.innerHTML = rows.map(p=>{
+    const r=readiness(p); const h=eff(p,'hs'), w=eff(p,'weight'), c=eff(p,'country');
+    const resetBtn=(f,src)=> (src==='custom' && (f==='hs'?S.defaults.hs:f==='country'?S.defaults.country:(S.defaults.weight!=null&&S.defaults.weight!==''))) ? `<button class="reset-def" type="button" title="استخدام القيمة الافتراضية" onclick="useDefault(${p.id},'${f}')"><svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>` : '';
+    const idc=(ok,lbl)=>`<span class="idc ${ok?'ok':'add'}">${ok?'<svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>':'<svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>'}${lbl}</span>`;
+    return `<tr class="${ui.selected.has(p.id)?'sel':''} ${changed.has(p.id)?'chg':''}" data-id="${p.id}">
+      <td><span class="cb ${ui.selected.has(p.id)?'on':''}" role="checkbox" aria-checked="${ui.selected.has(p.id)}" tabindex="0" aria-label="تحديد ${esc(p.name)}" onclick="toggleSel(${p.id})" onkeydown="if(event.key===' '){event.preventDefault();toggleSel(${p.id})}"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span></td>
+      <td><div class="prod"><div class="img sw" style="background:${SWATCH[p.cat]||'var(--gray-300)'}"></div><div style="min-width:0"><div class="nm" title="${esc(p.name)}">${esc(p.name)}</div><div class="meta"><span class="num">${esc(p.sku)}</span><span class="cat">${esc(p.cat)}</span></div></div></div></td>
+      <td><div class="cell"><button class="combo sm ${h.src==='default'?'inherit':''}" type="button" onclick="openHsPop(this,{scope:'row',id:${p.id}})">${comboHtml('hs',h.v,{src:h.src,ph:'رمز التنسيق الجمركي'})}</button>${resetBtn('hs',h.src)}</div></td>
+      <td><div class="cell weight-cell"><div class="inp sm ${w.src==='default'?'inherit':''}"><input type="number" min="0" step="0.05" inputmode="decimal" class="num" placeholder="الوزن" value="${w.src==='none'?'':w.v}" aria-label="الوزن الفعلي" oninput="setWeight(${p.id},this.value)"><select aria-label="الوحدة" onchange="setUnit(${p.id},this.value)"><option value="kg" ${w.u!=='g'?'selected':''}>كجم</option><option value="g" ${w.u==='g'?'selected':''}>جم</option></select></div>${w.src==='default'?'<span class="src def">افتراضي</span>':''}${resetBtn('weight',w.src)}</div></td>
+      <td><div class="cell"><button class="combo sm ${c.src==='default'?'inherit':''}" type="button" onclick="openCountryPop(this,{scope:'row',id:${p.id}})">${comboHtml('country',c.v,{src:c.src,ph:'بلد المنشأ'})}</button>${resetBtn('country',c.src)}</div></td>
+      <td><div class="inp sm" style="min-width:190px" dir="auto"><input type="text" value="${esc(p.nameEn)}" placeholder="English product name" aria-label="الاسم بالإنجليزية" style="direction:ltr;text-align:left" oninput="setField(${p.id},'nameEn',this.value)"></div></td>
+      <td><button class="idsbtn" type="button" onclick="openProduct(${p.id})" title="تعديل المعرّفات">${idc(!!p.sku,'SKU')}${idc(!!p.mpn,'MPN')}${idc(!!p.gtin,'GTIN')}</button></td>
+      <td><div class="ready" id="rd-${p.id}">${ring(r.pct)}<span class="pct num">${r.pct}%</span>${r.todo.length?`<span class="todo" title="${esc(r.todo.join('، '))}">ينقص: ${esc(r.todo.slice(0,2).join('، '))}${r.todo.length>2?' +'+(r.todo.length-2):''}</span>`:''}</div></td>
+    </tr>`;
+  }).join('');
+  // header checkbox
+  const ids=rows.map(p=>p.id); const on=ids.filter(i=>ui.selected.has(i)).length;
+  const cba=$('#cb-all'); cba.className='cb'+(on&&on===ids.length?' on':on?' ind':''); cba.innerHTML = on&&on<ids.length?'<svg class="i" viewBox="0 0 24 24"><path d="M6 12h12"/></svg>':'<svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>';
+  // pager
+  const from=list.length?(ui.page-1)*ui.per+1:0, to=Math.min(list.length,ui.page*ui.per);
+  $('#pager').innerHTML=`<span>عدد العناصر في الصفحة</span><select onchange="ui.per=+this.value;ui.page=1;renderTable()"><option ${ui.per===10?'selected':''}>10</option><option ${ui.per===25?'selected':''}>25</option><option ${ui.per===50?'selected':''}>50</option></select>
+    <span class="num">${from}–${to} من ${list.length}</span><div class="spacer"></div>
+    <button type="button" ${ui.page<=1?'disabled':''} onclick="ui.page--;renderTable()"><svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg> السابق</button>
+    <button type="button" ${ui.page>=pages?'disabled':''} onclick="ui.page++;renderTable()">التالي <svg class="i" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>`;
+}
+function refreshRow(id){ // light update after inline typing: readiness + summary + footer only
+  const p=S.products.find(x=>x.id===id); const r=readiness(p); const el=$('#rd-'+id);
+  if(el) el.innerHTML=`${ring(r.pct)}<span class="pct num">${r.pct}%</span>${r.todo.length?`<span class="todo">ينقص: ${esc(r.todo.slice(0,2).join('، '))}${r.todo.length>2?' +'+(r.todo.length-2):''}</span>`:''}`;
+  const tr=document.querySelector(`tr[data-id="${id}"]`); if(tr) tr.classList.toggle('chg',changedIds().includes(id));
+  renderSummary(); renderFooter(); renderDefaults();
+}
+function renderBulkBar(){
+  const n=ui.selected.size; const bar=$('#bulkbar'); bar.classList.toggle('show',n>0);
+  $('#selcount').textContent=n; $('#selword').textContent = n===1?'منتج':n===2?'منتجان':n<=10?'منتجات':'منتجًا';
+  const total=filtered().length; const sa=$('#selall'); sa.hidden = !(n>0 && n<total); sa.textContent=`تحديد كل المنتجات المطابقة (${total})`;
+}
+function renderFooter(){
+  const n=changedIds().length, d=defaultsChanged(); const any=n>0||d;
+  $('#save').disabled=!any; $('#cancel').disabled=!any;
+  $('#chg').innerHTML = any ? `الصفوف المحدّثة: <b class="num">${n}</b>${d?' · القيم الافتراضية':''}` : 'لا توجد تغييرات غير محفوظة';
+}
+function renderActiveFilters(){
+  const chips=[]; const lbl={hs:'بدون رمز جمركي',weight:'بدون وزن',country:'بدون بلد منشأ',nameEn:'بدون اسم إنجليزي',ids:'بدون معرّفات'};
+  ui.missing.forEach(k=>chips.push(`<span class="af">${lbl[k]}<button type="button" onclick="toggleMissing('${k}')" aria-label="إزالة"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span>`));
+  if(ui.source!=='all') chips.push(`<span class="af">${ui.source==='default'?'تعتمد على قيمة افتراضية':'لديها قيمة مخصّصة'}<button type="button" onclick="ui.source='all';render()" aria-label="إزالة"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span>`);
+  if(ui.cat) chips.push(`<span class="af">التصنيف: ${esc(ui.cat)}<button type="button" onclick="ui.cat='';render()" aria-label="إزالة"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span>`);
+  $('#activef').innerHTML=chips.join('');
+  const c=chips.length; $('#fcnt').hidden=!c; $('#fcnt').textContent=c;
+}
+
+/* =====================================================================
+   Interactions — filters & selection
+===================================================================== */
+function setQuery(v){ ui.q=v; ui.page=1; renderTable(); renderBulkBar(); }
+function toggleMissing(k){ ui.missing.has(k)?ui.missing.delete(k):ui.missing.add(k); ui.page=1; render(); }
+function resetFilters(){ ui.missing.clear(); ui.source='all'; ui.cat=''; ui.q=''; $('#q').value=''; ui.page=1; render(); if($('#fdrawer').classList.contains('show')) renderFilterDrawer(); }
+function toggleSel(id){ ui.selected.has(id)?ui.selected.delete(id):ui.selected.add(id); renderTable(); renderBulkBar(); }
+function togglePageSelection(){ const list=filtered(); const rows=list.slice((ui.page-1)*ui.per,ui.page*ui.per).map(p=>p.id); const all=rows.every(i=>ui.selected.has(i)); rows.forEach(i=>all?ui.selected.delete(i):ui.selected.add(i)); renderTable(); renderBulkBar(); }
+function selectAllMatching(){ filtered().forEach(p=>ui.selected.add(p.id)); renderTable(); renderBulkBar(); }
+function clearSelection(){ ui.selected.clear(); renderTable(); renderBulkBar(); }
+
+/* =====================================================================
+   Interactions — inline edits
+===================================================================== */
+const prod = id=>S.products.find(p=>p.id===id);
+function setWeight(id,v){ const p=prod(id); p.weight = v===''?null:+v; refreshRow(id); }
+function setUnit(id,v){ const p=prod(id); p.unit=v; if(p.weight==null){ const d=eff(p,'weight'); if(d.src==='default'){ p.weight=d.v; } } render(); }
+function setField(id,f,v){ prod(id)[f]=v; refreshRow(id); }
+function useDefault(id,f){ const p=prod(id); if(f==='hs') p.hs=''; if(f==='country') p.country=''; if(f==='weight'){p.weight=null;} render(); }
+function setDefaultWeight(v){ S.defaults.weight = v===''?null:+v; renderDefaults(); renderSummary(); renderFooter(); renderTable(); }
+function setDefaultUnit(v){ S.defaults.unit=v; render(); }
+function clearDefaults(){ S.defaults={country:'',weight:null,unit:'kg',hs:''}; render(); toast('تم مسح القيم الافتراضية — ستظهر المنتجات التي كانت تعتمد عليها كناقصة'); }
+function toggleDefaults(e){ if(e.target.closest('button')) return; $('#defaults').classList.toggle('collapsed'); }
+
+/* =====================================================================
+   Popovers (HS + country)
+===================================================================== */
+let popCtx=null;
+function placePop(anchor){
+  const pop=$('#pop'); const r=anchor.getBoundingClientRect();
+  pop.classList.add('show');
+  const w=Math.max(280,Math.min(360,r.width)); pop.style.width=w+'px';
+  let left=r.right-w; if(left<8) left=8; if(left+w>window.innerWidth-8) left=window.innerWidth-8-w;
+  let top=r.bottom+6; const h=pop.offsetHeight||320; if(top+h>window.innerHeight-8) top=Math.max(8,r.top-h-6);
+  pop.style.left=left+'px'; pop.style.top=top+'px';
+  document.querySelectorAll('.combo.open').forEach(x=>x.classList.remove('open')); anchor.classList.add('open');
+}
+function closePop(){ $('#pop').classList.remove('show'); document.querySelectorAll('.combo.open').forEach(x=>x.classList.remove('open')); popCtx=null; }
+document.addEventListener('mousedown',e=>{ if(popCtx && !e.target.closest('#pop') && !e.target.closest('.combo')) closePop(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ if(popCtx) closePop(); else closeAll(); } });
+window.addEventListener('scroll',()=>{ if(popCtx) closePop(); },true);
+
+function openHsPop(anchor,ctx){
+  if(popCtx && popCtx.anchor===anchor){ closePop(); return; }
+  popCtx={kind:'hs',anchor,...ctx};
+  const cur = ctx.scope==='default'?S.defaults.hs: ctx.scope==='bulk'?bulk.hs: eff(prod(ctx.id),'hs').v;
+  const pop=$('#pop');
+  const draw=(q='')=>{
+    const qq=q.trim();
+    const list=HS.filter(h=>!qq||h.code.includes(qq)||h.label.includes(qq));
+    const custom = /^\d{6}$/.test(qq) && !HS.some(h=>h.code===qq);
+    pop.innerHTML=`<div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="pop-q" placeholder="ابحث بالرمز أو الوصف" value="${esc(q)}" autocomplete="off"></div>
+      <div class="list">${list.map(h=>`<button class="opt ${h.code===cur?'sel':''}" type="button" onclick="pickHs('${h.code}')"><span class="code num">${h.code}</span><span class="desc">${esc(h.label)}</span></button>`).join('')||(custom?'':'<div class="empty">لا توجد نتائج مطابقة</div>')}
+      ${custom?`<button class="add" type="button" onclick="pickHs('${qq}',true)"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> إضافة الرمز «<bdi class="num">${qq}</bdi>»</button>`:''}</div>
+      ${ctx.scope==='row'&&S.defaults.hs?`<div class="foot"><span>الافتراضي: <bdi class="num">${S.defaults.hs}</bdi></span><button class="btn btn-ghost btn-sm" type="button" onclick="pickHs('')">استخدام الافتراضي</button></div>`:''}`;
+    const inp=$('#pop-q'); inp.oninput=()=>{const v=inp.value; const s=inp.selectionStart; draw(v); const i2=$('#pop-q'); i2.focus(); i2.setSelectionRange(s,s);};
+  };
+  draw(); placePop(anchor); setTimeout(()=>$('#pop-q')?.focus(),0);
+}
+function pickHs(code,isNew){
+  if(isNew) HS.push({code,label:'رمز مخصّص أضافه التاجر'});
+  const c=popCtx; closePop();
+  if(c.scope==='default'){ S.defaults.hs=code; render(); }
+  else if(c.scope==='bulk'){ bulk.hs=code; renderBulkFields(); renderBulkPreview(); }
+  else { prod(c.id).hs=code; render(); }
+}
+function openCountryPop(anchor,ctx){
+  if(popCtx && popCtx.anchor===anchor){ closePop(); return; }
+  popCtx={kind:'country',anchor,...ctx};
+  const cur = ctx.scope==='default'?S.defaults.country: ctx.scope==='bulk'?bulk.country: eff(prod(ctx.id),'country').v;
+  const pop=$('#pop');
+  const draw=(q='')=>{
+    const list=COUNTRIES.filter(c=>!q||c.name.includes(q)||c.code.toLowerCase().includes(q.toLowerCase()));
+    pop.innerHTML=`<div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="pop-q" placeholder="ابحث عن بلد" value="${esc(q)}" autocomplete="off"></div>
+      <div class="list">${list.map(c=>`<button class="opt ${c.code===cur?'sel':''}" type="button" onclick="pickCountry('${c.code}')"><span class="flag">${c.flag}</span><span>${c.name}</span></button>`).join('')||'<div class="empty">لا توجد نتائج</div>'}</div>
+      ${ctx.scope==='row'&&S.defaults.country?`<div class="foot"><span>الافتراضي: ${ctryOf(S.defaults.country).name}</span><button class="btn btn-ghost btn-sm" type="button" onclick="pickCountry('')">استخدام الافتراضي</button></div>`:''}`;
+    const inp=$('#pop-q'); inp.oninput=()=>{const v=inp.value; const s=inp.selectionStart; draw(v); const i2=$('#pop-q'); i2.focus(); i2.setSelectionRange(s,s);};
+  };
+  draw(); placePop(anchor); setTimeout(()=>$('#pop-q')?.focus(),0);
+}
+function pickCountry(code){
+  const c=popCtx; closePop();
+  if(c.scope==='default'){ S.defaults.country=code; render(); }
+  else if(c.scope==='bulk'){ bulk.country=code; renderBulkFields(); renderBulkPreview(); }
+  else { prod(c.id).country=code; render(); }
+}
+
+/* =====================================================================
+   Bulk edit
+===================================================================== */
+function openBulk(){
+  bulk.fields.clear(); bulk.country=''; bulk.weight=''; bulk.unit='kg'; bulk.hs=''; bulk.mode='fill';
+  $('#b-weight').value=''; $('#b-unit').value='kg';
+  $('#bulk-title').textContent=`تعديل جماعي — ${prodN(ui.selected.size)}`;
+  setBulkMode('fill'); renderBulkFields(); renderBulkPreview();
+  showOverlay(); $('#bulk').classList.add('show');
+}
+function toggleBulkField(f){ bulk.fields.has(f)?bulk.fields.delete(f):bulk.fields.add(f); renderBulkFields(); renderBulkPreview(); }
+function renderBulkFields(){
+  ['country','weight','hs'].forEach(f=>{ const on=bulk.fields.has(f); $('#br-'+f).classList.toggle('on',on); $('#bcb-'+f).classList.toggle('on',on); });
+  $('#b-country').innerHTML=comboHtml('country',bulk.country,{ph:'اختر البلد'});
+  $('#b-hs').innerHTML=comboHtml('hs',bulk.hs,{ph:'اختر الرمز'});
+}
+function setBulkMode(m){ bulk.mode=m; $('#mode-fill').classList.toggle('on',m==='fill'); $('#mode-replace').classList.toggle('on',m==='replace'); renderBulkPreview(); }
+function bulkPlan(){
+  const sel=[...ui.selected].map(prod); const plan={};
+  for(const f of bulk.fields){
+    const val = f==='weight'?bulk.weight:bulk[f]; if(val==='' || val==null) continue;
+    const targets=sel.filter(p=> bulk.mode==='replace' || eff(p,f).src!=='custom');
+    const skipped=sel.length-targets.length;
+    plan[f]={targets,skipped,val};
+  }
+  return plan;
+}
+function renderBulkPreview(){
+  const plan=bulkPlan(); const keys=Object.keys(plan); const el=$('#bulk-preview');
+  const lbl={country:'بلد المنشأ',weight:'الوزن',hs:'الرمز الجمركي'};
+  const icon='<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>';
+  if(!keys.length){ el.innerHTML=`${icon}<div>لم تحدّد أي حقل بعد. فعّل حقلًا واختر قيمته لترى ما سيتغيّر.</div>`; $('#bulk-apply').disabled=true; return; }
+  $('#bulk-apply').disabled=false;
+  el.innerHTML=`${icon}<div>سيتم تحديث:<ul>${keys.map(k=>{const x=plan[k]; return `<li><b>${lbl[k]}</b> → ${k==='weight'?fmtW(x.val,bulk.unit):k==='country'?ctryOf(x.val).name:`<bdi class="num">${x.val}</bdi>`} لـ ${prodN(x.targets.length)}${x.skipped?` <span style="color:var(--warning-700)">(تخطّي ${x.skipped} ${x.skipped===1?'منتج لديه':'لديها'} قيمة مخصّصة)</span>`:''}</li>`}).join('')}</ul></div>`;
+}
+function applyBulk(){
+  const plan=bulkPlan(); const before=JSON.stringify(S.products); let touched=new Set();
+  for(const [f,x] of Object.entries(plan)){
+    x.targets.forEach(p=>{ if(f==='weight'){p.weight=+x.val;p.unit=bulk.unit;} else p[f]=x.val; touched.add(p.id); });
+  }
+  closeAll(); ui.lastBulk=before; render();
+  toast(`تم تحديث ${prodN(touched.size)}`, ()=>{ S.products=JSON.parse(ui.lastBulk); ui.lastBulk=null; render(); toast('تم التراجع عن التعديل الجماعي'); });
+}
+function bulkUseDefaults(){
+  const d=S.defaults; const sel=[...ui.selected].map(prod); const before=JSON.stringify(S.products); let n=0;
+  sel.forEach(p=>{ let ch=false; if(d.hs&&p.hs){p.hs='';ch=true;} if(d.country&&p.country){p.country='';ch=true;} if(d.weight!=null&&d.weight!==''&&p.weight!=null){p.weight=null;ch=true;} if(ch)n++; });
+  if(!n){ toast('المنتجات المحدّدة تعتمد على القيم الافتراضية بالفعل'); return; }
+  ui.lastBulk=before; render();
+  toast(`أصبح ${prodN(n)} يعتمد على القيم الافتراضية`, ()=>{ S.products=JSON.parse(ui.lastBulk); render(); toast('تم التراجع'); });
+}
+function applySuggestion(){
+  const s=suggestion(); if(!s) return; const before=JSON.stringify(S.products);
+  s.missing.forEach(p=>p.hs=s.code); ui.lastBulk=before; render();
+  toast(`تم تطبيق الرمز ${s.code} على ${prodN(s.missing.length)}`, ()=>{ S.products=JSON.parse(ui.lastBulk); render(); toast('تم التراجع'); });
+}
+
+/* =====================================================================
+   Product drawer (identifiers + English name)
+===================================================================== */
+function openProduct(id){
+  const p=prod(id); const r=readiness(p);
+  $('#pd-title').textContent='بيانات الشحن الدولي للمنتج';
+  $('#pd-body').innerHTML=`<div class="fs">
+    <div class="pcard"><div class="img" style="background:${SWATCH[p.cat]}"></div><div><div class="nm">${esc(p.name)}</div><div class="sub"><span class="num">${esc(p.sku)}</span> · ${esc(p.cat)} · الجاهزية <b class="num">${r.pct}%</b></div></div></div>
+    <h4>الاسم والمعرّفات</h4>
+    <div class="field"><label for="pd-en">اسم المنتج بالإنجليزية</label><div class="inp"><input id="pd-en" dir="ltr" style="text-align:left" value="${esc(p.nameEn)}" placeholder="e.g. Classic Black Crepe Abaya" oninput="setField(${id},'nameEn',this.value);syncRow(${id})"></div><div class="help">مستقل عن اسم المنتج في المتجر — يظهر في بوليصة الشحن والبيان الجمركي.</div></div>
+    <div class="twocol">
+      <div class="field"><label for="pd-sku">معرّف المنتج الخاص بالتاجر (SKU)</label><div class="inp"><input id="pd-sku" dir="ltr" style="text-align:left" value="${esc(p.sku)}" oninput="setField(${id},'sku',this.value);syncRow(${id})"></div><div class="help">كودك الداخلي للتعريف بالمنتج.</div></div>
+      <div class="field"><label for="pd-mpn">معرّف المصنّع (MPN)</label><div class="inp"><input id="pd-mpn" dir="ltr" style="text-align:left" value="${esc(p.mpn)}" placeholder="MPN" oninput="setField(${id},'mpn',this.value);syncRow(${id})"></div><div class="help">الكود الذي يخصّصه المصنّع أو المورّد.</div></div>
+    </div>
+    <div class="field"><label for="pd-gtin">المعرّف القياسي الدولي</label><div class="inp"><select id="pd-gtin-t" aria-label="نوع المعرّف" onchange="setField(${id},'gtinType',this.value)"><option ${p.gtinType==='GTIN-13'?'selected':''}>GTIN-13</option><option ${p.gtinType==='EAN'?'selected':''}>EAN</option><option ${p.gtinType==='UPC'?'selected':''}>UPC</option><option ${p.gtinType==='ISBN'?'selected':''}>ISBN</option></select><input id="pd-gtin" dir="ltr" style="text-align:left" inputmode="numeric" value="${esc(p.gtin)}" placeholder="6281000012345" oninput="setField(${id},'gtin',this.value);syncRow(${id})"></div><div class="help">الباركود المعترف به دوليًا (GS1). اختياري لكنه يسرّع التخليص الجمركي.</div></div>
+    <h4>بيانات الجمارك</h4>
+    <div class="field"><label>الرمز الجمركي</label><button class="combo ${eff(p,'hs').src==='default'?'inherit':''}" type="button" onclick="openHsPop(this,{scope:'row',id:${id}})">${comboHtml('hs',eff(p,'hs').v,{src:eff(p,'hs').src})}</button></div>
+    <div class="twocol">
+      <div class="field"><label for="pd-w">الوزن الفعلي</label><div class="inp ${eff(p,'weight').src==='default'?'inherit':''}"><input id="pd-w" type="number" min="0" step="0.05" class="num" value="${eff(p,'weight').src==='none'?'':eff(p,'weight').v}" oninput="setWeight(${id},this.value)"><span class="unit">${wUnit(eff(p,'weight').u||p.unit)}</span></div><div class="help">${eff(p,'weight').src==='default'?'قيمة افتراضية':''}</div></div>
+      <div class="field"><label>بلد المنشأ</label><button class="combo ${eff(p,'country').src==='default'?'inherit':''}" type="button" onclick="openCountryPop(this,{scope:'row',id:${id}})">${comboHtml('country',eff(p,'country').v,{src:eff(p,'country').src})}</button></div>
+    </div>
+  </div>`;
+  showOverlay(); $('#pdrawer').classList.add('show'); $('#pdrawer').setAttribute('aria-hidden','false');
+}
+function syncRow(id){ const tr=document.querySelector(`tr[data-id="${id}"]`); if(!tr) return; const p=prod(id); const en=tr.querySelector('input[aria-label="الاسم بالإنجليزية"]'); if(en&&en.value!==p.nameEn) en.value=p.nameEn; const ids=tr.querySelector('.idsbtn'); if(ids){ const idc=(ok,l)=>`<span class="idc ${ok?'ok':'add'}">${ok?'<svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>':'<svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>'}${l}</span>`; ids.innerHTML=idc(!!p.sku,'SKU')+idc(!!p.mpn,'MPN')+idc(!!p.gtin,'GTIN'); } }
+
+/* =====================================================================
+   Filter drawer
+===================================================================== */
+function openFilters(){ renderFilterDrawer(); showOverlay(); $('#fdrawer').classList.add('show'); $('#fdrawer').setAttribute('aria-hidden','false'); }
+function renderFilterDrawer(){
+  const cnt=k=>S.products.filter(p=>isMissing(p,k)).length;
+  const opt=(k,l)=>`<label class="opt"><span class="cb ${ui.missing.has(k)?'on':''}" onclick="toggleMissing('${k}');renderFilterDrawer()"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>${l}<span class="n num">${cnt(k)}</span></label>`;
+  const rad=(v,l)=>`<label class="radio ${ui.source===v?'on':''}" style="padding:7px 0" onclick="ui.source='${v}';render();renderFilterDrawer()"><i></i>${l}</label>`;
+  $('#fd-body').innerHTML=`
+    <div class="fgroup"><h4>المنتجات بحسب البيانات الناقصة</h4>
+      <label class="opt"><span class="cb ${ui.missing.size===0?'on':''}" onclick="ui.missing.clear();render();renderFilterDrawer()"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>الكل</label>
+      ${opt('hs','بدون رمز تنسيق جمركي (HS code)')}${opt('weight','بدون وزن فعلي')}${opt('country','بدون بلد منشأ/الصنع')}${opt('nameEn','بدون اسم إنجليزي')}${opt('ids','بدون معرّف مصنّع أو معرّف قياسي')}
+    </div>
+    <div class="fgroup"><h4>مصدر القيمة <span class="src def" style="font-weight:400">جديد</span></h4>${rad('all','الكل')}${rad('default','تعتمد على قيمة افتراضية')}${rad('custom','لديها قيمة مخصّصة (استثناء)')}</div>
+    <div class="fgroup"><h4>تصنيف المنتج</h4><div class="inp"><select style="flex:1;color:var(--dark)" onchange="ui.cat=this.value;render();renderFilterDrawer()"><option value="">كل التصنيفات</option>${catSet.map(c=>`<option ${ui.cat===c?'selected':''}>${esc(c)}</option>`).join('')}</select></div></div>
+    <div class="fgroup" style="color:var(--dark-100);font-size:12.5px;border:0">نوع المنتج · الفرع · ماركة المنتج — كما في الصفحة الحالية (غير مفعّلة في هذا النموذج).</div>`;
+}
+
+/* =====================================================================
+   Save / cancel / overlay / toast
+===================================================================== */
+function saveAll(){ saved=JSON.stringify({defaults:S.defaults,products:S.products}); render(); toast('تم حفظ التغييرات'); }
+function cancelAll(){ const sv=JSON.parse(saved); S.defaults=sv.defaults; S.products=sv.products; render(); toast('تم التراجع عن التغييرات غير المحفوظة'); }
+function showOverlay(){ $('#overlay').classList.add('show'); }
+function closeAll(){ closePop(); $('#overlay').classList.remove('show'); ['pdrawer','fdrawer'].forEach(i=>{$('#'+i).classList.remove('show');$('#'+i).setAttribute('aria-hidden','true')}); ['bulk','notes'].forEach(i=>$('#'+i).classList.remove('show')); }
+let toastT;
+function toast(msg,undo){
+  const t=$('#toast'); t.innerHTML=`<svg class="i ok" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>${msg}</span>${undo?'<button type="button" id="undo">تراجع</button>':''}`;
+  if(undo) $('#undo').onclick=()=>{ t.classList.remove('show'); undo(); };
+  t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'), undo?7000:3500);
+}
+function resetData(){ S=seedState(); saved=JSON.stringify({defaults:S.defaults,products:S.products}); ui.selected.clear(); ui.suggestDismissed=false; resetFilters(); toast('تمت إعادة ضبط بيانات النموذج'); }
+
+/* =====================================================================
+   Proposal notes
+===================================================================== */
+function openNotes(){
+  const all=S.products; const viaDefault=all.reduce((a,p)=>a+['hs','weight','country'].filter(f=>eff(p,f).src==='default').length,0);
+  const manualBefore=all.length*3; const exceptions=all.reduce((a,p)=>a+['hs','weight','country'].filter(f=>eff(p,f).src==='custom').length,0);
+  $('#notes-body').innerHTML=`
+    <h3>المشكلة بجملة واحدة</h3>
+    <p>التاجر الذي تتشارك منتجاته بيانات الجمارك نفسها (مصنع واحد، فئة واحدة) مضطر لإدخالها منتجًا منتجًا، فتبقى غالبية المنتجات ناقصة، ولا تتوفر قاعدة بيانات يمكن الاعتماد عليها لاحقًا لحساب الرسوم والضرائب في صفحة الدفع.</p>
+    <h3>ما الذي تغيّر مقارنة بالصفحة الحالية</h3>
+    <table><tr><th>الحالية (من الفيديو)</th><th>المقترح</th></tr>
+    <tr><td>كل حقل يُعبّأ يدويًا لكل منتج، والجاهزية تُحسب من 3 حقول + وصف عربي/إنجليزي.</td><td><b>قيم افتراضية مرتبطة</b> (بلد المنشأ، الوزن، HS) تُغطّي كل منتج لم يُحدَّد له قيمة، ويظهر مصدر القيمة داخل الخلية (افتراضي / مخصّص) مع زر «استخدام الافتراضي».</td></tr>
+    <tr><td>لا يوجد تحديد صفوف ولا تعديل جماعي.</td><td><b>تحديد + شريط إجراءات</b>: تعديل جماعي بحقول اختيارية، مع خيار «تعبئة الفارغ فقط» لحماية الاستثناءات، ومعاينة لعدد المنتجات المتأثرة، وتراجع.</td></tr>
+    <tr><td>وصف المنتج AR/EN كشارات (+) تفتح محررًا.</td><td><b>اسم إنجليزي مستقل</b> كحقل مباشر في الجدول، و<b>المعرّفات</b> (SKU / MPN / GTIN) في لوحة جانبية واحدة للمنتج.</td></tr>
+    <tr><td>مؤشر جاهزية لكل صف فقط.</td><td><b>ملخّص أعلى الصفحة</b>: مكتمل/ناقص، وبطاقات «بدون رمز/وزن/بلد/اسم» تعمل كتصفية بنقرة واحدة.</td></tr>
+    <tr><td>—</td><td><b>اقتراح ذكي</b>: عند وجود رمز HS سائد في تصنيف، يُقترح تطبيقه على بقية منتجات التصنيف (ملامسة للعنصر «AI Experience» في لوحة البناء).</td></tr>
+    <tr><td>تصفية «بحسب البيانات الناقصة».</td><td>نفسها + «مصدر القيمة» + «بدون اسم إنجليزي / معرّفات».</td></tr></table>
+    <h3>الخطوات: قبل ← بعد (على بيانات هذا النموذج)</h3>
+    <div class="stat"><div><b class="num">${manualBefore}</b><span>حقل يدوي لتجهيز ${all.length} منتجًا (3 حقول × منتج) في الصفحة الحالية</span></div><div><b class="num">${viaDefault}</b><span>حقلًا تغطيها القيم الافتراضية الآن بلا لمسة</span></div><div><b class="num">${exceptions}</b><span>قيمة مخصّصة فقط يلمسها التاجر كاستثناءات</span></div></div>
+    <h3>القرارات التصميمية</h3>
+    <ol>
+      <li><b>الافتراضي مرتبط لا منسوخ.</b> تغيير القيمة الافتراضية يحدّث كل المنتجات المعتمدة عليها، والاستثناءات لا تتأثر. <i>ما الذي يعكس القرار:</i> إن أكدت الشحن/الجمارك أن القيمة يجب أن تُجمَّد وقت إنشاء الشحنة، فيصبح «نسخًا عند الحفظ» بدل الربط.</li>
+      <li><b>التعديل الجماعي يعبّئ الفارغ افتراضيًا ولا يستبدل.</b> يحمي الاستثناءات التي تعب التاجر في ضبطها. <i>ما الذي يعكسه:</i> بيانات تُظهر أن معظم الاستخدامات تصحيح لا تعبئة.</li>
+      <li><b>المعرّفات في لوحة جانبية لا في أعمدة.</b> 3 حقول نادرة التعبئة لا تستحق 3 أعمدة؛ الشارات تكشف حالتها بنظرة. <i>ما الذي يعكسه:</i> إن أصبحت GTIN إلزامية لشركة شحن، تعود عمودًا مباشرًا.</li>
+    </ol>
+    <h3>ما لاحظته في الفيديو المرفق (الصورة فقط)</h3>
+    <ul><li>الجدول الحالي: الاسم، رمز التنسيق الجمركي (قائمة بحث تسمح بإضافة رمز جديد مثل 1222222)، الوزن الفعلي مع وحدة (كجم) و«الوزن الفعلي للخيارات 2/2» للمنتجات ذات الخيارات، بلد المنشأ بعلم، وصف المنتج (عربي/إنجليزي) كشارات، ونسبة الجاهزية (100/90/60/30/0%).</li>
+    <li>الشريط السفلي يعرض «الصفوف المحدّثة: 1» ويفعّل «حفظ» فقط عند وجود تغيير — أبقيت السلوك نفسه.</li>
+    <li>لوحة التصفية: نوع المنتج، الفرع، ماركة المنتج، المنتجات بحسب البيانات الناقصة، تصنيف المنتج — أبقيتها وأضفت «مصدر القيمة».</li>
+    <li><b>تنبيه:</b> لم يتسنَّ تفريغ الصوت في بيئة العمل هذه (مصادر نماذج التفريغ محجوبة)، فالمتطلبات المستخلصة من الفيديو تعتمد على اللقطات فقط. أي متطلب صوتي غير مرئي على الشاشة يحتاج مراجعة.</li></ul>
+    <h3>افتراضات صمّمت عليها</h3>
+    <ul><li>الوزن الافتراضي يُطبَّق على مستوى المنتج؛ المنتجات ذات الخيارات (variants) تحتاج وزنًا لكل خيار — خارج نطاق هذا النموذج.</li>
+    <li>أوزان الجاهزية (30/25/20/15/10) اقتراح لضبطه مع فريق الشحن حسب ما تطلبه شركات الشحن فعليًا.</li>
+    <li>القيم الافتراضية على مستوى المتجر كله (لا على مستوى التصنيف) — الاقتراح الذكي يغطي حالة التصنيف دون تعقيد الإعدادات.</li></ul>
+    <h3>أسئلة للـ PM (كل سؤال يغيّر ما سيُبنى)</h3>
+    <div class="q"><b>1.</b> هل بلد المنشأ الافتراضي يُطبَّق على كل المنتجات بلا قيمة تلقائيًا، أم فقط على منتجات «يحددها التاجر» كما ورد في الوصف؟ <i>إن كان الثاني: يصبح الافتراضي إجراءً في التعديل الجماعي فقط ويختفي الربط التلقائي.</i></div>
+    <div class="q"><b>2.</b> عند تغيير القيمة الافتراضية لاحقًا، هل تتغيّر المنتجات المعتمدة عليها بأثر رجعي؟ <i>يحدد «مرتبط» مقابل «منسوخ».</i></div>
+    <div class="q"><b>3.</b> هل حساب الرسوم في صفحة الدفع سيحتاج الوزن لكل خيار (variant) أم يكفي وزن المنتج؟ <i>يحدد ما إذا كان الوزن الافتراضي يُطبَّق على الخيارات.</i></div>
+    <div class="q"><b>4.</b> ما القيمة الفعلية لنسبة الجاهزية اليوم في Looker (كم منتجًا مكتملًا من الإجمالي)؟ <i>يحدد الهدف الرقمي للمقياس الأساسي: رفع نسبة المنتجات المكتملة.</i></div>
+    <div class="q"><b>5.</b> هل الاسم الإنجليزي يُغذّي تلقائيًا من ترجمة المتجر إن وُجدت، أم يبقى فارغًا حتى يعبّئه التاجر؟ <i>يحدد خطوة تعبئة تلقائية أولى قد ترفع الجاهزية دون أي إدخال.</i></div>
+    <div class="q"><b>6.</b> أي المعرّفات (MPN / GTIN) تطلبها شركات الشحن المتكاملة فعليًا اليوم؟ <i>يحدد وزنها في مؤشر الجاهزية وإن كانت تستحق عمودًا مباشرًا.</i></div>
+    <p style="margin-top:14px;color:var(--dark-100);font-size:12.5px">بيانات هذا النموذج تجريبية (متجر عبايات افتراضي «أصايل لاين») لتوضيح سيناريو المنتجات المتشابهة.</p>`;
+  showOverlay(); $('#notes').classList.add('show');
+}
+
+render();
+</script>
+</body>
+</html>
