@@ -96,7 +96,7 @@ svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-
 .panel-body{padding:20px}
 
 /* ============ Summary strip ============ */
-.summary{display:grid;grid-template-columns:minmax(300px,1.4fr) repeat(4,minmax(150px,1fr));gap:16px;margin-bottom:16px}
+.summary{display:grid;grid-template-columns:minmax(300px,1.5fr) repeat(5,minmax(140px,1fr));gap:16px;margin-bottom:16px}
 @media (max-width:1100px){.summary{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.summary{grid-template-columns:1fr}}
 .tile{background:#fff;border:1px solid var(--gray-400);border-radius:var(--radius-xl);padding:16px 18px;display:flex;flex-direction:column;gap:8px;min-height:104px}
@@ -108,6 +108,8 @@ svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-
 .tile .bar i{display:block;height:100%}
 .tile .legend{display:flex;gap:14px;font-size:12px;color:var(--dark-100);flex-wrap:wrap}
 .tile .legend b{display:inline-block;width:8px;height:8px;border-radius:50%;margin-inline-end:5px;vertical-align:middle}
+.tile .lc{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--primary);background:var(--primary-100);border-radius:var(--radius);padding:8px 10px;margin-top:2px}
+.tile .lc svg{flex:none;margin-top:2px}
 .tile.filter{cursor:pointer;transition:border-color .15s,box-shadow .15s;text-align:start}
 .tile.filter:hover{border-color:var(--primary-400)}
 .tile.filter.on{border-color:var(--primary);box-shadow:inset 0 0 0 1px var(--primary);background:var(--primary-50)}
@@ -138,7 +140,10 @@ svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-
 .inp .unit{color:var(--dark-100);font-size:13px;border-inline-start:1px solid var(--gray-400);padding-inline-start:10px;height:60%;display:flex;align-items:center}
 .inp.inherit{border-style:dashed;background:var(--gray-100)}
 .inp.inherit input{color:var(--dark-100)}
-.inp.warn{border-color:var(--danger-200)}
+.inp.warn{border-color:var(--warning-200);background:var(--warning-100)}
+.hint{font-size:11px;color:var(--warning-700);margin-top:4px;white-space:nowrap}
+.tbl td .hint{position:absolute}
+.tbl td{position:relative}
 /* combobox trigger */
 .combo{display:flex;align-items:center;gap:8px;height:42px;border:1px solid var(--gray-500);border-radius:var(--radius);background:#fff;padding:0 12px;width:100%;text-align:start;transition:border-color .15s,box-shadow .15s;min-width:0}
 .combo:hover{border-color:var(--primary-400)}
@@ -153,6 +158,8 @@ svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-
 .src{display:inline-flex;align-items:center;gap:4px;font-size:11px;border-radius:20px;padding:1px 8px;white-space:nowrap;flex:none}
 .src.def{background:var(--gray-300);color:var(--dark-100);border:1px solid var(--gray-500)}
 .src.cus{background:var(--info-100);color:var(--info-700);border:1px solid var(--info-200)}
+.src.inc{background:var(--warning-100);color:var(--warning-700);border:1px solid var(--warning-200)}
+.combo.warn{border-color:var(--warning-200)}
 .reset-def{width:26px;height:26px;border-radius:var(--radius-sm);display:grid;place-items:center;color:var(--dark-300);flex:none;opacity:0;transition:opacity .15s}
 .reset-def:hover{background:var(--primary-100);color:var(--primary)}
 .cell:hover .reset-def,.reset-def:focus-visible{opacity:1}
@@ -203,7 +210,8 @@ svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-
 @media (max-width:900px){.bulkbar{flex-wrap:wrap}.bulkbar .spacer{display:none}}
 
 .tblwrap{overflow-x:auto;border-radius:var(--radius-xl)}
-table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1240px}
+table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1180px;font-size:13.5px}
+.tbl td:nth-child(3){max-width:250px}
 .tbl th{font-weight:500;font-size:13px;color:var(--dark);text-align:start;padding:14px 12px;background:var(--gray-100);border-bottom:1px solid var(--gray-400);white-space:nowrap;position:sticky;top:0;z-index:2}
 .tbl th .h{display:inline-flex;align-items:center;gap:6px}
 .tbl th .q{color:var(--dark-300);cursor:help}
@@ -220,22 +228,22 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1240px}
 .prod{display:flex;align-items:center;gap:12px;min-width:0}
 .prod .img{width:44px;height:44px;border-radius:var(--radius);background:var(--gray-300);border:1px solid var(--gray-400);display:grid;place-items:center;color:var(--gray-600);flex:none;overflow:hidden}
 .prod .img.sw{border:0}
-.prod .nm{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.prod .nm{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
 .prod .meta{font-size:12px;color:var(--dark-100);display:flex;gap:8px;margin-top:2px}
 .prod .meta .cat{background:var(--gray-300);border-radius:4px;padding:0 6px}
 .cell{display:flex;align-items:center;gap:6px;min-width:0}
 .cell .combo,.cell .inp{flex:1}
 .cell .combo.sm .v{font-size:13.5px}
 .weight-cell{display:flex;align-items:center;gap:6px}
-.weight-cell .inp{width:132px}
+.weight-cell .inp{width:118px}
 .weight-cell .inp input{text-align:start;width:52px}
 .opts{color:var(--dark-100);font-size:12.5px;display:flex;align-items:center;gap:6px;height:38px;border:1px dashed var(--gray-500);border-radius:var(--radius);padding:0 10px;width:132px;justify-content:space-between}
-.ids{display:flex;gap:6px;flex-wrap:nowrap}
-.idc{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:4px 10px;font-size:12px;border:1px solid var(--gray-500);color:var(--dark-100);background:#fff;white-space:nowrap}
+.ids{display:flex;gap:4px;flex-wrap:nowrap}
+.idc{display:inline-flex;align-items:center;gap:4px;border-radius:20px;padding:3px 8px;font-size:11.5px;border:1px solid var(--gray-500);color:var(--dark-100);background:#fff;white-space:nowrap}
 .idc.ok{border-color:var(--success-200);background:var(--success-100);color:var(--success-700)}
 .idc svg{width:12px;height:12px}
 .idc.add{border-style:dashed}
-.idsbtn{display:flex;gap:6px;align-items:center;text-align:start}
+.idsbtn{display:flex;gap:4px;align-items:center;text-align:start}
 .idsbtn:hover .idc{border-color:var(--primary-400)}
 .ready{display:flex;align-items:center;gap:8px;justify-content:flex-start}
 .ready svg{width:24px;height:24px;transform:rotate(-90deg)}
@@ -258,10 +266,8 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1240px}
 /* ============ Drawer / modal ============ */
 .overlay{position:fixed;inset:0;background:rgba(14,61,73,.35);z-index:90;display:none;backdrop-filter:blur(1px)}
 .overlay.show{display:block}
-.drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;width:min(520px,100%);background:#fff;z-index:100;box-shadow:var(--shadow-lg);transform:translateX(-110%);transition:transform .25s ease;display:flex;flex-direction:column}
-[dir="rtl"] .drawer{transform:translateX(-110%)}
-.drawer.show{transform:none}
-.drawer.start{inset-inline-end:auto;inset-inline-start:0;transform:translateX(110%)}
+.drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;width:min(520px,100%);background:#fff;z-index:100;box-shadow:var(--shadow-lg);transform:translateX(-110%);transition:transform .25s ease;display:flex;flex-direction:column;visibility:hidden}
+.drawer.show{transform:none;visibility:visible}
 .drawer .dh{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid var(--gray-400)}
 .drawer .dh h3{margin:0;font-size:16px;font-weight:700;flex:1}
 .drawer .db{flex:1;overflow:auto;padding:22px}
@@ -313,7 +319,7 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1240px}
 .toast button{color:var(--secondary);font-weight:700;text-decoration:underline}
 
 /* proto toolbar (outside Salla chrome) */
-.proto{position:fixed;bottom:calc(var(--footer-h) + 16px);inset-inline-start:16px;z-index:60;display:flex;gap:6px;background:#1F2937;color:#fff;border-radius:30px;padding:6px 8px 6px 14px;align-items:center;font-size:12.5px;box-shadow:var(--shadow-lg)}
+.proto{display:flex;gap:6px;background:#1F2937;color:#fff;border-radius:30px;padding:6px 8px 6px 14px;align-items:center;font-size:12.5px;box-shadow:var(--shadow-lg)}
 .proto b{color:#A3FFE5;margin-inline-end:4px}
 .proto button{background:rgba(255,255,255,.12);color:#fff;border-radius:20px;padding:5px 12px}
 .proto button:hover{background:rgba(255,255,255,.22)}
@@ -370,7 +376,7 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1240px}
   <div class="crumbs">الشحن والتوصيل <svg class="i" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg> <b>جاهزية الشحن الدولي</b></div>
 
   <div class="banner" id="banner">
-    <div class="t"><svg class="i" viewBox="0 0 24 24"><path d="M4 4h16v13H8l-4 3z"/><path d="M8 9h8M8 12h5"/></svg> جهّز بيانات الجمارك مرة واحدة كقيم افتراضية، ثم عدّل الاستثناءات فقط. هذه البيانات تُستخدم لاحقًا لحساب الرسوم الجمركية والضرائب وعرضها للعميل في صفحة الدفع.</div>
+    <div class="t"><svg class="i" viewBox="0 0 24 24"><path d="M4 4h16v13H8l-4 3z"/><path d="M8 9h8M8 12h5"/></svg> هذه الصفحة هي مرجع بيانات شحناتك الدولية. جهّز بيانات الجمارك مرة واحدة كقيم افتراضية ثم عدّل الاستثناءات فقط، لتُحتسب الرسوم الجمركية والضرائب (Landed Cost) عبر DHL وأرامكس وتظهر للعميل في صفحة الدفع.</div>
     <button class="btn btn-primary btn-sm">اعرف أكثر</button>
     <button class="x" aria-label="إغلاق" onclick="document.getElementById('banner').hidden=true"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
@@ -442,12 +448,12 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1240px}
           <tr>
             <th style="width:44px"><span class="cb" id="cb-all" role="checkbox" aria-label="تحديد الكل" tabindex="0" onclick="togglePageSelection()" onkeydown="if(event.key===' '){event.preventDefault();togglePageSelection()}"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span></th>
             <th>اسم المنتج</th>
-            <th><span class="h">رمز التنسيق الجمركي <span class="q" title="رمز HS المكوّن من 6 أرقام حسب النظام المنسّق. يُستخدم لتحديد الرسوم الجمركية.">ⓘ</span></span></th>
+            <th><span class="h">رمز التنسيق الجمركي <span class="q" title="الرمز المكتمل من 8 إلى 10 أرقام (HS + البند الجمركي). الرموز القديمة المكوّنة من 6 أرقام تُعدّ غير مكتملة.">ⓘ</span></span></th>
             <th><span class="h">الوزن الفعلي <span class="q" title="الوزن الفعلي للمنتج بعد التغليف.">ⓘ</span></span></th>
             <th><span class="h">بلد المنشأ <span class="q" title="البلد الذي صُنع فيه المنتج، لا بلد الشحن.">ⓘ</span></span></th>
-            <th><span class="h">الاسم بالإنجليزية <span class="q" title="اسم مستقل عن اسم المنتج في المتجر، يظهر في بوليصة الشحن والبيان الجمركي.">ⓘ</span></span></th>
-            <th><span class="h">المعرّفات <span class="q" title="SKU معرّف التاجر · MPN معرّف المصنّع · GTIN/EAN المعرّف القياسي">ⓘ</span></span></th>
-            <th><span class="h">جاهزية الشحن الدولي <span class="q" title="الرمز الجمركي 30% · الوزن 25% · بلد المنشأ 20% · الاسم الإنجليزي 15% · المعرّفات 10%">ⓘ</span></span></th>
+            <th><span class="h">اسم المنتج بالإنجليزية <span class="q" title="مستقل عن اسم المنتج في المتجر. يجب أن يتناسق مع رمز التصنيف الجمركي، ونقصه يخفض الجاهزية.">ⓘ</span></span></th>
+            <th><span class="h">المعرّفات <span class="q" title="SKU معرّف التاجر (من صفحة المنتج) · MPN معرّف المصنّع · GTIN / EAN / ISBN المعرّف القياسي — كلها تدخل في الجاهزية">ⓘ</span></span></th>
+            <th><span class="h">جاهزية الشحن الدولي <span class="q" title="الرمز الجمركي 25% · الوزن 15% · بلد المنشأ 15% · الاسم العربي 5% · الاسم الإنجليزي 15% · SKU 10% · MPN 5% · المعرّف القياسي 10%">ⓘ</span></span></th>
           </tr>
         </thead>
         <tbody id="tbody"></tbody>
@@ -463,6 +469,7 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1240px}
   <span class="chg" id="chg"></span>
   <div class="spacer"></div>
   <button class="btn btn-white btn-lg" id="cancel" type="button" onclick="cancelAll()" disabled>إلغاء</button>
+  <div class="proto"><b>نموذج مقترح</b><button type="button" onclick="openNotes()">عن المقترح</button><button type="button" onclick="resetData()">إعادة ضبط البيانات</button></div>
 </footer>
 
 <!-- ===================== Popover ===================== -->
@@ -477,7 +484,7 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1240px}
 </aside>
 
 <!-- Filter drawer -->
-<aside class="drawer start" id="fdrawer" aria-hidden="true">
+<aside class="drawer" id="fdrawer" aria-hidden="true">
   <div class="dh"><h3>تصفية</h3><button class="xbtn" onclick="closeAll()" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="db" id="fd-body"></div>
   <div class="df"><button class="btn btn-primary" onclick="closeAll()">عرض النتائج</button><button class="btn btn-white" onclick="resetFilters()">إعادة تعيين</button></div>
@@ -520,55 +527,59 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1240px}
 </div>
 
 <div class="toast" id="toast"></div>
-<div class="proto"><b>نموذج مقترح</b><button type="button" onclick="openNotes()">عن المقترح</button><button type="button" onclick="resetData()">إعادة ضبط البيانات</button></div>
+
 
 <script>
 /* =====================================================================
    Data
 ===================================================================== */
+/* HS codes: the complete tariff line is 8–10 digits (6-digit HS + GCC/ZATCA subheading). */
 const HS = [
-  {code:'620444', label:'فساتين وعبايات نسائية من ألياف اصطناعية'},
-  {code:'621142', label:'ملابس نسائية أخرى من قطن'},
-  {code:'621430', label:'شالات وطرح وأوشحة من ألياف تركيبية'},
-  {code:'611780', label:'إكسسوارات ملابس أخرى (أحزمة، أربطة)'},
-  {code:'610443', label:'فساتين محبوكة من ألياف تركيبية'},
-  {code:'330300', label:'عطور وماء تواليت (Eau de Parfum, Cologne)'},
-  {code:'420222', label:'حقائب يد بسطح خارجي من لدائن أو نسيج'},
-  {code:'711719', label:'حلي مقلّدة أخرى'},
-  {code:'640419', label:'أحذية بنعل خارجي من مطاط أو لدائن'},
-  {code:'330499', label:'مستحضرات تجميل وعناية بالبشرة'},
+  {code:'62044400', label:'فساتين وعبايات نسائية من ألياف اصطناعية'},
+  {code:'62114200', label:'ملابس نسائية أخرى من قطن'},
+  {code:'62143000', label:'شالات وطرح وأوشحة من ألياف تركيبية'},
+  {code:'61178000', label:'إكسسوارات ملابس أخرى (أحزمة، أربطة)'},
+  {code:'61044300', label:'فساتين محبوكة من ألياف تركيبية'},
+  {code:'33030010', label:'عطور وماء تواليت (Eau de Parfum, Cologne)'},
+  {code:'42022200', label:'حقائب يد بسطح خارجي من لدائن أو نسيج'},
+  {code:'71171900', label:'حلي مقلّدة أخرى'},
+  {code:'64041900', label:'أحذية بنعل خارجي من مطاط أو لدائن'},
+  {code:'33049900', label:'مستحضرات تجميل وعناية بالبشرة'},
 ];
+const hsDigits = c=>String(c||'').replace(/\D/g,'');
+const hsComplete = c=>{const d=hsDigits(c);return d.length>=8&&d.length<=10;};
+const fmtHs = c=>{const d=hsDigits(c); if(!d) return ''; return d.slice(0,4)+(d.length>4?'.'+d.slice(4,6):'')+(d.length>6?'.'+d.slice(6,8):'')+(d.length>8?'.'+d.slice(8,10):'');};
 const COUNTRIES = [
   {code:'SA',name:'السعودية',flag:'🇸🇦'},{code:'AE',name:'الإمارات',flag:'🇦🇪'},{code:'KW',name:'الكويت',flag:'🇰🇼'},{code:'QA',name:'قطر',flag:'🇶🇦'},
   {code:'BH',name:'البحرين',flag:'🇧🇭'},{code:'OM',name:'عُمان',flag:'🇴🇲'},{code:'TR',name:'تركيا',flag:'🇹🇷'},{code:'CN',name:'الصين',flag:'🇨🇳'},{code:'IN',name:'الهند',flag:'🇮🇳'},{code:'EG',name:'مصر',flag:'🇪🇬'},
 ];
 const SWATCH = {'عبايات':'linear-gradient(135deg,#2B2B2B,#4A4A4A)','شيلات وطرح':'linear-gradient(135deg,#6B4E3D,#A67C5B)','إكسسوارات':'linear-gradient(135deg,#C9A24D,#E8D28C)','عطور':'linear-gradient(135deg,#7C5CBF,#B49BE8)','حقائب':'linear-gradient(135deg,#8C3B3B,#C97C7C)'};
 
-function P(n,ar,en,cat,o={}){ return Object.assign({id:n,name:ar,cat,sku:'ASL-'+String(n).padStart(3,'0'),hs:'',weight:null,unit:'kg',country:'',nameEn:'',mpn:'',gtinType:'GTIN-13',gtin:''},o,{nameEn:o.nameEn??''}); }
+function P(n,ar,en,cat,o={}){ return Object.assign({id:n,name:ar,cat,sku:'ASL-'+String(n).padStart(3,'0'),hs:'',weight:null,unit:'kg',country:'',nameEn:'',mpn:'',gtinType:'GTIN',gtin:''},o,{nameEn:o.nameEn??''}); }
 const SEED = [
-  P(1,'عباية كلاسيك سوداء كريب','Classic Black Crepe Abaya','عبايات',{hs:'620444',weight:0.6,country:'SA',nameEn:'Classic Black Crepe Abaya',mpn:'ASL-CR-BLK',gtin:'6281000012345'}),
-  P(2,'عباية مطرزة بخيوط ذهبية','','عبايات',{hs:'620444',weight:0.75,country:'SA',nameEn:'Gold Embroidered Abaya'}),
-  P(3,'عباية كلوش بأكمام واسعة','','عبايات',{hs:'620444',nameEn:'Flared Wide-Sleeve Abaya'}),
-  P(4,'عباية ملكية بحرير مطفي','','عبايات',{hs:'620444',weight:0.8}),
+  P(1,'عباية كلاسيك سوداء كريب','Classic Black Crepe Abaya','عبايات',{hs:'62044400',weight:0.6,country:'SA',nameEn:'Classic Black Crepe Abaya',mpn:'ASL-CR-BLK',gtin:'6281000012345'}),
+  P(2,'عباية مطرزة بخيوط ذهبية','','عبايات',{hs:'62044400',weight:0.75,country:'SA',nameEn:'Gold Embroidered Abaya'}),
+  P(3,'عباية كلوش بأكمام واسعة','','عبايات',{hs:'62044400',nameEn:'Flared Wide-Sleeve Abaya'}),
+  P(4,'عباية ملكية بحرير مطفي','','عبايات',{hs:'62044400',weight:0.8}),
   P(5,'عباية بشت بني فاتح','','عبايات',{hs:'620444',country:'AE'}),
-  P(6,'عباية يومية بسيطة — رمادي','','عبايات',{hs:'620444'}),
-  P(7,'عباية حرير مع شيلة مطابقة','','عبايات',{hs:'620444',weight:0.9,nameEn:'Silk Abaya with Matching Shayla'}),
-  P(8,'عباية مفتوحة بأزرار لؤلؤ','','عبايات',{hs:'620444'}),
-  P(9,'عباية دبل شيفون كحلي','','عبايات',{hs:'620444',country:'SA'}),
+  P(6,'عباية يومية بسيطة — رمادي','','عبايات',{hs:'62044400'}),
+  P(7,'عباية حرير مع شيلة مطابقة','','عبايات',{hs:'62044400',weight:0.9,nameEn:'Silk Abaya with Matching Shayla'}),
+  P(8,'عباية مفتوحة بأزرار لؤلؤ','','عبايات',{hs:'62044400'}),
+  P(9,'عباية دبل شيفون كحلي','','عبايات',{hs:'62044400',country:'SA'}),
   P(10,'عباية كتان صيفية بيج','','عبايات',{}),
   P(11,'عباية رياضية قابلة للطي','','عبايات',{}),
   P(12,'عباية مقلمة نيود','','عبايات',{weight:0.55}),
   P(13,'عباية كاب بقصة كيمونو','','عبايات',{}),
-  P(14,'شيلة شيفون سوداء','','شيلات وطرح',{hs:'621430',weight:0.12,country:'SA',nameEn:'Black Chiffon Shayla',gtin:'6281000012352'}),
-  P(15,'شيلة كريب مطرزة','','شيلات وطرح',{hs:'621430',weight:0.15}),
+  P(14,'شيلة شيفون سوداء','','شيلات وطرح',{hs:'62143000',weight:0.12,country:'SA',nameEn:'Black Chiffon Shayla',gtin:'6281000012352'}),
+  P(15,'شيلة كريب مطرزة','','شيلات وطرح',{hs:'62143000',weight:0.15}),
   P(16,'طرحة قطن ناعمة — عرض 3','','شيلات وطرح',{}),
   P(17,'نقاب طبقتين','','شيلات وطرح',{hs:'621430'}),
-  P(18,'حزام عباية جلد أسود','','إكسسوارات',{hs:'611780',weight:0.2,country:'TR',nameEn:'Black Leather Abaya Belt',mpn:'BLT-09'}),
-  P(19,'بروش عباية ذهبي','','إكسسوارات',{hs:'711719',weight:0.05,country:'CN'}),
-  P(20,'دبابيس شيلة مغناطيسية (6 قطع)','','إكسسوارات',{country:'CN'}),
-  P(21,'عطر أصايل عود 50 مل','','عطور',{hs:'330300',weight:0.35,country:'AE',nameEn:'Asayel Oud EDP 50ml',gtin:'6281000019876'}),
+  P(18,'حزام عباية جلد أسود','','إكسسوارات',{hs:'61178000',weight:0.2,country:'TR',nameEn:'Black Leather Abaya Belt',mpn:'BLT-09'}),
+  P(19,'بروش عباية ذهبي','','إكسسوارات',{hs:'71171900',weight:0.05,country:'CN'}),
+  P(20,'دبابيس شيلة مغناطيسية (6 قطع)','','إكسسوارات',{country:'CN',sku:''}),
+  P(21,'عطر أصايل عود 50 مل','','عطور',{hs:'33030010',weight:0.35,country:'AE',nameEn:'Asayel Oud EDP 50ml',gtin:'6281000019876'}),
   P(22,'بخور عود معتق 100 جم','','عطور',{weight:0.18,country:'SA'}),
-  P(23,'حقيبة يد جلد صناعي — بيج','','حقائب',{hs:'420222',country:'CN'}),
+  P(23,'حقيبة يد جلد صناعي — بيج','','حقائب',{hs:'42022200',country:'CN'}),
   P(24,'حقيبة كروس صغيرة سوداء','','حقائب',{hs:'420222',weight:0.4,country:'CN',nameEn:'Mini Black Crossbody Bag'}),
 ];
 function seedState(){
@@ -603,15 +614,19 @@ function eff(p,f){
   if(f==='country'){ if(p.country) return {v:p.country,src:'custom'}; if(d.country) return {v:d.country,src:'default'}; return {v:'',src:'none'}; }
   if(f==='weight'){ if(p.weight!=null&&p.weight!=='') return {v:p.weight,u:p.unit,src:'custom'}; if(d.weight!=null&&d.weight!=='') return {v:d.weight,u:d.unit,src:'default'}; return {v:null,src:'none'}; }
 }
-const W = {hs:30,weight:25,country:20,nameEn:15,ids:10};
+/* Readiness weights — every field the PM named in the Loom counts. Sum = 100. */
+const W = {hs:25,weight:15,country:15,nameAr:5,nameEn:15,sku:10,mpn:5,gtin:10};
 function readiness(p){
   let s=0, todo=[];
-  if(eff(p,'hs').src!=='none') s+=W.hs; else todo.push('الرمز الجمركي');
+  const h=eff(p,'hs');
+  if(h.src==='none') todo.push('الرمز الجمركي'); else if(!hsComplete(h.v)){ s+=Math.round(W.hs/2); todo.push('إكمال الرمز الجمركي'); } else s+=W.hs;
   if(eff(p,'weight').src!=='none') s+=W.weight; else todo.push('الوزن');
   if(eff(p,'country').src!=='none') s+=W.country; else todo.push('بلد المنشأ');
+  if(p.name.trim()) s+=W.nameAr; else todo.push('الاسم العربي');
   if(p.nameEn.trim()) s+=W.nameEn; else todo.push('الاسم الإنجليزي');
-  const idn=(p.sku?1:0)+((p.mpn||p.gtin)?1:0);
-  s+= idn===2?W.ids : idn===1?W.ids/2 : 0; if(idn<2) todo.push('المعرّفات');
+  if(p.sku.trim()) s+=W.sku; else todo.push('SKU');
+  if(p.mpn.trim()) s+=W.mpn; else todo.push('MPN');
+  if(p.gtin.trim()) s+=W.gtin; else todo.push('المعرّف القياسي');
   return {pct:s,todo};
 }
 const ringColor = pct=> pct>=100?'var(--success)': pct>=60?'var(--info)': pct>=30?'var(--danger)':'var(--gray-600)';
@@ -619,10 +634,15 @@ function ring(pct){ const r=9, c=2*Math.PI*r; return `<svg viewBox="0 0 24 24" a
 
 function isMissing(p,k){
   if(k==='hs') return eff(p,'hs').src==='none';
+  if(k==='hsIncomplete') return eff(p,'hs').src!=='none' && !hsComplete(eff(p,'hs').v);
+  if(k==='hsAny') return isMissing(p,'hs')||isMissing(p,'hsIncomplete');
   if(k==='weight') return eff(p,'weight').src==='none';
   if(k==='country') return eff(p,'country').src==='none';
   if(k==='nameEn') return !p.nameEn.trim();
-  if(k==='ids') return !(p.mpn||p.gtin);
+  if(k==='sku') return !p.sku.trim();
+  if(k==='mpn') return !p.mpn.trim();
+  if(k==='gtin') return !p.gtin.trim();
+  if(k==='ids') return isMissing(p,'sku')||isMissing(p,'mpn')||isMissing(p,'gtin');
 }
 function usesDefault(p){ return ['hs','weight','country'].some(f=>eff(p,f).src==='default'); }
 function hasCustom(p){ return ['hs','weight','country'].some(f=>eff(p,f).src==='custom'); }
@@ -664,12 +684,14 @@ function renderSummary(){
       <div class="lbl">جاهزية المتجر للشحن الدولي</div>
       <div class="val num">${ready} <small>من ${n} منتج مكتمل البيانات</small></div>
       <div class="bar" aria-hidden="true"><i style="width:${ready/n*100}%;background:var(--success)"></i><i style="width:${partial/n*100}%;background:var(--info)"></i></div>
-      <div class="legend"><span><b style="background:var(--success)"></b>مكتمل ${ready}</span><span><b style="background:var(--info)"></b>ناقص جزئيًا ${partial}</span><span><b style="background:var(--gray-500)"></b>بدون بيانات ${none}</span><span style="margin-inline-start:auto">القيم الافتراضية تغطي <bdi class="num">${viaDefault}</bdi> ${viaDefault===1?'حقلًا':'حقلًا'}</span></div>
+      <div class="legend"><span><b style="background:var(--success)"></b>مكتمل ${ready}</span><span><b style="background:var(--info)"></b>ناقص جزئيًا ${partial}</span><span><b style="background:var(--gray-500)"></b>بدون بيانات ${none}</span><span style="margin-inline-start:auto">القيم الافتراضية تغطي <bdi class="num">${viaDefault}</bdi> حقلًا</span></div>
+      <div class="lc"><svg class="i" viewBox="0 0 24 24"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg> المنتجات المكتملة فقط تُحتسب رسومها الجمركية والضرائب (Landed Cost) عبر DHL وأرامكس وتظهر للعميل عند الدفع.</div>
     </div>
-    ${tile('hs','بدون رمز جمركي','<svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>')}
+    ${tile('hsAny','رمز جمركي ناقص أو غير مكتمل','<svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>')}
     ${tile('weight','بدون وزن فعلي','<svg class="i" viewBox="0 0 24 24"><path d="M6 8h12l2 12H4z"/><circle cx="12" cy="5" r="2"/></svg>')}
     ${tile('country','بدون بلد منشأ','<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>')}
-    ${tile('nameEn','بدون اسم إنجليزي','<svg class="i" viewBox="0 0 24 24"><path d="M4 5h9M8.5 5v14M12 19l4-9 4 9M13.5 16h5"/></svg>')}`;
+    ${tile('nameEn','بدون اسم إنجليزي','<svg class="i" viewBox="0 0 24 24"><path d="M4 5h9M8.5 5v14M12 19l4-9 4 9M13.5 16h5"/></svg>')}
+    ${tile('ids','معرّفات ناقصة (SKU / MPN / GTIN)','<svg class="i" viewBox="0 0 24 24"><path d="M4 5v14M8 5v14M11 5v14M15 5v14M18 5v14M21 5v14"/></svg>')}`;
 }
 
 function comboHtml(kind,val,opts={}){
@@ -678,7 +700,8 @@ function comboHtml(kind,val,opts={}){
   if(kind==='hs'){
     const h=hsOf(val);
     if(!val) return `<span class="ph">${ph||'اختر رمزًا'}</span><svg class="i chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>`;
-    return `<span class="v"><b class="num">${esc(val)}</b><span class="d">${h?esc(h.label):'رمز مخصّص'}</span></span>${inherit?'<span class="src def">افتراضي</span>':''}<svg class="i chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>`;
+    const inc=!hsComplete(val);
+    return `<span class="v"><b class="num">${esc(fmtHs(val))}</b><span class="d">${h?esc(h.label):'رمز مخصّص'}</span></span>${inc?'<span class="src inc" title="الرمز المكتمل من 8 إلى 10 أرقام">غير مكتمل</span>':''}${inherit?'<span class="src def">افتراضي</span>':''}<svg class="i chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>`;
   }
   if(kind==='country'){
     const c=ctryOf(val);
@@ -716,7 +739,7 @@ function renderSuggest(){
   const s=suggestion(); const el=$('#suggest');
   if(!s){ el.innerHTML=''; return; }
   el.innerHTML=`<div class="suggest"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg></div>
-    <div class="tx"><b>اقتراح: <bdi class="num">${s.n}</bdi> من <bdi class="num">${s.total}</bdi> منتجًا في «${s.cat}» تستخدم الرمز <bdi class="num">${s.code}</bdi></b><span>تطبيق الرمز نفسه على ${prodN(s.missing.length)} في التصنيف بدون رمز جمركي؟ (${esc(hsOf(s.code)?.label||'')})</span></div>
+    <div class="tx"><b>اقتراح: <bdi class="num">${s.n}</bdi> من <bdi class="num">${s.total}</bdi> منتجًا في «${s.cat}» تستخدم الرمز <bdi class="num">${fmtHs(s.code)}</bdi></b><span>تطبيق الرمز نفسه على ${prodN(s.missing.length)} في التصنيف بدون رمز جمركي؟ (${esc(hsOf(s.code)?.label||'')})</span></div>
     <div class="acts"><button class="btn btn-primary btn-sm" type="button" onclick="applySuggestion()">تطبيق على ${prodN(s.missing.length)}</button><button class="btn btn-ghost btn-sm" type="button" onclick="ui.suggestDismissed=true;renderSuggest()">تجاهل</button></div></div>`;
 }
 
@@ -733,10 +756,10 @@ function renderTable(){
     return `<tr class="${ui.selected.has(p.id)?'sel':''} ${changed.has(p.id)?'chg':''}" data-id="${p.id}">
       <td><span class="cb ${ui.selected.has(p.id)?'on':''}" role="checkbox" aria-checked="${ui.selected.has(p.id)}" tabindex="0" aria-label="تحديد ${esc(p.name)}" onclick="toggleSel(${p.id})" onkeydown="if(event.key===' '){event.preventDefault();toggleSel(${p.id})}"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span></td>
       <td><div class="prod"><div class="img sw" style="background:${SWATCH[p.cat]||'var(--gray-300)'}"></div><div style="min-width:0"><div class="nm" title="${esc(p.name)}">${esc(p.name)}</div><div class="meta"><span class="num">${esc(p.sku)}</span><span class="cat">${esc(p.cat)}</span></div></div></div></td>
-      <td><div class="cell"><button class="combo sm ${h.src==='default'?'inherit':''}" type="button" onclick="openHsPop(this,{scope:'row',id:${p.id}})">${comboHtml('hs',h.v,{src:h.src,ph:'رمز التنسيق الجمركي'})}</button>${resetBtn('hs',h.src)}</div></td>
+      <td><div class="cell"><button class="combo sm ${h.src==='default'?'inherit':''} ${h.src!=='none'&&!hsComplete(h.v)?'warn':''}" type="button" onclick="openHsPop(this,{scope:'row',id:${p.id}})">${comboHtml('hs',h.v,{src:h.src,ph:'رمز التنسيق الجمركي'})}</button>${resetBtn('hs',h.src)}</div></td>
       <td><div class="cell weight-cell"><div class="inp sm ${w.src==='default'?'inherit':''}"><input type="number" min="0" step="0.05" inputmode="decimal" class="num" placeholder="الوزن" value="${w.src==='none'?'':w.v}" aria-label="الوزن الفعلي" oninput="setWeight(${p.id},this.value)"><select aria-label="الوحدة" onchange="setUnit(${p.id},this.value)"><option value="kg" ${w.u!=='g'?'selected':''}>كجم</option><option value="g" ${w.u==='g'?'selected':''}>جم</option></select></div>${w.src==='default'?'<span class="src def">افتراضي</span>':''}${resetBtn('weight',w.src)}</div></td>
       <td><div class="cell"><button class="combo sm ${c.src==='default'?'inherit':''}" type="button" onclick="openCountryPop(this,{scope:'row',id:${p.id}})">${comboHtml('country',c.v,{src:c.src,ph:'بلد المنشأ'})}</button>${resetBtn('country',c.src)}</div></td>
-      <td><div class="inp sm" style="min-width:190px" dir="auto"><input type="text" value="${esc(p.nameEn)}" placeholder="English product name" aria-label="الاسم بالإنجليزية" style="direction:ltr;text-align:left" oninput="setField(${p.id},'nameEn',this.value)"></div></td>
+      <td><div class="inp sm ${p.nameEn.trim()?'':'warn'}" style="min-width:165px" dir="auto"><input type="text" value="${esc(p.nameEn)}" placeholder="English product name" aria-label="الاسم بالإنجليزية" style="direction:ltr;text-align:left" oninput="setField(${p.id},'nameEn',this.value);this.parentElement.classList.toggle('warn',!this.value.trim());this.parentElement.nextElementSibling.hidden=!!this.value.trim()"></div><div class="hint" ${p.nameEn.trim()?'hidden':''}>مطلوب للجاهزية · يتناسق مع الرمز الجمركي</div></td>
       <td><button class="idsbtn" type="button" onclick="openProduct(${p.id})" title="تعديل المعرّفات">${idc(!!p.sku,'SKU')}${idc(!!p.mpn,'MPN')}${idc(!!p.gtin,'GTIN')}</button></td>
       <td><div class="ready" id="rd-${p.id}">${ring(r.pct)}<span class="pct num">${r.pct}%</span>${r.todo.length?`<span class="todo" title="${esc(r.todo.join('، '))}">ينقص: ${esc(r.todo.slice(0,2).join('، '))}${r.todo.length>2?' +'+(r.todo.length-2):''}</span>`:''}</div></td>
     </tr>`;
@@ -768,7 +791,7 @@ function renderFooter(){
   $('#chg').innerHTML = any ? `الصفوف المحدّثة: <b class="num">${n}</b>${d?' · القيم الافتراضية':''}` : 'لا توجد تغييرات غير محفوظة';
 }
 function renderActiveFilters(){
-  const chips=[]; const lbl={hs:'بدون رمز جمركي',weight:'بدون وزن',country:'بدون بلد منشأ',nameEn:'بدون اسم إنجليزي',ids:'بدون معرّفات'};
+  const chips=[]; const lbl={hs:'بدون رمز جمركي',hsAny:'رمز جمركي ناقص/غير مكتمل',hsIncomplete:'رمز جمركي غير مكتمل',weight:'بدون وزن',country:'بدون بلد منشأ',nameEn:'بدون اسم إنجليزي',sku:'بدون SKU',mpn:'بدون MPN',gtin:'بدون معرّف قياسي',ids:'معرّفات ناقصة'};
   ui.missing.forEach(k=>chips.push(`<span class="af">${lbl[k]}<button type="button" onclick="toggleMissing('${k}')" aria-label="إزالة"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span>`));
   if(ui.source!=='all') chips.push(`<span class="af">${ui.source==='default'?'تعتمد على قيمة افتراضية':'لديها قيمة مخصّصة'}<button type="button" onclick="ui.source='all';render()" aria-label="إزالة"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span>`);
   if(ui.cat) chips.push(`<span class="af">التصنيف: ${esc(ui.cat)}<button type="button" onclick="ui.cat='';render()" aria-label="إزالة"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span>`);
@@ -824,13 +847,16 @@ function openHsPop(anchor,ctx){
   const cur = ctx.scope==='default'?S.defaults.hs: ctx.scope==='bulk'?bulk.hs: eff(prod(ctx.id),'hs').v;
   const pop=$('#pop');
   const draw=(q='')=>{
-    const qq=q.trim();
-    const list=HS.filter(h=>!qq||h.code.includes(qq)||h.label.includes(qq));
-    const custom = /^\d{6}$/.test(qq) && !HS.some(h=>h.code===qq);
+    const qq=q.trim(); const qd=hsDigits(qq);
+    const list=HS.filter(h=>!qq||(qd&&h.code.startsWith(qd))||h.label.includes(qq));
+    const custom = qd.length>=8 && qd.length<=10 && !HS.some(h=>h.code===qd);
+    const short = qd.length>=4 && qd.length<8 && !list.length;
     pop.innerHTML=`<div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="pop-q" placeholder="ابحث بالرمز أو الوصف" value="${esc(q)}" autocomplete="off"></div>
       <div class="list">${list.map(h=>`<button class="opt ${h.code===cur?'sel':''}" type="button" onclick="pickHs('${h.code}')"><span class="code num">${h.code}</span><span class="desc">${esc(h.label)}</span></button>`).join('')||(custom?'':'<div class="empty">لا توجد نتائج مطابقة</div>')}
-      ${custom?`<button class="add" type="button" onclick="pickHs('${qq}',true)"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> إضافة الرمز «<bdi class="num">${qq}</bdi>»</button>`:''}</div>
-      ${ctx.scope==='row'&&S.defaults.hs?`<div class="foot"><span>الافتراضي: <bdi class="num">${S.defaults.hs}</bdi></span><button class="btn btn-ghost btn-sm" type="button" onclick="pickHs('')">استخدام الافتراضي</button></div>`:''}`;
+      ${custom?`<button class="add" type="button" onclick="pickHs('${qd}',true)"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> إضافة الرمز «<bdi class="num">${fmtHs(qd)}</bdi>» واختياره</button>`:''}
+      ${short?`<div class="empty" style="color:var(--warning-700)">الرمز المكتمل من 8 إلى 10 أرقام — أكمل «<bdi class="num">${fmtHs(qd)}</bdi>» ليمكن إضافته.</div>`:''}</div>
+      <div class="foot"><span>الرمز المكتمل: 8–10 أرقام (HS + البند الجمركي)</span></div>
+      ${ctx.scope==='row'&&S.defaults.hs?`<div class="foot"><span>الافتراضي: <bdi class="num">${fmtHs(S.defaults.hs)}</bdi></span><button class="btn btn-ghost btn-sm" type="button" onclick="pickHs('')">استخدام الافتراضي</button></div>`:''}`;
     const inp=$('#pop-q'); inp.oninput=()=>{const v=inp.value; const s=inp.selectionStart; draw(v); const i2=$('#pop-q'); i2.focus(); i2.setSelectionRange(s,s);};
   };
   draw(); placePop(anchor); setTimeout(()=>$('#pop-q')?.focus(),0);
@@ -838,6 +864,7 @@ function openHsPop(anchor,ctx){
 function pickHs(code,isNew){
   if(isNew) HS.push({code,label:'رمز مخصّص أضافه التاجر'});
   const c=popCtx; closePop();
+  if(isNew) toast(`تمت إضافة الرمز ${fmtHs(code)} واختياره`);
   if(c.scope==='default'){ S.defaults.hs=code; render(); }
   else if(c.scope==='bulk'){ bulk.hs=code; renderBulkFields(); renderBulkPreview(); }
   else { prod(c.id).hs=code; render(); }
@@ -896,7 +923,7 @@ function renderBulkPreview(){
   const icon='<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>';
   if(!keys.length){ el.innerHTML=`${icon}<div>لم تحدّد أي حقل بعد. فعّل حقلًا واختر قيمته لترى ما سيتغيّر.</div>`; $('#bulk-apply').disabled=true; return; }
   $('#bulk-apply').disabled=false;
-  el.innerHTML=`${icon}<div>سيتم تحديث:<ul>${keys.map(k=>{const x=plan[k]; return `<li><b>${lbl[k]}</b> → ${k==='weight'?fmtW(x.val,bulk.unit):k==='country'?ctryOf(x.val).name:`<bdi class="num">${x.val}</bdi>`} لـ ${prodN(x.targets.length)}${x.skipped?` <span style="color:var(--warning-700)">(تخطّي ${x.skipped} ${x.skipped===1?'منتج لديه':'لديها'} قيمة مخصّصة)</span>`:''}</li>`}).join('')}</ul></div>`;
+  el.innerHTML=`${icon}<div>سيتم تحديث:<ul>${keys.map(k=>{const x=plan[k]; return `<li><b>${lbl[k]}</b> → ${k==='weight'?fmtW(x.val,bulk.unit):k==='country'?ctryOf(x.val).name:`<bdi class="num">${fmtHs(x.val)}</bdi>`} لـ ${prodN(x.targets.length)}${x.skipped?` <span style="color:var(--warning-700)">(تخطّي ${x.skipped} ${x.skipped===1?'منتج لديه':'لديها'} قيمة مخصّصة)</span>`:''}</li>`}).join('')}</ul></div>`;
 }
 function applyBulk(){
   const plan=bulkPlan(); const before=JSON.stringify(S.products); let touched=new Set();
@@ -916,7 +943,7 @@ function bulkUseDefaults(){
 function applySuggestion(){
   const s=suggestion(); if(!s) return; const before=JSON.stringify(S.products);
   s.missing.forEach(p=>p.hs=s.code); ui.lastBulk=before; render();
-  toast(`تم تطبيق الرمز ${s.code} على ${prodN(s.missing.length)}`, ()=>{ S.products=JSON.parse(ui.lastBulk); render(); toast('تم التراجع'); });
+  toast(`تم تطبيق الرمز ${fmtHs(s.code)} على ${prodN(s.missing.length)}`, ()=>{ S.products=JSON.parse(ui.lastBulk); render(); toast('تم التراجع'); });
 }
 
 /* =====================================================================
@@ -928,12 +955,13 @@ function openProduct(id){
   $('#pd-body').innerHTML=`<div class="fs">
     <div class="pcard"><div class="img" style="background:${SWATCH[p.cat]}"></div><div><div class="nm">${esc(p.name)}</div><div class="sub"><span class="num">${esc(p.sku)}</span> · ${esc(p.cat)} · الجاهزية <b class="num">${r.pct}%</b></div></div></div>
     <h4>الاسم والمعرّفات</h4>
-    <div class="field"><label for="pd-en">اسم المنتج بالإنجليزية</label><div class="inp"><input id="pd-en" dir="ltr" style="text-align:left" value="${esc(p.nameEn)}" placeholder="e.g. Classic Black Crepe Abaya" oninput="setField(${id},'nameEn',this.value);syncRow(${id})"></div><div class="help">مستقل عن اسم المنتج في المتجر — يظهر في بوليصة الشحن والبيان الجمركي.</div></div>
+    <div class="field"><label for="pd-ar">اسم المنتج بالعربية</label><div class="inp" style="background:var(--gray-200)"><input id="pd-ar" value="${esc(p.name)}" readonly aria-readonly="true"></div><div class="help">يُجلب من صفحة المنتج ويدخل في الجاهزية. <a href="#" style="color:var(--primary)">تعديله من صفحة المنتج</a></div></div>
+    <div class="field"><label for="pd-en">اسم المنتج بالإنجليزية</label><div class="inp"><input id="pd-en" dir="ltr" style="text-align:left" value="${esc(p.nameEn)}" placeholder="e.g. Classic Black Crepe Abaya" oninput="setField(${id},'nameEn',this.value);syncRow(${id})"></div><div class="help">مستقل عن اسم المنتج في المتجر ويظهر في بوليصة الشحن والبيان الجمركي. يجب أن يتناسق مع رمز التصنيف الجمركي، ونقصه يخفض الجاهزية.</div></div>
     <div class="twocol">
-      <div class="field"><label for="pd-sku">معرّف المنتج الخاص بالتاجر (SKU)</label><div class="inp"><input id="pd-sku" dir="ltr" style="text-align:left" value="${esc(p.sku)}" oninput="setField(${id},'sku',this.value);syncRow(${id})"></div><div class="help">كودك الداخلي للتعريف بالمنتج.</div></div>
-      <div class="field"><label for="pd-mpn">معرّف المصنّع (MPN)</label><div class="inp"><input id="pd-mpn" dir="ltr" style="text-align:left" value="${esc(p.mpn)}" placeholder="MPN" oninput="setField(${id},'mpn',this.value);syncRow(${id})"></div><div class="help">الكود الذي يخصّصه المصنّع أو المورّد.</div></div>
+      <div class="field"><label for="pd-sku">معرّف المنتج الخاص بالتاجر (SKU)</label><div class="inp"><input id="pd-sku" dir="ltr" style="text-align:left" value="${esc(p.sku)}" oninput="setField(${id},'sku',this.value);syncRow(${id})"></div><div class="help">Merchant Product Identifier — الكود الداخلي الموجود أصلًا في صفحة المنتج، ويدخل هنا في الجاهزية.</div></div>
+      <div class="field"><label for="pd-mpn">معرّف المصنّع (MPN)</label><div class="inp"><input id="pd-mpn" dir="ltr" style="text-align:left" value="${esc(p.mpn)}" placeholder="MPN" oninput="setField(${id},'mpn',this.value);syncRow(${id})"></div><div class="help">Manufacturer Product Identifier — الكود الذي يخصّصه المصنّع أو المورّد للمنتج.</div></div>
     </div>
-    <div class="field"><label for="pd-gtin">المعرّف القياسي الدولي</label><div class="inp"><select id="pd-gtin-t" aria-label="نوع المعرّف" onchange="setField(${id},'gtinType',this.value)"><option ${p.gtinType==='GTIN-13'?'selected':''}>GTIN-13</option><option ${p.gtinType==='EAN'?'selected':''}>EAN</option><option ${p.gtinType==='UPC'?'selected':''}>UPC</option><option ${p.gtinType==='ISBN'?'selected':''}>ISBN</option></select><input id="pd-gtin" dir="ltr" style="text-align:left" inputmode="numeric" value="${esc(p.gtin)}" placeholder="6281000012345" oninput="setField(${id},'gtin',this.value);syncRow(${id})"></div><div class="help">الباركود المعترف به دوليًا (GS1). اختياري لكنه يسرّع التخليص الجمركي.</div></div>
+    <div class="field"><label for="pd-gtin">المعرّف القياسي الدولي</label><div class="inp"><select id="pd-gtin-t" aria-label="نوع المعرّف" onchange="setField(${id},'gtinType',this.value)"><option ${p.gtinType==='GTIN'?'selected':''}>GTIN</option><option ${p.gtinType==='EAN'?'selected':''}>EAN</option><option ${p.gtinType==='UPC'?'selected':''}>UPC</option><option ${p.gtinType==='ISBN'?'selected':''}>ISBN</option></select><input id="pd-gtin" dir="ltr" style="text-align:left" inputmode="numeric" value="${esc(p.gtin)}" placeholder="6281000012345" oninput="setField(${id},'gtin',this.value);syncRow(${id})"></div><div class="help">Standardized Product Identifier — معرّف قياسي دولي للمنتج نفسه (GTIN / EAN / ISBN). يدخل في الجاهزية.</div></div>
     <h4>بيانات الجمارك</h4>
     <div class="field"><label>الرمز الجمركي</label><button class="combo ${eff(p,'hs').src==='default'?'inherit':''}" type="button" onclick="openHsPop(this,{scope:'row',id:${id}})">${comboHtml('hs',eff(p,'hs').v,{src:eff(p,'hs').src})}</button></div>
     <div class="twocol">
@@ -956,7 +984,7 @@ function renderFilterDrawer(){
   $('#fd-body').innerHTML=`
     <div class="fgroup"><h4>المنتجات بحسب البيانات الناقصة</h4>
       <label class="opt"><span class="cb ${ui.missing.size===0?'on':''}" onclick="ui.missing.clear();render();renderFilterDrawer()"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>الكل</label>
-      ${opt('hs','بدون رمز تنسيق جمركي (HS code)')}${opt('weight','بدون وزن فعلي')}${opt('country','بدون بلد منشأ/الصنع')}${opt('nameEn','بدون اسم إنجليزي')}${opt('ids','بدون معرّف مصنّع أو معرّف قياسي')}
+      ${opt('hs','بدون رمز تنسيق جمركي (HS code)')}${opt('hsIncomplete','رمز جمركي غير مكتمل (أقل من 8 أرقام)')}${opt('weight','بدون وزن فعلي')}${opt('country','بدون بلد منشأ/الصنع')}${opt('nameEn','بدون اسم المنتج بالإنجليزية')}${opt('sku','بدون Merchant Product Identifier (SKU)')}${opt('mpn','بدون Manufacturer Product Identifier (MPN)')}${opt('gtin','بدون Standardized Product Identifier (GTIN / EAN / ISBN)')}
     </div>
     <div class="fgroup"><h4>مصدر القيمة <span class="src def" style="font-weight:400">جديد</span></h4>${rad('all','الكل')}${rad('default','تعتمد على قيمة افتراضية')}${rad('custom','لديها قيمة مخصّصة (استثناء)')}</div>
     <div class="fgroup"><h4>تصنيف المنتج</h4><div class="inp"><select style="flex:1;color:var(--dark)" onchange="ui.cat=this.value;render();renderFilterDrawer()"><option value="">كل التصنيفات</option>${catSet.map(c=>`<option ${ui.cat===c?'selected':''}>${esc(c)}</option>`).join('')}</select></div></div>
@@ -989,10 +1017,10 @@ function openNotes(){
     <p>التاجر الذي تتشارك منتجاته بيانات الجمارك نفسها (مصنع واحد، فئة واحدة) مضطر لإدخالها منتجًا منتجًا، فتبقى غالبية المنتجات ناقصة، ولا تتوفر قاعدة بيانات يمكن الاعتماد عليها لاحقًا لحساب الرسوم والضرائب في صفحة الدفع.</p>
     <h3>ما الذي تغيّر مقارنة بالصفحة الحالية</h3>
     <table><tr><th>الحالية (من الفيديو)</th><th>المقترح</th></tr>
-    <tr><td>كل حقل يُعبّأ يدويًا لكل منتج، والجاهزية تُحسب من 3 حقول + وصف عربي/إنجليزي.</td><td><b>قيم افتراضية مرتبطة</b> (بلد المنشأ، الوزن، HS) تُغطّي كل منتج لم يُحدَّد له قيمة، ويظهر مصدر القيمة داخل الخلية (افتراضي / مخصّص) مع زر «استخدام الافتراضي».</td></tr>
+    <tr><td>كل حقل يُعبّأ يدويًا لكل منتج، والرمز الجمركي بـ 6 أرقام.</td><td><b>قيم افتراضية مرتبطة</b> (بلد المنشأ، الوزن، HS) تُغطّي كل منتج لم يُحدَّد له قيمة، ويظهر مصدر القيمة داخل الخلية (افتراضي / مخصّص) مع زر «استخدام الافتراضي».</td></tr>
     <tr><td>لا يوجد تحديد صفوف ولا تعديل جماعي.</td><td><b>تحديد + شريط إجراءات</b>: تعديل جماعي بحقول اختيارية، مع خيار «تعبئة الفارغ فقط» لحماية الاستثناءات، ومعاينة لعدد المنتجات المتأثرة، وتراجع.</td></tr>
     <tr><td>وصف المنتج AR/EN كشارات (+) تفتح محررًا.</td><td><b>اسم إنجليزي مستقل</b> كحقل مباشر في الجدول، و<b>المعرّفات</b> (SKU / MPN / GTIN) في لوحة جانبية واحدة للمنتج.</td></tr>
-    <tr><td>مؤشر جاهزية لكل صف فقط.</td><td><b>ملخّص أعلى الصفحة</b>: مكتمل/ناقص، وبطاقات «بدون رمز/وزن/بلد/اسم» تعمل كتصفية بنقرة واحدة.</td></tr>
+    <tr><td>مؤشر جاهزية لكل صف من 3 حقول + الوصف.</td><td><b>ملخّص أعلى الصفحة</b> يربط الاكتمال بـ Landed Cost، وبطاقات «بدون رمز/وزن/بلد/اسم/معرّفات» تعمل كتصفية بنقرة واحدة. والجاهزية من 8 حقول.</td></tr>
     <tr><td>—</td><td><b>اقتراح ذكي</b>: عند وجود رمز HS سائد في تصنيف، يُقترح تطبيقه على بقية منتجات التصنيف (ملامسة للعنصر «AI Experience» في لوحة البناء).</td></tr>
     <tr><td>تصفية «بحسب البيانات الناقصة».</td><td>نفسها + «مصدر القيمة» + «بدون اسم إنجليزي / معرّفات».</td></tr></table>
     <h3>الخطوات: قبل ← بعد (على بيانات هذا النموذج)</h3>
@@ -1001,24 +1029,29 @@ function openNotes(){
     <ol>
       <li><b>الافتراضي مرتبط لا منسوخ.</b> تغيير القيمة الافتراضية يحدّث كل المنتجات المعتمدة عليها، والاستثناءات لا تتأثر. <i>ما الذي يعكس القرار:</i> إن أكدت الشحن/الجمارك أن القيمة يجب أن تُجمَّد وقت إنشاء الشحنة، فيصبح «نسخًا عند الحفظ» بدل الربط.</li>
       <li><b>التعديل الجماعي يعبّئ الفارغ افتراضيًا ولا يستبدل.</b> يحمي الاستثناءات التي تعب التاجر في ضبطها. <i>ما الذي يعكسه:</i> بيانات تُظهر أن معظم الاستخدامات تصحيح لا تعبئة.</li>
-      <li><b>المعرّفات في لوحة جانبية لا في أعمدة.</b> 3 حقول نادرة التعبئة لا تستحق 3 أعمدة؛ الشارات تكشف حالتها بنظرة. <i>ما الذي يعكسه:</i> إن أصبحت GTIN إلزامية لشركة شحن، تعود عمودًا مباشرًا.</li>
+      <li><b>المعرّفات في لوحة جانبية لا في أعمدة.</b> 3 حقول فريدة لكل منتج (لا تُعمَّم ولا تُعدَّل جماعيًا) لا تستحق 3 أعمدة؛ الشارات تكشف حالتها بنظرة وتدخل كلها في الجاهزية كما طلب الـ PM. <i>ما الذي يعكسه:</i> إن أصبح GTIN إلزاميًا لواجهة Landed Cost، يعود عمودًا مباشرًا.</li>
+      <li><b>الرمز غير المكتمل يُحتسب نصف الوزن لا صفرًا.</b> التاجر الذي أدخل 6 أرقام أقرب للاكتمال ممن لم يدخل شيئًا، والتصفية «غير مكتمل» تقوده لإكماله. <i>ما الذي يعكسه:</i> إن رفضت واجهة الشحن أي رمز أقل من 8 أرقام، يصبح صفرًا.</li>
     </ol>
-    <h3>ما لاحظته في الفيديو المرفق (الصورة فقط)</h3>
-    <ul><li>الجدول الحالي: الاسم، رمز التنسيق الجمركي (قائمة بحث تسمح بإضافة رمز جديد مثل 1222222)، الوزن الفعلي مع وحدة (كجم) و«الوزن الفعلي للخيارات 2/2» للمنتجات ذات الخيارات، بلد المنشأ بعلم، وصف المنتج (عربي/إنجليزي) كشارات، ونسبة الجاهزية (100/90/60/30/0%).</li>
-    <li>الشريط السفلي يعرض «الصفوف المحدّثة: 1» ويفعّل «حفظ» فقط عند وجود تغيير — أبقيت السلوك نفسه.</li>
-    <li>لوحة التصفية: نوع المنتج، الفرع، ماركة المنتج، المنتجات بحسب البيانات الناقصة، تصنيف المنتج — أبقيتها وأضفت «مصدر القيمة».</li>
-    <li><b>تنبيه:</b> لم يتسنَّ تفريغ الصوت في بيئة العمل هذه (مصادر نماذج التفريغ محجوبة)، فالمتطلبات المستخلصة من الفيديو تعتمد على اللقطات فقط. أي متطلب صوتي غير مرئي على الشاشة يحتاج مراجعة.</li></ul>
+    <h3>ما طلبه الـ PM في الفيديو (من التفريغ) وأين يظهر هنا</h3>
+    <table><tr><th>الطلب</th><th>في النموذج</th></tr>
+    <tr><td>الصفحة تصبح المكان الرئيسي لبيانات الشحن الدولي، مرتبطة بـ DHL / Aramex Landed Cost.</td><td>الشريط العلوي وبطاقة الملخّص يربطان الاكتمال بحساب Landed Cost وعرضه للعميل عند الدفع.</td></tr>
+    <tr><td>Bulk Add + Default للرمز الجمركي وبلد المنشأ، مع حرية تعديل منتجات محددة بعد التعميم («الكل الإمارات، وكم واحد الكويت»).</td><td>لوحة القيم الافتراضية (تعميم) + زر «استخدام الافتراضي» لكل خلية (استثناء) + تحديد صفوف وتعديل جماعي (الثمانية منتجات).</td></tr>
+    <tr><td>الرمز المكتمل من 8 إلى 10 أرقام، وعند إضافة رمز جديد يُختار ويُحفظ مباشرة بلا ضغطة ثانية.</td><td>قائمة الرموز بصيغة 8 أرقام، الرموز القديمة (6 أرقام) تظهر «غير مكتمل» وتُحتسب نصف الوزن، والإضافة تختار الرمز فورًا مع رسالة تأكيد.</td></tr>
+    <tr><td>اسم المنتج بالعربي والإنجليزي يدخل في الجاهزية، مع توضيح أن نقص الإنجليزي يؤثر لارتباطه بالتصنيف الجمركي.</td><td>الاسم العربي يُجلب من صفحة المنتج (5%)، الإنجليزي حقل مستقل (15%) مع تنبيه أسفل الخلية عند فراغه.</td></tr>
+    <tr><td>حقول Merchant Product Identifier (SKU الموجود أصلًا) و Manufacturer Product Identifier و Standardized Product Identifier (ISBN/GTIN/EAN) — كلها في الجاهزية.</td><td>شارات SKU / MPN / GTIN في الجدول تفتح لوحة المنتج، وكل معرّف له وزن (10 / 5 / 10).</td></tr>
+    <tr><td>انعكاس الحقول الجديدة في التصفية بحسب البيانات الناقصة.</td><td>التصفية تضم: بدون رمز، رمز غير مكتمل، بدون وزن، بدون بلد، بدون اسم إنجليزي، بدون SKU، بدون MPN، بدون معرّف قياسي + مصدر القيمة. وبطاقات الملخّص تصفّي بنقرة.</td></tr></table>
     <h3>افتراضات صمّمت عليها</h3>
     <ul><li>الوزن الافتراضي يُطبَّق على مستوى المنتج؛ المنتجات ذات الخيارات (variants) تحتاج وزنًا لكل خيار — خارج نطاق هذا النموذج.</li>
     <li>أوزان الجاهزية (30/25/20/15/10) اقتراح لضبطه مع فريق الشحن حسب ما تطلبه شركات الشحن فعليًا.</li>
     <li>القيم الافتراضية على مستوى المتجر كله (لا على مستوى التصنيف) — الاقتراح الذكي يغطي حالة التصنيف دون تعقيد الإعدادات.</li></ul>
     <h3>أسئلة للـ PM (كل سؤال يغيّر ما سيُبنى)</h3>
-    <div class="q"><b>1.</b> هل بلد المنشأ الافتراضي يُطبَّق على كل المنتجات بلا قيمة تلقائيًا، أم فقط على منتجات «يحددها التاجر» كما ورد في الوصف؟ <i>إن كان الثاني: يصبح الافتراضي إجراءً في التعديل الجماعي فقط ويختفي الربط التلقائي.</i></div>
-    <div class="q"><b>2.</b> عند تغيير القيمة الافتراضية لاحقًا، هل تتغيّر المنتجات المعتمدة عليها بأثر رجعي؟ <i>يحدد «مرتبط» مقابل «منسوخ».</i></div>
-    <div class="q"><b>3.</b> هل حساب الرسوم في صفحة الدفع سيحتاج الوزن لكل خيار (variant) أم يكفي وزن المنتج؟ <i>يحدد ما إذا كان الوزن الافتراضي يُطبَّق على الخيارات.</i></div>
-    <div class="q"><b>4.</b> ما القيمة الفعلية لنسبة الجاهزية اليوم في Looker (كم منتجًا مكتملًا من الإجمالي)؟ <i>يحدد الهدف الرقمي للمقياس الأساسي: رفع نسبة المنتجات المكتملة.</i></div>
-    <div class="q"><b>5.</b> هل الاسم الإنجليزي يُغذّي تلقائيًا من ترجمة المتجر إن وُجدت، أم يبقى فارغًا حتى يعبّئه التاجر؟ <i>يحدد خطوة تعبئة تلقائية أولى قد ترفع الجاهزية دون أي إدخال.</i></div>
-    <div class="q"><b>6.</b> أي المعرّفات (MPN / GTIN) تطلبها شركات الشحن المتكاملة فعليًا اليوم؟ <i>يحدد وزنها في مؤشر الجاهزية وإن كانت تستحق عمودًا مباشرًا.</i></div>
+    <div class="q"><b>1.</b> عند تغيير القيمة الافتراضية لاحقًا، هل تتغيّر المنتجات المعتمدة عليها بأثر رجعي؟ <i>يحدد «مرتبط» (كما في النموذج) مقابل «منسوخ عند الحفظ».</i></div>
+    <div class="q"><b>2.</b> ما الحد الأدنى من الحقول الذي تشترطه واجهة DHL / Aramex Landed Cost فعليًا (هل MPN و GTIN إلزامية أم اختيارية)؟ <i>يحدد أوزان الجاهزية وهل «مكتمل» = 100% أم عتبة أقل تكفي لحساب الرسوم.</i></div>
+    <div class="q"><b>3.</b> هل تتوفر لدينا قائمة الرموز الجمركية الكاملة (8–10 أرقام) من هيئة الزكاة والضريبة والجمارك أو التعرفة الخليجية للبحث فيها، أم يكتب التاجر الرمز الكامل يدويًا؟ <i>يحدد ما إذا كان البحث يقترح البند الجمركي تلقائيًا بعد الـ 6 أرقام.</i></div>
+    <div class="q"><b>4.</b> الرموز الحالية المحفوظة بـ 6 أرقام: هل تُعرض «غير مكتملة» (كما هنا) أم تُحتسب كأنها غير موجودة؟ <i>يحدد نسبة الجاهزية التي سيراها التجار الحاليون يوم الإطلاق.</i></div>
+    <div class="q"><b>5.</b> هل حساب الرسوم في صفحة الدفع سيحتاج الوزن لكل خيار (variant) أم يكفي وزن المنتج؟ <i>يحدد ما إذا كان الوزن الافتراضي يُطبَّق على الخيارات.</i></div>
+    <div class="q"><b>6.</b> ما القيمة الفعلية لنسبة المنتجات المكتملة اليوم في Looker؟ <i>يحدد الهدف الرقمي للمقياس الأساسي: رفع نسبة المنتجات المكتملة البيانات.</i></div>
+    <div class="q"><b>7.</b> هل الاسم الإنجليزي يُعبَّأ تلقائيًا من ترجمة المتجر إن وُجدت، أم يبقى فارغًا حتى يعبّئه التاجر؟ <i>يحدد خطوة تعبئة أولى قد ترفع الجاهزية دون أي إدخال.</i></div>
     <p style="margin-top:14px;color:var(--dark-100);font-size:12.5px">بيانات هذا النموذج تجريبية (متجر عبايات افتراضي «أصايل لاين») لتوضيح سيناريو المنتجات المتشابهة.</p>`;
   showOverlay(); $('#notes').classList.add('show');
 }

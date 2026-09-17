@@ -9,6 +9,12 @@ A self-contained reference kit for the **Salla merchant dashboard design system*
 | [`index.html`](index.html) | The full interactive kit — nav, live previews, code toggles, RTL/LTR switch. Open in a browser (needs internet to hydrate). |
 | [`assets/components/`](assets/components/) | Per-component snippet files, one `<slug>.html` per component, with each variant labelled. |
 
+## Prototypes
+
+| Prototype | Path | Notes |
+| --- | --- | --- |
+| International Shipping Readiness — defaults, bulk edit & identifiers | [`prototypes/international-shipping-readiness/index.html`](prototypes/international-shipping-readiness/index.html) | Proposal prototype for `s.salla.sa/shipping/international`: linked default values (country / weight / HS), row selection + bulk edit, 8–10 digit HS codes, English name + SKU / MPN / GTIN in readiness, extended missing-data filters. Open in a browser; the "عن المقترح" button in the footer holds the design notes and PM questions. |
+
 ## Viewing the kit
 
 The kit is a single static HTML file. Any of these work:
