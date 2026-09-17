@@ -177,6 +177,7 @@ svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-
 .pop .opt .desc{color:var(--dark-100);font-size:12px;line-height:1.4}
 .pop .opt .flag{font-size:20px}
 .pop .empty{padding:14px;color:var(--dark-100);font-size:13px;text-align:center}
+.pop .nf{padding:12px 12px 4px;color:var(--dark-100);font-size:12.5px}
 .pop .add{margin:6px;padding:10px;border-radius:var(--radius);background:var(--secondary-100);color:var(--primary);font-weight:500;width:calc(100% - 12px);text-align:start;display:flex;gap:8px;align-items:center}
 .pop .foot{border-top:1px solid var(--gray-400);padding:8px 10px;font-size:12px;color:var(--dark-100);display:flex;justify-content:space-between;align-items:center}
 
@@ -853,7 +854,7 @@ function openHsPop(anchor,ctx){
     const short = qd.length>=4 && qd.length<8 && !list.length;
     pop.innerHTML=`<div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="pop-q" placeholder="ابحث بالرمز أو الوصف" value="${esc(q)}" autocomplete="off"></div>
       <div class="list">${list.map(h=>`<button class="opt ${h.code===cur?'sel':''}" type="button" onclick="pickHs('${h.code}')"><span class="code num">${h.code}</span><span class="desc">${esc(h.label)}</span></button>`).join('')||(custom?'':'<div class="empty">لا توجد نتائج مطابقة</div>')}
-      ${custom?`<button class="add" type="button" onclick="pickHs('${qd}',true)"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> إضافة الرمز «<bdi class="num">${fmtHs(qd)}</bdi>» واختياره</button>`:''}
+      ${custom?`<div class="nf">الرمز «<bdi class="num">${fmtHs(qd)}</bdi>» غير موجود في القائمة.</div><button class="add" type="button" onclick="pickHs('${qd}',true)"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> أضِفه كرمز جديد واختره لهذا المنتج</button>`:''}
       ${short?`<div class="empty" style="color:var(--warning-700)">الرمز المكتمل من 8 إلى 10 أرقام — أكمل «<bdi class="num">${fmtHs(qd)}</bdi>» ليمكن إضافته.</div>`:''}</div>
       <div class="foot"><span>الرمز المكتمل: 8–10 أرقام (HS + البند الجمركي)</span></div>
       ${ctx.scope==='row'&&S.defaults.hs?`<div class="foot"><span>الافتراضي: <bdi class="num">${fmtHs(S.defaults.hs)}</bdi></span><button class="btn btn-ghost btn-sm" type="button" onclick="pickHs('')">استخدام الافتراضي</button></div>`:''}`;
