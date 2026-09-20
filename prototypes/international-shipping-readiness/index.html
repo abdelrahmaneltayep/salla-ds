@@ -199,18 +199,27 @@ svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-
 .activef .af{background:var(--primary-100);border:1px solid var(--primary-400);color:var(--primary);border-radius:20px;padding:3px 10px;font-size:12.5px;display:inline-flex;align-items:center;gap:6px}
 .activef .af button{display:grid;place-items:center;color:var(--primary)}
 
-/* bulk bar */
-.bulkbar{display:none;align-items:center;gap:12px;background:var(--primary);color:#fff;border-radius:var(--radius-lg);padding:10px 16px;margin-bottom:16px;position:sticky;top:12px;z-index:30;box-shadow:var(--shadow)}
-.bulkbar.show{display:flex}
-.bulkbar .cnt{font-weight:700;display:flex;align-items:center;gap:8px}
-.bulkbar .cnt .n{background:var(--secondary);color:var(--primary);border-radius:20px;padding:0 10px;min-width:28px;text-align:center}
-.bulkbar .all{color:var(--secondary);text-decoration:underline;font-size:13px}
-.bulkbar .spacer{flex:1}
-.bulkbar .btn-white{border-color:transparent}
-.bulkbar .close{color:#fff;opacity:.8;margin-inline-start:4px}
-@media (max-width:900px){.bulkbar{flex-wrap:wrap}.bulkbar .spacer{display:none}}
 
-.tblwrap{overflow-x:auto;border-radius:var(--radius-xl)}
+.tbl-head{padding:20px 20px 14px;display:flex;flex-direction:column;gap:14px}
+.tbl-head h2{margin:0;font-size:17px;font-weight:700}
+.selrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.selrow .selcnt{font-weight:700;font-size:14px}
+.selrow .all,.selrow .clr{color:var(--primary);font-size:12.5px;text-decoration:underline}
+.selrow .spacer{flex:1}
+.selrow .selhint{font-size:12.5px;color:var(--dark-100)}
+.selrow .chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip-edit{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gray-500);border-radius:var(--radius);background:#fff;padding:7px 12px;font-size:13px;color:var(--dark);transition:border-color .15s,background .15s}
+.chip-edit svg{color:var(--dark-100)}
+.chip-edit:hover:not(:disabled){border-color:var(--primary-400);color:var(--primary)}
+.chip-edit:hover:not(:disabled) svg{color:var(--primary)}
+.chip-edit.open{border-color:var(--primary);background:var(--primary-100);color:var(--primary)}
+.chip-edit:disabled{opacity:.45;cursor:not-allowed}
+.selrow.has .selhint{display:none}
+.pop .form{padding:14px 14px 12px;display:flex;flex-direction:column;gap:10px}
+.pop .form .ttl{font-weight:700;font-size:13.5px}
+.pop .form .sub{font-size:12px;color:var(--dark-100);margin-top:-6px}
+.pop .form .acts{display:flex;gap:8px;justify-content:flex-start;margin-top:4px}
+.tblwrap{overflow-x:auto;border-radius:0 0 var(--radius-xl) var(--radius-xl)}
 table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1180px;font-size:13.5px}
 .tbl td:nth-child(3){max-width:250px}
 .tbl th{font-weight:500;font-size:13px;color:var(--dark);text-align:start;padding:14px 12px;background:var(--gray-100);border-bottom:1px solid var(--gray-400);white-space:nowrap;position:sticky;top:0;z-index:2}
@@ -431,18 +440,24 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1180px;
   </div>
   <div class="activef" id="activef"></div>
 
-  <!-- Bulk bar -->
-  <div class="bulkbar" id="bulkbar">
-    <div class="cnt">تم تحديد <span class="n num" id="selcount">0</span> <span id="selword"></span></div>
-    <button class="all" id="selall" type="button" onclick="selectAllMatching()" hidden></button>
-    <div class="spacer"></div>
-    <button class="btn btn-mint btn-sm" type="button" onclick="openBulk()"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> تعديل جماعي</button>
-    <button class="btn btn-white btn-sm" type="button" onclick="bulkUseDefaults()"><svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg> استخدام القيم الافتراضية</button>
-    <button class="close" type="button" aria-label="إلغاء التحديد" onclick="clearSelection()"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-  </div>
-
   <!-- Table -->
   <section class="panel" style="overflow:hidden">
+    <div class="tbl-head">
+      <h2>جاهزية الشحن الدولي</h2>
+      <div class="selrow" id="selrow">
+        <span class="selcnt">المحدد (<b class="num" id="selcount">0</b>)</span>
+        <button class="all" id="selall" type="button" onclick="selectAllMatching()" hidden></button>
+        <button class="clr" id="selclr" type="button" onclick="clearSelection()" hidden>إلغاء التحديد</button>
+        <span class="spacer"></span>
+        <span class="selhint" id="selhint">حدّد منتجات من الجدول لتعديل بياناتها معًا</span>
+        <div class="chips" id="bulkchips">
+          <button class="chip-edit" type="button" onclick="openHsPop(this,{scope:'bulkset'})"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> رمز التنسيق الجمركي</button>
+          <button class="chip-edit" type="button" onclick="openBulkWeight(this)"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> الوزن الفعلي</button>
+          <button class="chip-edit" type="button" onclick="openCountryPop(this,{scope:'bulkset'})"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> بلد المنشأ / الصنع</button>
+          <button class="chip-edit" type="button" onclick="openBulkName(this)"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> اسم المنتج بالإنجليزية</button>
+        </div>
+      </div>
+    </div>
     <div class="tblwrap">
       <table class="tbl" id="tbl">
         <thead>
@@ -490,34 +505,6 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1180px;
   <div class="db" id="fd-body"></div>
   <div class="df"><button class="btn btn-primary" onclick="closeAll()">عرض النتائج</button><button class="btn btn-white" onclick="resetFilters()">إعادة تعيين</button></div>
 </aside>
-
-<!-- Bulk edit modal -->
-<div class="modal" id="bulk">
-  <div class="box">
-    <div class="mh"><h3 id="bulk-title">تعديل جماعي</h3><button class="xbtn" onclick="closeAll()" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-    <div class="mb">
-      <p style="margin:0 0 6px;color:var(--dark-100);font-size:13px">فعّل الحقول التي تريد تغييرها فقط، وستبقى بقية البيانات كما هي.</p>
-      <div class="brow" id="br-country">
-        <label class="lab"><span class="cb" id="bcb-country" onclick="toggleBulkField('country')"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span> بلد المنشأ</label>
-        <div class="ctl"><button class="combo" id="b-country" type="button" onclick="openCountryPop(this,{scope:'bulk'})"></button></div>
-      </div>
-      <div class="brow" id="br-weight">
-        <label class="lab"><span class="cb" id="bcb-weight" onclick="toggleBulkField('weight')"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span> الوزن الفعلي</label>
-        <div class="ctl"><div class="inp"><input id="b-weight" type="number" min="0" step="0.05" placeholder="0.00" oninput="bulk.weight=this.value;renderBulkPreview()"><select id="b-unit" onchange="bulk.unit=this.value;renderBulkPreview()"><option value="kg">كجم</option><option value="g">جم</option></select></div></div>
-      </div>
-      <div class="brow" id="br-hs">
-        <label class="lab"><span class="cb" id="bcb-hs" onclick="toggleBulkField('hs')"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span> الرمز الجمركي</label>
-        <div class="ctl"><button class="combo" id="b-hs" type="button" onclick="openHsPop(this,{scope:'bulk'})"></button></div>
-      </div>
-      <div style="display:flex;gap:22px;margin-top:18px;flex-wrap:wrap">
-        <label class="radio on" id="mode-fill" onclick="setBulkMode('fill')"><i></i> تعبئة الحقول الفارغة فقط</label>
-        <label class="radio" id="mode-replace" onclick="setBulkMode('replace')"><i></i> استبدال القيم الحالية أيضًا</label>
-      </div>
-      <div class="preview" id="bulk-preview"></div>
-    </div>
-    <div class="mf"><button class="btn btn-primary" id="bulk-apply" onclick="applyBulk()">تطبيق</button><button class="btn btn-white" onclick="closeAll()">إلغاء</button><div class="spacer"></div></div>
-  </div>
-</div>
 
 <!-- Proposal notes modal -->
 <div class="modal" id="notes">
@@ -592,7 +579,6 @@ function seedState(){
 let S = seedState();
 let saved = JSON.stringify({defaults:S.defaults,products:S.products});
 const ui = { selected:new Set(), q:'', missing:new Set(), source:'all', cat:'', page:1, per:10, suggestDismissed:false, lastBulk:null };
-const bulk = { fields:new Set(), country:'', weight:'', unit:'kg', hs:'', mode:'fill' };
 const catSet = [...new Set(SEED.map(p=>p.cat))];
 
 /* =====================================================================
@@ -782,9 +768,10 @@ function refreshRow(id){ // light update after inline typing: readiness + summar
   renderSummary(); renderFooter(); renderDefaults();
 }
 function renderBulkBar(){
-  const n=ui.selected.size; const bar=$('#bulkbar'); bar.classList.toggle('show',n>0);
-  $('#selcount').textContent=n; $('#selword').textContent = n===1?'منتج':n===2?'منتجان':n<=10?'منتجات':'منتجًا';
+  const n=ui.selected.size; $('#selcount').textContent=n; $('#selrow').classList.toggle('has',n>0);
+  document.querySelectorAll('#bulkchips .chip-edit').forEach(b=>b.disabled=n===0);
   const total=filtered().length; const sa=$('#selall'); sa.hidden = !(n>0 && n<total); sa.textContent=`تحديد كل المنتجات المطابقة (${total})`;
+  $('#selclr').hidden = n===0;
 }
 function renderFooter(){
   const n=changedIds().length, d=defaultsChanged(); const any=n>0||d;
@@ -835,17 +822,17 @@ function placePop(anchor){
   let left=r.right-w; if(left<8) left=8; if(left+w>window.innerWidth-8) left=window.innerWidth-8-w;
   let top=r.bottom+6; const h=pop.offsetHeight||320; if(top+h>window.innerHeight-8) top=Math.max(8,r.top-h-6);
   pop.style.left=left+'px'; pop.style.top=top+'px';
-  document.querySelectorAll('.combo.open').forEach(x=>x.classList.remove('open')); anchor.classList.add('open');
+  document.querySelectorAll('.combo.open,.chip-edit.open').forEach(x=>x.classList.remove('open')); anchor.classList.add('open');
 }
-function closePop(){ $('#pop').classList.remove('show'); document.querySelectorAll('.combo.open').forEach(x=>x.classList.remove('open')); popCtx=null; }
-document.addEventListener('mousedown',e=>{ if(popCtx && !e.target.closest('#pop') && !e.target.closest('.combo')) closePop(); });
+function closePop(){ $('#pop').classList.remove('show'); document.querySelectorAll('.combo.open,.chip-edit.open').forEach(x=>x.classList.remove('open')); popCtx=null; }
+document.addEventListener('mousedown',e=>{ if(popCtx && !e.target.closest('#pop') && !e.target.closest('.combo') && !e.target.closest('.chip-edit')) closePop(); });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ if(popCtx) closePop(); else closeAll(); } });
 window.addEventListener('scroll',()=>{ if(popCtx) closePop(); },true);
 
 function openHsPop(anchor,ctx){
   if(popCtx && popCtx.anchor===anchor){ closePop(); return; }
   popCtx={kind:'hs',anchor,...ctx};
-  const cur = ctx.scope==='default'?S.defaults.hs: ctx.scope==='bulk'?bulk.hs: eff(prod(ctx.id),'hs').v;
+  const cur = ctx.scope==='default'?S.defaults.hs: ctx.scope==='bulkset'?'': eff(prod(ctx.id),'hs').v;
   const pop=$('#pop');
   const draw=(q='')=>{
     const qq=q.trim(); const qd=hsDigits(qq);
@@ -857,6 +844,7 @@ function openHsPop(anchor,ctx){
       ${custom?`<div class="nf">الرمز «<bdi class="num">${fmtHs(qd)}</bdi>» غير موجود في القائمة.</div><button class="add" type="button" onclick="pickHs('${qd}',true)"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> أضِفه كرمز جديد واختره لهذا المنتج</button>`:''}
       ${short?`<div class="empty" style="color:var(--warning-700)">الرمز المكتمل من 8 إلى 10 أرقام — أكمل «<bdi class="num">${fmtHs(qd)}</bdi>» ليمكن إضافته.</div>`:''}</div>
       <div class="foot"><span>الرمز المكتمل: 8–10 أرقام (HS + البند الجمركي)</span></div>
+      ${ctx.scope==='bulkset'?`<div class="foot"><span>سيُطبَّق على ${prodN(ui.selected.size)} محدّدة</span>${S.defaults.hs?`<button class="btn btn-ghost btn-sm" type="button" onclick="pickHs('')">استخدام الافتراضي</button>`:''}</div>`:''}
       ${ctx.scope==='row'&&S.defaults.hs?`<div class="foot"><span>الافتراضي: <bdi class="num">${fmtHs(S.defaults.hs)}</bdi></span><button class="btn btn-ghost btn-sm" type="button" onclick="pickHs('')">استخدام الافتراضي</button></div>`:''}`;
     const inp=$('#pop-q'); inp.oninput=()=>{const v=inp.value; const s=inp.selectionStart; draw(v); const i2=$('#pop-q'); i2.focus(); i2.setSelectionRange(s,s);};
   };
@@ -867,18 +855,19 @@ function pickHs(code,isNew){
   const c=popCtx; closePop();
   if(isNew) toast(`تمت إضافة الرمز ${fmtHs(code)} واختياره`);
   if(c.scope==='default'){ S.defaults.hs=code; render(); }
-  else if(c.scope==='bulk'){ bulk.hs=code; renderBulkFields(); renderBulkPreview(); }
+  else if(c.scope==='bulkset'){ applyBulkField('hs',code); }
   else { prod(c.id).hs=code; render(); }
 }
 function openCountryPop(anchor,ctx){
   if(popCtx && popCtx.anchor===anchor){ closePop(); return; }
   popCtx={kind:'country',anchor,...ctx};
-  const cur = ctx.scope==='default'?S.defaults.country: ctx.scope==='bulk'?bulk.country: eff(prod(ctx.id),'country').v;
+  const cur = ctx.scope==='default'?S.defaults.country: ctx.scope==='bulkset'?'': eff(prod(ctx.id),'country').v;
   const pop=$('#pop');
   const draw=(q='')=>{
     const list=COUNTRIES.filter(c=>!q||c.name.includes(q)||c.code.toLowerCase().includes(q.toLowerCase()));
     pop.innerHTML=`<div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="pop-q" placeholder="ابحث عن بلد" value="${esc(q)}" autocomplete="off"></div>
       <div class="list">${list.map(c=>`<button class="opt ${c.code===cur?'sel':''}" type="button" onclick="pickCountry('${c.code}')"><span class="flag">${c.flag}</span><span>${c.name}</span></button>`).join('')||'<div class="empty">لا توجد نتائج</div>'}</div>
+      ${ctx.scope==='bulkset'?`<div class="foot"><span>سيُطبَّق على ${prodN(ui.selected.size)} محدّدة</span>${S.defaults.country?`<button class="btn btn-ghost btn-sm" type="button" onclick="pickCountry('')">استخدام الافتراضي</button>`:''}</div>`:''}
       ${ctx.scope==='row'&&S.defaults.country?`<div class="foot"><span>الافتراضي: ${ctryOf(S.defaults.country).name}</span><button class="btn btn-ghost btn-sm" type="button" onclick="pickCountry('')">استخدام الافتراضي</button></div>`:''}`;
     const inp=$('#pop-q'); inp.oninput=()=>{const v=inp.value; const s=inp.selectionStart; draw(v); const i2=$('#pop-q'); i2.focus(); i2.setSelectionRange(s,s);};
   };
@@ -887,59 +876,42 @@ function openCountryPop(anchor,ctx){
 function pickCountry(code){
   const c=popCtx; closePop();
   if(c.scope==='default'){ S.defaults.country=code; render(); }
-  else if(c.scope==='bulk'){ bulk.country=code; renderBulkFields(); renderBulkPreview(); }
+  else if(c.scope==='bulkset'){ applyBulkField('country',code); }
   else { prod(c.id).country=code; render(); }
 }
 
 /* =====================================================================
-   Bulk edit
+   Bulk edit — one chip per field, applied to every selected product
 ===================================================================== */
-function openBulk(){
-  bulk.fields.clear(); bulk.country=''; bulk.weight=''; bulk.unit='kg'; bulk.hs=''; bulk.mode='fill';
-  $('#b-weight').value=''; $('#b-unit').value='kg';
-  $('#bulk-title').textContent=`تعديل جماعي — ${prodN(ui.selected.size)}`;
-  setBulkMode('fill'); renderBulkFields(); renderBulkPreview();
-  showOverlay(); $('#bulk').classList.add('show');
-}
-function toggleBulkField(f){ bulk.fields.has(f)?bulk.fields.delete(f):bulk.fields.add(f); renderBulkFields(); renderBulkPreview(); }
-function renderBulkFields(){
-  ['country','weight','hs'].forEach(f=>{ const on=bulk.fields.has(f); $('#br-'+f).classList.toggle('on',on); $('#bcb-'+f).classList.toggle('on',on); });
-  $('#b-country').innerHTML=comboHtml('country',bulk.country,{ph:'اختر البلد'});
-  $('#b-hs').innerHTML=comboHtml('hs',bulk.hs,{ph:'اختر الرمز'});
-}
-function setBulkMode(m){ bulk.mode=m; $('#mode-fill').classList.toggle('on',m==='fill'); $('#mode-replace').classList.toggle('on',m==='replace'); renderBulkPreview(); }
-function bulkPlan(){
-  const sel=[...ui.selected].map(prod); const plan={};
-  for(const f of bulk.fields){
-    const val = f==='weight'?bulk.weight:bulk[f]; if(val==='' || val==null) continue;
-    const targets=sel.filter(p=> bulk.mode==='replace' || eff(p,f).src!=='custom');
-    const skipped=sel.length-targets.length;
-    plan[f]={targets,skipped,val};
-  }
-  return plan;
-}
-function renderBulkPreview(){
-  const plan=bulkPlan(); const keys=Object.keys(plan); const el=$('#bulk-preview');
-  const lbl={country:'بلد المنشأ',weight:'الوزن',hs:'الرمز الجمركي'};
-  const icon='<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>';
-  if(!keys.length){ el.innerHTML=`${icon}<div>لم تحدّد أي حقل بعد. فعّل حقلًا واختر قيمته لترى ما سيتغيّر.</div>`; $('#bulk-apply').disabled=true; return; }
-  $('#bulk-apply').disabled=false;
-  el.innerHTML=`${icon}<div>سيتم تحديث:<ul>${keys.map(k=>{const x=plan[k]; return `<li><b>${lbl[k]}</b> → ${k==='weight'?fmtW(x.val,bulk.unit):k==='country'?ctryOf(x.val).name:`<bdi class="num">${fmtHs(x.val)}</bdi>`} لـ ${prodN(x.targets.length)}${x.skipped?` <span style="color:var(--warning-700)">(تخطّي ${x.skipped} ${x.skipped===1?'منتج لديه':'لديها'} قيمة مخصّصة)</span>`:''}</li>`}).join('')}</ul></div>`;
-}
-function applyBulk(){
-  const plan=bulkPlan(); const before=JSON.stringify(S.products); let touched=new Set();
-  for(const [f,x] of Object.entries(plan)){
-    x.targets.forEach(p=>{ if(f==='weight'){p.weight=+x.val;p.unit=bulk.unit;} else p[f]=x.val; touched.add(p.id); });
-  }
-  closeAll(); ui.lastBulk=before; render();
-  toast(`تم تحديث ${prodN(touched.size)}`, ()=>{ S.products=JSON.parse(ui.lastBulk); ui.lastBulk=null; render(); toast('تم التراجع عن التعديل الجماعي'); });
-}
-function bulkUseDefaults(){
-  const d=S.defaults; const sel=[...ui.selected].map(prod); const before=JSON.stringify(S.products); let n=0;
-  sel.forEach(p=>{ let ch=false; if(d.hs&&p.hs){p.hs='';ch=true;} if(d.country&&p.country){p.country='';ch=true;} if(d.weight!=null&&d.weight!==''&&p.weight!=null){p.weight=null;ch=true;} if(ch)n++; });
-  if(!n){ toast('المنتجات المحدّدة تعتمد على القيم الافتراضية بالفعل'); return; }
+const FIELD_LBL={hs:'رمز التنسيق الجمركي',weight:'الوزن الفعلي',country:'بلد المنشأ',nameEn:'اسم المنتج بالإنجليزية'};
+function applyBulkField(f,val,unit){
+  const sel=[...ui.selected].map(prod); if(!sel.length) return;
+  const before=JSON.stringify(S.products);
+  sel.forEach(p=>{ if(f==='weight'){ p.weight=(val===''||val==null)?null:+val; if(unit) p.unit=unit; } else p[f]=val; });
   ui.lastBulk=before; render();
-  toast(`أصبح ${prodN(n)} يعتمد على القيم الافتراضية`, ()=>{ S.products=JSON.parse(ui.lastBulk); render(); toast('تم التراجع'); });
+  const shown = f==='weight' ? (val===''||val==null?'القيمة الافتراضية':fmtW(val,unit)) : f==='country' ? (val?ctryOf(val).name:'القيمة الافتراضية') : f==='hs' ? (val?fmtHs(val):'القيمة الافتراضية') : `«${val}»`;
+  toast(`تم ضبط ${FIELD_LBL[f]} إلى ${shown} لـ ${prodN(sel.length)}`, ()=>{ S.products=JSON.parse(ui.lastBulk); ui.lastBulk=null; render(); toast('تم التراجع عن التعديل الجماعي'); });
+}
+function openFormPop(anchor,html,onConfirm){
+  if(popCtx && popCtx.anchor===anchor){ closePop(); return; }
+  popCtx={kind:'form',anchor};
+  const pop=$('#pop'); pop.innerHTML=`<div class="form">${html}<div class="acts"><button class="btn btn-primary btn-sm" type="button" id="fp-ok">تأكيد</button><button class="btn btn-white btn-sm" type="button" onclick="closePop()">إلغاء</button></div></div>`;
+  $('#fp-ok').onclick=()=>{ onConfirm(); };
+  pop.querySelectorAll('input').forEach(inp=>inp.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); onConfirm(); } }));
+  placePop(anchor); setTimeout(()=>pop.querySelector('input')?.focus(),0);
+}
+function openBulkWeight(btn){
+  const n=ui.selected.size;
+  openFormPop(btn,`<div class="ttl">أدخل الوزن الفعلي</div><div class="sub">سيُطبَّق على ${prodN(n)} محدّدة</div>
+    <div class="inp"><input id="fp-w" type="number" min="0" step="0.05" inputmode="decimal" class="num" placeholder="0.00"><select id="fp-u" aria-label="الوحدة"><option value="kg">كجم</option><option value="g">جم</option></select></div>
+    ${(S.defaults.weight!=null&&S.defaults.weight!=='')?`<button class="btn btn-ghost btn-sm" type="button" style="align-self:flex-start" onclick="closePop();applyBulkField('weight',null)">استخدام الوزن الافتراضي (${fmtW(S.defaults.weight,S.defaults.unit)})</button>`:''}`,
+    ()=>{ const v=$('#fp-w').value; if(v===''||+v<=0){ $('#fp-w').focus(); return; } const u=$('#fp-u').value; closePop(); applyBulkField('weight',v,u); });
+}
+function openBulkName(btn){
+  const n=ui.selected.size;
+  openFormPop(btn,`<div class="ttl">اسم المنتج بالإنجليزية</div><div class="sub">سيُطبَّق الاسم نفسه على ${prodN(n)} محدّدة — مناسب للمنتجات المتطابقة أو خياراتها</div>
+    <div class="inp"><input id="fp-n" type="text" dir="ltr" style="text-align:left" placeholder="e.g. Classic Black Crepe Abaya"></div>`,
+    ()=>{ const v=$('#fp-n').value.trim(); if(!v){ $('#fp-n').focus(); return; } closePop(); applyBulkField('nameEn',v); });
 }
 function applySuggestion(){
   const s=suggestion(); if(!s) return; const before=JSON.stringify(S.products);
@@ -998,7 +970,7 @@ function renderFilterDrawer(){
 function saveAll(){ saved=JSON.stringify({defaults:S.defaults,products:S.products}); render(); toast('تم حفظ التغييرات'); }
 function cancelAll(){ const sv=JSON.parse(saved); S.defaults=sv.defaults; S.products=sv.products; render(); toast('تم التراجع عن التغييرات غير المحفوظة'); }
 function showOverlay(){ $('#overlay').classList.add('show'); }
-function closeAll(){ closePop(); $('#overlay').classList.remove('show'); ['pdrawer','fdrawer'].forEach(i=>{$('#'+i).classList.remove('show');$('#'+i).setAttribute('aria-hidden','true')}); ['bulk','notes'].forEach(i=>$('#'+i).classList.remove('show')); }
+function closeAll(){ closePop(); $('#overlay').classList.remove('show'); ['pdrawer','fdrawer'].forEach(i=>{$('#'+i).classList.remove('show');$('#'+i).setAttribute('aria-hidden','true')}); ['notes'].forEach(i=>$('#'+i).classList.remove('show')); }
 let toastT;
 function toast(msg,undo){
   const t=$('#toast'); t.innerHTML=`<svg class="i ok" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>${msg}</span>${undo?'<button type="button" id="undo">تراجع</button>':''}`;
@@ -1019,7 +991,7 @@ function openNotes(){
     <h3>ما الذي تغيّر مقارنة بالصفحة الحالية</h3>
     <table><tr><th>الحالية (من الفيديو)</th><th>المقترح</th></tr>
     <tr><td>كل حقل يُعبّأ يدويًا لكل منتج، والرمز الجمركي بـ 6 أرقام.</td><td><b>قيم افتراضية مرتبطة</b> (بلد المنشأ، الوزن، HS) تُغطّي كل منتج لم يُحدَّد له قيمة، ويظهر مصدر القيمة داخل الخلية (افتراضي / مخصّص) مع زر «استخدام الافتراضي».</td></tr>
-    <tr><td>لا يوجد تحديد صفوف ولا تعديل جماعي.</td><td><b>تحديد + شريط إجراءات</b>: تعديل جماعي بحقول اختيارية، مع خيار «تعبئة الفارغ فقط» لحماية الاستثناءات، ومعاينة لعدد المنتجات المتأثرة، وتراجع.</td></tr>
+    <tr><td>لا يوجد تحديد صفوف ولا تعديل جماعي.</td><td><b>تحديد + صف «المحدد (N)»</b> أعلى الجدول فيه زر تعديل لكل حقل (الرمز الجمركي، الوزن، بلد المنشأ، الاسم الإنجليزي). كل زر يفتح المحرّر نفسه المستخدم داخل الصف ويطبّق القيمة على كل المنتجات المحدّدة فورًا، مع «تراجع».</td></tr>
     <tr><td>وصف المنتج AR/EN كشارات (+) تفتح محررًا.</td><td><b>اسم إنجليزي مستقل</b> كحقل مباشر في الجدول، و<b>المعرّفات</b> (SKU / MPN / GTIN) في لوحة جانبية واحدة للمنتج.</td></tr>
     <tr><td>مؤشر جاهزية لكل صف من 3 حقول + الوصف.</td><td><b>ملخّص أعلى الصفحة</b> يربط الاكتمال بـ Landed Cost، وبطاقات «بدون رمز/وزن/بلد/اسم/معرّفات» تعمل كتصفية بنقرة واحدة. والجاهزية من 8 حقول.</td></tr>
     <tr><td>—</td><td><b>اقتراح ذكي</b>: عند وجود رمز HS سائد في تصنيف، يُقترح تطبيقه على بقية منتجات التصنيف (ملامسة للعنصر «AI Experience» في لوحة البناء).</td></tr>
@@ -1029,7 +1001,7 @@ function openNotes(){
     <h3>القرارات التصميمية</h3>
     <ol>
       <li><b>الافتراضي مرتبط لا منسوخ.</b> تغيير القيمة الافتراضية يحدّث كل المنتجات المعتمدة عليها، والاستثناءات لا تتأثر. <i>ما الذي يعكس القرار:</i> إن أكدت الشحن/الجمارك أن القيمة يجب أن تُجمَّد وقت إنشاء الشحنة، فيصبح «نسخًا عند الحفظ» بدل الربط.</li>
-      <li><b>التعديل الجماعي يعبّئ الفارغ افتراضيًا ولا يستبدل.</b> يحمي الاستثناءات التي تعب التاجر في ضبطها. <i>ما الذي يعكسه:</i> بيانات تُظهر أن معظم الاستخدامات تصحيح لا تعبئة.</li>
+      <li><b>التعديل الجماعي حقلٌ واحد في كل مرة، بالمحرّر نفسه المستخدم في الصف.</b> التاجر يحدّد المنتجات ثم يضغط زر الحقل؛ لا نافذة جديدة ولا نموذج مركّب، والقيمة تُطبَّق على المحدّد صراحةً (استبدال) مع تراجع فوري. <i>ما الذي يعكسه:</i> إن أظهرت البيانات أن التجار يكتبون فوق استثناءات بالخطأ، يُضاف خيار «تعبئة الفارغ فقط».</li>
       <li><b>المعرّفات في لوحة جانبية لا في أعمدة.</b> 3 حقول فريدة لكل منتج (لا تُعمَّم ولا تُعدَّل جماعيًا) لا تستحق 3 أعمدة؛ الشارات تكشف حالتها بنظرة وتدخل كلها في الجاهزية كما طلب الـ PM. <i>ما الذي يعكسه:</i> إن أصبح GTIN إلزاميًا لواجهة Landed Cost، يعود عمودًا مباشرًا.</li>
       <li><b>الرمز غير المكتمل يُحتسب نصف الوزن لا صفرًا.</b> التاجر الذي أدخل 6 أرقام أقرب للاكتمال ممن لم يدخل شيئًا، والتصفية «غير مكتمل» تقوده لإكماله. <i>ما الذي يعكسه:</i> إن رفضت واجهة الشحن أي رمز أقل من 8 أرقام، يصبح صفرًا.</li>
     </ol>
