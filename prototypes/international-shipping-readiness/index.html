@@ -165,7 +165,7 @@ svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-
 .cell:hover .reset-def,.reset-def:focus-visible{opacity:1}
 
 /* Popover (shared) */
-.pop{position:fixed;z-index:80;background:#fff;border:1px solid var(--gray-400);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);min-width:280px;max-width:360px;display:none;flex-direction:column;overflow:hidden}
+.pop{position:fixed;z-index:120;background:#fff;border:1px solid var(--gray-400);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);min-width:280px;max-width:360px;display:none;flex-direction:column;overflow:hidden}
 .pop.show{display:flex}
 .pop .srch{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--gray-400);color:var(--dark-100)}
 .pop .srch input{border:0;outline:none;flex:1;background:transparent}
@@ -323,13 +323,15 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1180px;
 .wquick{background:var(--secondary-100);border:1px solid var(--secondary);border-radius:var(--radius-lg);padding:12px 14px;display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
 .wquick .t{font-weight:700;font-size:13.5px}
 .wquick .row{display:flex;gap:8px;align-items:center}
-.wquick .inp{flex:1}
+.wquick .inp,.wquick .combo{flex:1;background:#fff}
 .wsec{margin-bottom:18px}
 .wsec .wh{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13.5px;padding-bottom:8px;border-bottom:1px solid var(--gray-400);margin-bottom:6px}
 .wsec .wh .sub{font-weight:400;color:var(--dark-100);font-size:12px}
-.wsec .cols{display:grid;grid-template-columns:1fr 190px 24px;gap:10px;font-size:12.5px;color:var(--dark-100);padding:6px 0}
-.wrow{display:grid;grid-template-columns:1fr 190px 24px;gap:10px;align-items:center;padding:6px 0}
-.wrow .wname{font-size:13.5px}
+.wsec .cols{display:grid;grid-template-columns:minmax(0,1fr) 230px 24px;gap:10px;font-size:12.5px;color:var(--dark-100);padding:6px 0}
+.wrow{display:grid;grid-template-columns:minmax(0,1fr) 230px 24px;gap:10px;align-items:center;padding:6px 0}
+.wrow .wname{font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wrow .combo.sm .v{font-size:13px}
+.wrow .combo .src{display:none}
 .wrow .wst{display:grid;place-items:center}
 .wrow .wst.ok{color:var(--success)}
 .wrow .wst.def{color:var(--dark-300)}
@@ -468,10 +470,10 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1180px;
         <span class="spacer"></span>
         <span class="selhint" id="selhint">حدّد منتجات من الجدول لتعديل بياناتها معًا</span>
         <div class="chips" id="bulkchips">
-          <button class="chip-edit" type="button" onclick="openHsPop(this,{scope:'bulkset'})"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> رمز التنسيق الجمركي</button>
+          <button class="chip-edit" type="button" onclick="openBulkDrawer('hs')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> رمز التنسيق الجمركي</button>
           <button class="chip-edit" type="button" onclick="openWeightDrawer([...ui.selected])"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> الوزن الفعلي</button>
-          <button class="chip-edit" type="button" onclick="openCountryPop(this,{scope:'bulkset'})"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> بلد المنشأ / الصنع</button>
-          <button class="chip-edit" type="button" onclick="openBulkName(this)"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> اسم المنتج بالإنجليزية</button>
+          <button class="chip-edit" type="button" onclick="openBulkDrawer('country')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> بلد المنشأ / الصنع</button>
+          <button class="chip-edit" type="button" onclick="openBulkDrawer('nameEn')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> اسم المنتج بالإنجليزية</button>
         </div>
       </div>
     </div>
@@ -521,6 +523,13 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1180px;
   <div class="dh"><h3 id="wd-title">أدخل الوزن الفعلي</h3><button class="xbtn" onclick="closeAll()" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="db" id="wd-body"></div>
   <div class="df"><button class="btn btn-mint" id="wd-ok" onclick="confirmWeightDrawer()">تأكيد</button><button class="btn btn-white" onclick="closeAll()">إلغاء</button></div>
+</aside>
+
+<!-- Bulk drawer (HS / country / English name for every selected product) -->
+<aside class="drawer" id="bdrawer" aria-hidden="true">
+  <div class="dh"><h3 id="bd-title">تعديل جماعي</h3><button class="xbtn" onclick="closeAll()" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="db" id="bd-body"></div>
+  <div class="df"><button class="btn btn-mint" onclick="confirmBulkDrawer()">تأكيد</button><button class="btn btn-white" onclick="closeAll()">إلغاء</button></div>
 </aside>
 
 <!-- Filter drawer -->
@@ -865,7 +874,7 @@ window.addEventListener('scroll',()=>{ if(popCtx) closePop(); },true);
 function openHsPop(anchor,ctx){
   if(popCtx && popCtx.anchor===anchor){ closePop(); return; }
   popCtx={kind:'hs',anchor,...ctx};
-  const cur = ctx.scope==='default'?S.defaults.hs: ctx.scope==='bulkset'?'': eff(prod(ctx.id),'hs').v;
+  const cur = ctx.scope==='default'?S.defaults.hs: ctx.scope==='bd'?(bd.data[ctx.id]||''): (ctx.scope==='bulkset'||ctx.scope==='bdall')?'': eff(prod(ctx.id),'hs').v;
   const pop=$('#pop');
   const draw=(q='')=>{
     const qq=q.trim(); const qd=hsDigits(qq);
@@ -877,7 +886,8 @@ function openHsPop(anchor,ctx){
       ${custom?`<div class="nf">الرمز «<bdi class="num">${fmtHs(qd)}</bdi>» غير موجود في القائمة.</div><button class="add" type="button" onclick="pickHs('${qd}',true)"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> أضِفه كرمز جديد واختره لهذا المنتج</button>`:''}
       ${short?`<div class="empty" style="color:var(--warning-700)">الرمز المكتمل من 8 إلى 10 أرقام — أكمل «<bdi class="num">${fmtHs(qd)}</bdi>» ليمكن إضافته.</div>`:''}</div>
       <div class="foot"><span>الرمز المكتمل: 8–10 أرقام (HS + البند الجمركي)</span></div>
-      ${ctx.scope==='bulkset'?`<div class="foot"><span>سيُطبَّق على ${prodN(ui.selected.size)} محدّدة</span>${S.defaults.hs?`<button class="btn btn-ghost btn-sm" type="button" onclick="pickHs('')">استخدام الافتراضي</button>`:''}</div>`:''}
+      ${ctx.scope==='bulkset'||ctx.scope==='bdall'?`<div class="foot"><span>سيُطبَّق على ${prodN(ui.selected.size)} محدّدة</span>${S.defaults.hs?`<button class="btn btn-ghost btn-sm" type="button" onclick="pickHs('')">استخدام الافتراضي</button>`:''}</div>`:''}
+      ${ctx.scope==='bd'&&S.defaults.hs?`<div class="foot"><span>الافتراضي: <bdi class="num">${fmtHs(S.defaults.hs)}</bdi></span><button class="btn btn-ghost btn-sm" type="button" onclick="pickHs('')">استخدام الافتراضي</button></div>`:''}
       ${ctx.scope==='row'&&S.defaults.hs?`<div class="foot"><span>الافتراضي: <bdi class="num">${fmtHs(S.defaults.hs)}</bdi></span><button class="btn btn-ghost btn-sm" type="button" onclick="pickHs('')">استخدام الافتراضي</button></div>`:''}`;
     const inp=$('#pop-q'); inp.oninput=()=>{const v=inp.value; const s=inp.selectionStart; draw(v); const i2=$('#pop-q'); i2.focus(); i2.setSelectionRange(s,s);};
   };
@@ -889,18 +899,21 @@ function pickHs(code,isNew){
   if(isNew) toast(`تمت إضافة الرمز ${fmtHs(code)} واختياره`);
   if(c.scope==='default'){ S.defaults.hs=code; render(); }
   else if(c.scope==='bulkset'){ applyBulkField('hs',code); }
+  else if(c.scope==='bd'){ bd.data[c.id]=code; renderBulkDrawer(); }
+  else if(c.scope==='bdall'){ bd.quick=code; bd.ids.forEach(id=>bd.data[id]=code); renderBulkDrawer(); }
   else { prod(c.id).hs=code; render(); }
 }
 function openCountryPop(anchor,ctx){
   if(popCtx && popCtx.anchor===anchor){ closePop(); return; }
   popCtx={kind:'country',anchor,...ctx};
-  const cur = ctx.scope==='default'?S.defaults.country: ctx.scope==='bulkset'?'': eff(prod(ctx.id),'country').v;
+  const cur = ctx.scope==='default'?S.defaults.country: ctx.scope==='bd'?(bd.data[ctx.id]||''): (ctx.scope==='bulkset'||ctx.scope==='bdall')?'': eff(prod(ctx.id),'country').v;
   const pop=$('#pop');
   const draw=(q='')=>{
     const list=COUNTRIES.filter(c=>!q||c.name.includes(q)||c.code.toLowerCase().includes(q.toLowerCase()));
     pop.innerHTML=`<div class="srch"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="pop-q" placeholder="ابحث عن بلد" value="${esc(q)}" autocomplete="off"></div>
       <div class="list">${list.map(c=>`<button class="opt ${c.code===cur?'sel':''}" type="button" onclick="pickCountry('${c.code}')"><span class="flag">${c.flag}</span><span>${c.name}</span></button>`).join('')||'<div class="empty">لا توجد نتائج</div>'}</div>
-      ${ctx.scope==='bulkset'?`<div class="foot"><span>سيُطبَّق على ${prodN(ui.selected.size)} محدّدة</span>${S.defaults.country?`<button class="btn btn-ghost btn-sm" type="button" onclick="pickCountry('')">استخدام الافتراضي</button>`:''}</div>`:''}
+      ${ctx.scope==='bulkset'||ctx.scope==='bdall'?`<div class="foot"><span>سيُطبَّق على ${prodN(ui.selected.size)} محدّدة</span>${S.defaults.country?`<button class="btn btn-ghost btn-sm" type="button" onclick="pickCountry('')">استخدام الافتراضي</button>`:''}</div>`:''}
+      ${ctx.scope==='bd'&&S.defaults.country?`<div class="foot"><span>الافتراضي: ${ctryOf(S.defaults.country).name}</span><button class="btn btn-ghost btn-sm" type="button" onclick="pickCountry('')">استخدام الافتراضي</button></div>`:''}
       ${ctx.scope==='row'&&S.defaults.country?`<div class="foot"><span>الافتراضي: ${ctryOf(S.defaults.country).name}</span><button class="btn btn-ghost btn-sm" type="button" onclick="pickCountry('')">استخدام الافتراضي</button></div>`:''}`;
     const inp=$('#pop-q'); inp.oninput=()=>{const v=inp.value; const s=inp.selectionStart; draw(v); const i2=$('#pop-q'); i2.focus(); i2.setSelectionRange(s,s);};
   };
@@ -910,6 +923,8 @@ function pickCountry(code){
   const c=popCtx; closePop();
   if(c.scope==='default'){ S.defaults.country=code; render(); }
   else if(c.scope==='bulkset'){ applyBulkField('country',code); }
+  else if(c.scope==='bd'){ bd.data[c.id]=code; renderBulkDrawer(); }
+  else if(c.scope==='bdall'){ bd.quick=code; bd.ids.forEach(id=>bd.data[id]=code); renderBulkDrawer(); }
   else { prod(c.id).country=code; render(); }
 }
 
@@ -933,11 +948,42 @@ function openFormPop(anchor,html,onConfirm){
   pop.querySelectorAll('input').forEach(inp=>inp.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); onConfirm(); } }));
   placePop(anchor); setTimeout(()=>pop.querySelector('input')?.focus(),0);
 }
-function openBulkName(btn){
-  const n=ui.selected.size;
-  openFormPop(btn,`<div class="ttl">اسم المنتج بالإنجليزية</div><div class="sub">سيُطبَّق الاسم نفسه على ${prodN(n)} محدّدة — مناسب للمنتجات المتطابقة أو خياراتها</div>
-    <div class="inp"><input id="fp-n" type="text" dir="ltr" style="text-align:left" placeholder="e.g. Classic Black Crepe Abaya"></div>`,
-    ()=>{ const v=$('#fp-n').value.trim(); if(!v){ $('#fp-n').focus(); return; } closePop(); applyBulkField('nameEn',v); });
+let bd=null; // {field, ids, data:{id:value}}
+function openBulkDrawer(field){
+  const ids=[...ui.selected]; if(!ids.length) return;
+  if(field==='weight'){ openWeightDrawer(ids); return; }
+  bd={field,ids,data:{}};
+  ids.forEach(id=>{ const p=prod(id); bd.data[id]= field==='hs'?p.hs : field==='country'?p.country : p.nameEn; });
+  renderBulkDrawer(); showOverlay(); $('#bdrawer').classList.add('show'); $('#bdrawer').setAttribute('aria-hidden','false');
+}
+function bdIcon(field,val){
+  const hasDef = field==='hs'?!!S.defaults.hs : field==='country'?!!S.defaults.country : false;
+  if(val && String(val).trim()) return field==='hs'&&!hsComplete(val) ? '<span class="wst miss" title="رمز غير مكتمل"><svg class="i" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span>' : '<span class="wst ok" title="محدّد"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span>';
+  if(hasDef) return '<span class="wst def" title="سيأخذ القيمة الافتراضية"><svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span>';
+  return '<span class="wst miss" title="بدون قيمة"><svg class="i" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span>';
+}
+function bdControl(field,id,val,scope){
+  if(field==='hs') return `<button class="combo sm" type="button" onclick="openHsPop(this,{scope:'${scope}',id:${id}})">${comboHtml('hs',val,{ph:scope==='bdall'?'اختر رمزًا لكل المحدد':'رمز التنسيق الجمركي'})}</button>`;
+  if(field==='country') return `<button class="combo sm" type="button" onclick="openCountryPop(this,{scope:'${scope}',id:${id}})">${comboHtml('country',val,{ph:scope==='bdall'?'اختر بلدًا لكل المحدد':'بلد المنشأ'})}</button>`;
+  return `<div class="inp sm"><input type="text" dir="ltr" style="text-align:left" value="${esc(val||'')}" placeholder="English product name" aria-label="اسم المنتج بالإنجليزية" oninput="${scope==='bdall'?`bd.quick=this.value`:`bdSetName(${id},this.value)`}"></div>`;
+}
+function renderBulkDrawer(){
+  const f=bd.field, n=bd.ids.length;
+  $('#bd-title').textContent=`${FIELD_LBL[f]} — ${prodN(n)}`;
+  const isName=f==='nameEn';
+  let html=`<div class="wquick"><div class="t">${isName?'اسم موحّد':'قيمة موحّدة'}</div><div class="row">${bdControl(f,0,bd.quick||'','bdall')}${isName?`<button class="btn btn-primary btn-sm" type="button" onclick="bdFillAllName()">تطبيق على كل المحدد</button>`:''}</div><div style="font-size:12px;color:var(--dark-200)">${isName?'مناسب للمنتجات المتطابقة أو خياراتها. ':'اختيار قيمة هنا يملأ كل الصفوف أدناه. '}يمكنك تعديل أي منتج على حدة قبل التأكيد.</div></div>
+    <div class="wsec"><div class="cols"><span>المنتج</span><span>${FIELD_LBL[f]}</span><span></span></div>`;
+  bd.ids.forEach(id=>{ const p=prod(id); html+=`<div class="wrow" data-bd="${id}"><span class="wname" title="${esc(p.name)}">${esc(p.name)}</span>${bdControl(f,id,bd.data[id],'bd')}${bdIcon(f,bd.data[id])}</div>`; });
+  html+='</div>';
+  $('#bd-body').innerHTML=html;
+}
+function bdSetName(id,v){ bd.data[id]=v; const row=document.querySelector(`.wrow[data-bd="${id}"] .wst`); if(row) row.outerHTML=bdIcon('nameEn',v); }
+function bdFillAllName(){ const v=(bd.quick||'').trim(); if(!v){ $('#bd-body input')?.focus(); return; } bd.ids.forEach(id=>bd.data[id]=v); renderBulkDrawer(); }
+function confirmBulkDrawer(){
+  const f=bd.field, before=JSON.stringify(S.products), n=bd.ids.length;
+  bd.ids.forEach(id=>{ prod(id)[f]=bd.data[id]||''; });
+  closeAll(); ui.lastBulk=before; render();
+  toast(`تم تحديث ${FIELD_LBL[f]} لـ ${prodN(n)}`, ()=>{ S.products=JSON.parse(ui.lastBulk); ui.lastBulk=null; render(); toast('تم التراجع عن التعديل الجماعي'); });
 }
 function applySuggestion(){
   const s=suggestion(); if(!s) return; const before=JSON.stringify(S.products);
@@ -1049,7 +1095,7 @@ function renderFilterDrawer(){
 function saveAll(){ saved=JSON.stringify({defaults:S.defaults,products:S.products}); render(); toast('تم حفظ التغييرات'); }
 function cancelAll(){ const sv=JSON.parse(saved); S.defaults=sv.defaults; S.products=sv.products; render(); toast('تم التراجع عن التغييرات غير المحفوظة'); }
 function showOverlay(){ $('#overlay').classList.add('show'); }
-function closeAll(){ closePop(); $('#overlay').classList.remove('show'); ['pdrawer','fdrawer','wdrawer'].forEach(i=>{$('#'+i).classList.remove('show');$('#'+i).setAttribute('aria-hidden','true')}); ['notes'].forEach(i=>$('#'+i).classList.remove('show')); }
+function closeAll(){ closePop(); $('#overlay').classList.remove('show'); ['pdrawer','fdrawer','wdrawer','bdrawer'].forEach(i=>{$('#'+i).classList.remove('show');$('#'+i).setAttribute('aria-hidden','true')}); ['notes'].forEach(i=>$('#'+i).classList.remove('show')); }
 let toastT;
 function toast(msg,undo){
   const t=$('#toast'); t.innerHTML=`<svg class="i ok" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>${msg}</span>${undo?'<button type="button" id="undo">تراجع</button>':''}`;
@@ -1070,7 +1116,7 @@ function openNotes(){
     <h3>ما الذي تغيّر مقارنة بالصفحة الحالية</h3>
     <table><tr><th>الحالية (من الفيديو)</th><th>المقترح</th></tr>
     <tr><td>كل حقل يُعبّأ يدويًا لكل منتج، والرمز الجمركي بـ 6 أرقام.</td><td><b>قيم افتراضية مرتبطة</b> (بلد المنشأ، الوزن، HS) تُغطّي كل منتج لم يُحدَّد له قيمة، ويظهر مصدر القيمة داخل الخلية (افتراضي / مخصّص) مع زر «استخدام الافتراضي».</td></tr>
-    <tr><td>لا يوجد تحديد صفوف ولا تعديل جماعي.</td><td><b>تحديد + صف «المحدد (N)»</b> أعلى الجدول فيه زر تعديل لكل حقل (الرمز الجمركي، الوزن، بلد المنشأ، الاسم الإنجليزي). كل زر يفتح المحرّر نفسه المستخدم داخل الصف ويطبّق القيمة على كل المنتجات المحدّدة فورًا، مع «تراجع».</td></tr>
+    <tr><td>لا يوجد تحديد صفوف ولا تعديل جماعي.</td><td><b>تحديد + صف «المحدد (N)»</b> أعلى الجدول فيه زر تعديل لكل حقل (الرمز الجمركي، الوزن، بلد المنشأ، الاسم الإنجليزي). كل زر يفتح لوحة جانبية فيها «قيمة موحّدة» تملأ كل المحدّد بضغطة، وصفًا لكل منتج يمكن تعديله على حدة، ثم «تأكيد» يطبّق الكل مع «تراجع».</td></tr>
     <tr><td>وصف المنتج AR/EN كشارات (+) تفتح محررًا.</td><td><b>اسم إنجليزي مستقل</b> كحقل مباشر في الجدول، و<b>المعرّفات</b> (SKU / MPN / GTIN) في لوحة جانبية واحدة للمنتج.</td></tr>
     <tr><td>مؤشر جاهزية لكل صف من 3 حقول + الوصف.</td><td><b>ملخّص أعلى الصفحة</b> يربط الاكتمال بـ Landed Cost، وبطاقات «بدون رمز/وزن/بلد/اسم/معرّفات» تعمل كتصفية بنقرة واحدة. والجاهزية من 8 حقول.</td></tr>
     <tr><td>—</td><td><b>اقتراح ذكي</b>: عند وجود رمز HS سائد في تصنيف، يُقترح تطبيقه على بقية منتجات التصنيف (ملامسة للعنصر «AI Experience» في لوحة البناء).</td></tr>
@@ -1080,7 +1126,7 @@ function openNotes(){
     <h3>القرارات التصميمية</h3>
     <ol>
       <li><b>الافتراضي مرتبط لا منسوخ.</b> تغيير القيمة الافتراضية يحدّث كل المنتجات المعتمدة عليها، والاستثناءات لا تتأثر. <i>ما الذي يعكس القرار:</i> إن أكدت الشحن/الجمارك أن القيمة يجب أن تُجمَّد وقت إنشاء الشحنة، فيصبح «نسخًا عند الحفظ» بدل الربط.</li>
-      <li><b>التعديل الجماعي حقلٌ واحد في كل مرة، بالمحرّر نفسه المستخدم في الصف.</b> التاجر يحدّد المنتجات ثم يضغط زر الحقل؛ لا نافذة جديدة ولا نموذج مركّب، والقيمة تُطبَّق على المحدّد صراحةً (استبدال) مع تراجع فوري. <i>ما الذي يعكسه:</i> إن أظهرت البيانات أن التجار يكتبون فوق استثناءات بالخطأ، يُضاف خيار «تعبئة الفارغ فقط».</li>
+      <li><b>التعديل الجماعي حقلٌ واحد في كل مرة، في لوحة جانبية.</b> التاجر يحدّد المنتجات ثم يضغط زر الحقل؛ اللوحة تعرض قيمة موحّدة للجميع وصفًا لكل منتج، فيرى ما سيتغيّر ويستثني ما يشاء قبل التأكيد. القيمة تُطبَّق على المحدّد صراحةً (استبدال) مع تراجع فوري. <i>ما الذي يعكسه:</i> إن أظهرت البيانات أن التجار يكتبون فوق استثناءات بالخطأ، يُضاف خيار «تعبئة الفارغ فقط».</li>
       <li><b>المعرّفات في لوحة جانبية لا في أعمدة.</b> 3 حقول فريدة لكل منتج (لا تُعمَّم ولا تُعدَّل جماعيًا) لا تستحق 3 أعمدة؛ الشارات تكشف حالتها بنظرة وتدخل كلها في الجاهزية كما طلب الـ PM. <i>ما الذي يعكسه:</i> إن أصبح GTIN إلزاميًا لواجهة Landed Cost، يعود عمودًا مباشرًا.</li>
       <li><b>الرمز غير المكتمل يُحتسب نصف الوزن لا صفرًا.</b> التاجر الذي أدخل 6 أرقام أقرب للاكتمال ممن لم يدخل شيئًا، والتصفية «غير مكتمل» تقوده لإكماله. <i>ما الذي يعكسه:</i> إن رفضت واجهة الشحن أي رمز أقل من 8 أرقام، يصبح صفرًا.</li>
     </ol>
