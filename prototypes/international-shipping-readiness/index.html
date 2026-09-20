@@ -207,7 +207,13 @@ svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-
 .selrow .all,.selrow .clr{color:var(--primary);font-size:12.5px;text-decoration:underline}
 .selrow .spacer{flex:1}
 .selrow .selhint{font-size:12.5px;color:var(--dark-100)}
-.selrow .chips{display:flex;gap:8px;flex-wrap:wrap}
+.selrow .chips{display:flex;gap:10px;flex-wrap:wrap}
+.cgroup{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--gray-400);border-radius:var(--radius-lg);padding:5px 8px 5px 6px;background:var(--gray-100)}
+.cgroup .glbl{font-size:11.5px;font-weight:700;color:var(--primary);background:var(--secondary-100);border:1px solid var(--secondary);border-radius:20px;padding:2px 9px;margin-inline-end:2px;white-space:nowrap}
+.cgroup.quick .glbl{color:var(--dark-200);background:var(--gray-300);border-color:var(--gray-500)}
+.cgroup .chip-edit{border-color:transparent;background:transparent;padding:5px 9px}
+.cgroup .chip-edit:hover:not(:disabled){background:#fff;border-color:var(--primary-400)}
+.cgroup .chip-edit.open{background:var(--primary-100);border-color:var(--primary)}
 .chip-edit{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gray-500);border-radius:var(--radius);background:#fff;padding:7px 12px;font-size:13px;color:var(--dark);transition:border-color .15s,background .15s}
 .chip-edit svg{color:var(--dark-100)}
 .chip-edit:hover:not(:disabled){border-color:var(--primary-400);color:var(--primary)}
@@ -482,12 +488,16 @@ button.idc:hover{border-color:var(--primary-400);color:var(--primary)}
         <span class="spacer"></span>
         <span class="selhint" id="selhint">حدّد منتجات من الجدول لتعديل بياناتها معًا</span>
         <div class="chips" id="bulkchips">
-          <button class="chip-edit" type="button" onclick="openBulkDrawer('hs')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> رمز التنسيق الجمركي</button>
-          <button class="chip-edit" type="button" onclick="openWeightDrawer([...ui.selected])"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> الوزن الفعلي</button>
-          <button class="chip-edit" type="button" onclick="openBulkDrawer('country')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> بلد المنشأ / الصنع</button>
-          <button class="chip-edit" type="button" onclick="openBulkDrawer('nameEn')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> اسم المنتج بالإنجليزية</button>
-          <button class="chip-edit" type="button" onclick="openBulkDrawer('desc')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> وصف المنتج عربي / إنجليزي</button>
-          <button class="chip-edit" type="button" onclick="openBulkDrawer('ids')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> المعرّفات</button>
+          <div class="cgroup" title="قيمة واحدة تُطبَّق على كل المنتجات المحدّدة"><span class="glbl">تعميم</span>
+            <button class="chip-edit" type="button" onclick="openBulkDrawer('hs')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> رمز التنسيق الجمركي</button>
+            <button class="chip-edit" type="button" onclick="openBulkDrawer('weight')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> الوزن الفعلي</button>
+            <button class="chip-edit" type="button" onclick="openBulkDrawer('country')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> بلد المنشأ / الصنع</button>
+          </div>
+          <div class="cgroup quick" title="قيمة لكل منتج على حدة، في لوحة واحدة"><span class="glbl">تعبئة سريعة</span>
+            <button class="chip-edit" type="button" onclick="openBulkDrawer('nameEn')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> اسم المنتج بالإنجليزية</button>
+            <button class="chip-edit" type="button" onclick="openBulkDrawer('desc')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> وصف المنتج عربي / إنجليزي</button>
+            <button class="chip-edit" type="button" onclick="openBulkDrawer('ids')"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> المعرّفات</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1004,8 +1014,8 @@ function renderBulkDrawer(){
   if(f==='desc'){ renderBulkDesc(); return; }
   if(f==='ids'){ renderBulkIds(); return; }
   const isName=f==='nameEn';
-  let html=`<div class="wquick"><div class="t">${isName?'اسم موحّد':'قيمة موحّدة'}</div><div class="row">${bdControl(f,0,bd.quick||'','bdall')}${isName?`<button class="btn btn-primary btn-sm" type="button" onclick="bdFillAllName()">تطبيق على كل المحدد</button>`:''}</div><div style="font-size:12px;color:var(--dark-200)">${isName?'مناسب للمنتجات المتطابقة أو خياراتها. ':'اختيار قيمة هنا يملأ كل الصفوف أدناه. '}يمكنك تعديل أي منتج على حدة قبل التأكيد.</div></div>
-    <div class="wsec"><div class="cols"><span>المنتج</span><span>${FIELD_LBL[f]}</span><span></span></div>`;
+  let html= isName ? `<div class="wquick" style="background:var(--gray-200);border-color:var(--gray-400)"><div class="t">تعبئة سريعة — اسم لكل منتج</div><div style="font-size:12px;color:var(--dark-200)">لا توجد قيمة موحّدة: لكل منتج اسمه الإنجليزي. اكتب الأسماء هنا في مكان واحد ثم أكّد مرة واحدة.</div></div>` : `<div class="wquick"><div class="t">${isName?'اسم موحّد':'قيمة موحّدة'}</div><div class="row">${bdControl(f,0,bd.quick||'','bdall')}${isName?`<button class="btn btn-primary btn-sm" type="button" onclick="bdFillAllName()">تطبيق على كل المحدد</button>`:''}</div><div style="font-size:12px;color:var(--dark-200)">${isName?'مناسب للمنتجات المتطابقة أو خياراتها. ':'اختيار قيمة هنا يملأ كل الصفوف أدناه. '}يمكنك تعديل أي منتج على حدة قبل التأكيد.</div></div>`;
+  html+=`<div class="wsec"><div class="cols"><span>المنتج</span><span>${FIELD_LBL[f]}</span><span></span></div>`;
   bd.ids.forEach(id=>{ const p=prod(id); html+=`<div class="wrow" data-bd="${id}"><span class="wname" title="${esc(p.name)}">${esc(p.name)}</span>${bdControl(f,id,bd.data[id],'bd')}${bdIcon(f,bd.data[id])}</div>`; });
   html+='</div>';
   $('#bd-body').innerHTML=html;
@@ -1013,11 +1023,7 @@ function renderBulkDrawer(){
 const okIcon='<span class="wst ok"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span>';
 const missIcon='<span class="wst miss"><svg class="i" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span>';
 function renderBulkDesc(){
-  const q=bd.quick||{ar:'',en:''};
-  let html=`<div class="wquick"><div class="t">وصف موحّد</div>
-    <textarea class="ta" rows="2" placeholder="الوصف بالعربية لكل المحدد" oninput="bd.quick.ar=this.value">${esc(q.ar)}</textarea>
-    <textarea class="ta" rows="2" dir="ltr" style="text-align:left" placeholder="English description for all selected" oninput="bd.quick.en=this.value">${esc(q.en)}</textarea>
-    <div class="row"><button class="btn btn-primary btn-sm" type="button" onclick="bdFillAllDesc()">تطبيق على كل المحدد</button><span style="font-size:12px;color:var(--dark-200)">يملأ اللغة التي كتبتها فقط، ويمكنك تعديل أي منتج على حدة قبل التأكيد.</span></div></div>`;
+  let html=`<div class="wquick" style="background:var(--gray-200);border-color:var(--gray-400)"><div class="t">تعبئة سريعة — وصف لكل منتج</div><div style="font-size:12px;color:var(--dark-200)">لا توجد قيمة موحّدة: الوصف يخص كل منتج ويظهر في البيان الجمركي. عبّئ الوصفين هنا لكل منتج ثم أكّد مرة واحدة.</div></div>`;
   bd.ids.forEach(id=>{ const p=prod(id), d=bd.data[id];
     html+=`<div class="wsec" data-bd="${id}"><div class="wh">${esc(p.name)}<span class="sub">· ${esc(p.sku)}</span><span class="spacer" style="flex:1"></span><span class="bdst">${(d.ar.trim()?okIcon:missIcon)}<small>عربي</small>${(d.en.trim()?okIcon:missIcon)}<small>إنجليزي</small></span></div>
       <div class="twocol"><textarea class="ta" rows="3" placeholder="الوصف بالعربية" oninput="bd.data[${id}].ar=this.value;bdRefreshDesc(${id})">${esc(d.ar)}</textarea><textarea class="ta" rows="3" dir="ltr" style="text-align:left" placeholder="English description" oninput="bd.data[${id}].en=this.value;bdRefreshDesc(${id})">${esc(d.en)}</textarea></div></div>`; });
@@ -1204,7 +1210,7 @@ function openNotes(){
     <h3>ما الذي تغيّر مقارنة بالصفحة الحالية</h3>
     <table><tr><th>الحالية (من الفيديو)</th><th>المقترح</th></tr>
     <tr><td>كل حقل يُعبّأ يدويًا لكل منتج، والرمز الجمركي بـ 6 أرقام.</td><td><b>قيم افتراضية مرتبطة</b> (بلد المنشأ، الوزن، HS) تُغطّي كل منتج لم يُحدَّد له قيمة، ويظهر مصدر القيمة داخل الخلية (افتراضي / مخصّص) مع زر «استخدام الافتراضي».</td></tr>
-    <tr><td>لا يوجد تحديد صفوف ولا تعديل جماعي.</td><td><b>تحديد + صف «المحدد (N)»</b> أعلى الجدول فيه زر تعديل لكل حقل (الرمز الجمركي، الوزن، بلد المنشأ، الاسم الإنجليزي، الوصف عربي/إنجليزي، المعرّفات). كل زر يفتح لوحة جانبية فيها «قيمة موحّدة» تملأ كل المحدّد بضغطة، وصفًا لكل منتج يمكن تعديله على حدة، ثم «تأكيد» يطبّق الكل مع «تراجع».</td></tr>
+    <tr><td>لا يوجد تحديد صفوف ولا تعديل جماعي.</td><td><b>تحديد + صف «المحدد (N)»</b> أعلى الجدول بمجموعتين: <b>تعميم</b> (الرمز الجمركي، الوزن، بلد المنشأ) حيث قيمة واحدة تُطبَّق على كل المحدّد مع إمكانية الاستثناء، و<b>تعبئة سريعة</b> (الاسم الإنجليزي، الوصف، المعرّفات) حيث كل منتج له قيمته لكن في لوحة واحدة بدل فتح كل منتج على حدة. كل زر يفتح لوحة جانبية فيها «قيمة موحّدة» تملأ كل المحدّد بضغطة، وصفًا لكل منتج يمكن تعديله على حدة، ثم «تأكيد» يطبّق الكل مع «تراجع».</td></tr>
     <tr><td>وصف المنتج AR/EN كشارات (+) تفتح محررًا.</td><td>الشارات نفسها باقية وتفتح لوحة جانبية بالوصفين معًا، ويُضاف <b>اسم إنجليزي مستقل</b> كحقل مباشر في الجدول، و<b>المعرّفات</b> (SKU / MPN / GTIN) في لوحة جانبية واحدة للمنتج.</td></tr>
     <tr><td>مؤشر جاهزية لكل صف من 3 حقول + الوصف.</td><td><b>ملخّص أعلى الصفحة</b> يربط الاكتمال بـ Landed Cost، وبطاقات «بدون رمز/وزن/بلد/اسم/معرّفات» تعمل كتصفية بنقرة واحدة. والجاهزية من 8 حقول.</td></tr>
     <tr><td>—</td><td><b>اقتراح ذكي</b>: عند وجود رمز HS سائد في تصنيف، يُقترح تطبيقه على بقية منتجات التصنيف (ملامسة للعنصر «AI Experience» في لوحة البناء).</td></tr>
@@ -1214,6 +1220,7 @@ function openNotes(){
     <h3>القرارات التصميمية</h3>
     <ol>
       <li><b>الافتراضي مرتبط لا منسوخ.</b> تغيير القيمة الافتراضية يحدّث كل المنتجات المعتمدة عليها، والاستثناءات لا تتأثر. <i>ما الذي يعكس القرار:</i> إن أكدت الشحن/الجمارك أن القيمة يجب أن تُجمَّد وقت إنشاء الشحنة، فيصبح «نسخًا عند الحفظ» بدل الربط.</li>
+      <li><b>التعميم غير التعبئة السريعة.</b> الحقول المشتركة بطبيعتها (رمز، بلد، وزن) تأخذ قيمة موحّدة؛ الحقول الفريدة (اسم، وصف، معرّفات) لا تأخذها أبدًا كي لا يُعمَّم اسم واحد على عشرين منتجًا بالخطأ. الفصل البصري في صف «المحدد» يحمل هذا الفرق. <i>ما الذي يعكسه:</i> طلب صريح من التجار لوصف جمركي موحّد للفئة.</li>
       <li><b>التعديل الجماعي حقلٌ واحد في كل مرة، في لوحة جانبية.</b> التاجر يحدّد المنتجات ثم يضغط زر الحقل؛ اللوحة تعرض قيمة موحّدة للجميع وصفًا لكل منتج، فيرى ما سيتغيّر ويستثني ما يشاء قبل التأكيد. القيمة تُطبَّق على المحدّد صراحةً (استبدال) مع تراجع فوري. <i>ما الذي يعكسه:</i> إن أظهرت البيانات أن التجار يكتبون فوق استثناءات بالخطأ، يُضاف خيار «تعبئة الفارغ فقط».</li>
       <li><b>المعرّفات في لوحة جانبية لا في أعمدة.</b> 3 حقول فريدة لكل منتج (لا تُعمَّم ولا تُعدَّل جماعيًا) لا تستحق 3 أعمدة؛ الشارات تكشف حالتها بنظرة وتدخل كلها في الجاهزية كما طلب الـ PM. <i>ما الذي يعكسه:</i> إن أصبح GTIN إلزاميًا لواجهة Landed Cost، يعود عمودًا مباشرًا.</li>
       <li><b>الرمز غير المكتمل يُحتسب نصف الوزن لا صفرًا.</b> التاجر الذي أدخل 6 أرقام أقرب للاكتمال ممن لم يدخل شيئًا، والتصفية «غير مكتمل» تقوده لإكماله. <i>ما الذي يعكسه:</i> إن رفضت واجهة الشحن أي رمز أقل من 8 أرقام، يصبح صفرًا.</li>
