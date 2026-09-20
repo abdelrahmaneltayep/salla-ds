@@ -247,7 +247,10 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1180px;
 .weight-cell{display:flex;align-items:center;gap:6px}
 .weight-cell .inp{width:118px}
 .weight-cell .inp input{text-align:start;width:52px}
-.opts{color:var(--dark-100);font-size:12.5px;display:flex;align-items:center;gap:6px;height:38px;border:1px dashed var(--gray-500);border-radius:var(--radius);padding:0 10px;width:132px;justify-content:space-between}
+.opts{color:var(--dark-200);font-size:12.5px;display:flex;align-items:center;gap:8px;height:38px;border:1px solid var(--gray-500);border-radius:var(--radius);padding:0 10px;min-width:170px;justify-content:space-between;background:#fff;text-align:start}
+.opts b{font-weight:700;color:var(--dark)}
+.opts:hover{border-color:var(--primary-400);color:var(--primary)}
+.opts.warn{border-color:var(--warning-200);background:var(--warning-100)}
 .ids{display:flex;gap:4px;flex-wrap:nowrap}
 .idc{display:inline-flex;align-items:center;gap:4px;border-radius:20px;padding:3px 8px;font-size:11.5px;border:1px solid var(--gray-500);color:var(--dark-100);background:#fff;white-space:nowrap}
 .idc.ok{border-color:var(--success-200);background:var(--success-100);color:var(--success-700)}
@@ -317,6 +320,20 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1180px;
 .check{display:flex;align-items:center;gap:10px;cursor:pointer}
 
 /* filter drawer body */
+.wquick{background:var(--secondary-100);border:1px solid var(--secondary);border-radius:var(--radius-lg);padding:12px 14px;display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.wquick .t{font-weight:700;font-size:13.5px}
+.wquick .row{display:flex;gap:8px;align-items:center}
+.wquick .inp{flex:1}
+.wsec{margin-bottom:18px}
+.wsec .wh{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13.5px;padding-bottom:8px;border-bottom:1px solid var(--gray-400);margin-bottom:6px}
+.wsec .wh .sub{font-weight:400;color:var(--dark-100);font-size:12px}
+.wsec .cols{display:grid;grid-template-columns:1fr 190px 24px;gap:10px;font-size:12.5px;color:var(--dark-100);padding:6px 0}
+.wrow{display:grid;grid-template-columns:1fr 190px 24px;gap:10px;align-items:center;padding:6px 0}
+.wrow .wname{font-size:13.5px}
+.wrow .wst{display:grid;place-items:center}
+.wrow .wst.ok{color:var(--success)}
+.wrow .wst.def{color:var(--dark-300)}
+.wrow .wst.miss{color:var(--warning)}
 .fgroup{border-bottom:1px solid var(--gray-400);padding:14px 0}
 .fgroup h4{margin:0 0 10px;font-size:13.5px;font-weight:700;display:flex;align-items:center;justify-content:space-between}
 .fgroup .opt{display:flex;align-items:center;gap:10px;padding:7px 0;cursor:pointer}
@@ -452,7 +469,7 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1180px;
         <span class="selhint" id="selhint">حدّد منتجات من الجدول لتعديل بياناتها معًا</span>
         <div class="chips" id="bulkchips">
           <button class="chip-edit" type="button" onclick="openHsPop(this,{scope:'bulkset'})"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> رمز التنسيق الجمركي</button>
-          <button class="chip-edit" type="button" onclick="openBulkWeight(this)"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> الوزن الفعلي</button>
+          <button class="chip-edit" type="button" onclick="openWeightDrawer([...ui.selected])"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> الوزن الفعلي</button>
           <button class="chip-edit" type="button" onclick="openCountryPop(this,{scope:'bulkset'})"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> بلد المنشأ / الصنع</button>
           <button class="chip-edit" type="button" onclick="openBulkName(this)"><svg class="i" viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M12 8l4 4"/></svg> اسم المنتج بالإنجليزية</button>
         </div>
@@ -497,6 +514,13 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;min-width:1180px;
   <div class="dh"><h3 id="pd-title">بيانات الجمارك</h3><button class="xbtn" onclick="closeAll()" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="db" id="pd-body"></div>
   <div class="df"><button class="btn btn-primary" onclick="closeAll()">تم</button><span style="color:var(--dark-100);font-size:12.5px;align-self:center">تُحفظ التعديلات مع زر «حفظ» أسفل الصفحة</span></div>
+</aside>
+
+<!-- Weight drawer (product + option weights; single or bulk) -->
+<aside class="drawer" id="wdrawer" aria-hidden="true">
+  <div class="dh"><h3 id="wd-title">أدخل الوزن الفعلي</h3><button class="xbtn" onclick="closeAll()" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="db" id="wd-body"></div>
+  <div class="df"><button class="btn btn-mint" id="wd-ok" onclick="confirmWeightDrawer()">تأكيد</button><button class="btn btn-white" onclick="closeAll()">إلغاء</button></div>
 </aside>
 
 <!-- Filter drawer -->
@@ -547,33 +571,33 @@ function P(n,ar,en,cat,o={}){ return Object.assign({id:n,name:ar,cat,sku:'ASL-'+
 const SEED = [
   P(1,'عباية كلاسيك سوداء كريب','Classic Black Crepe Abaya','عبايات',{hs:'62044400',weight:0.6,country:'SA',nameEn:'Classic Black Crepe Abaya',mpn:'ASL-CR-BLK',gtin:'6281000012345'}),
   P(2,'عباية مطرزة بخيوط ذهبية','','عبايات',{hs:'62044400',weight:0.75,country:'SA',nameEn:'Gold Embroidered Abaya'}),
-  P(3,'عباية كلوش بأكمام واسعة','','عبايات',{hs:'62044400',nameEn:'Flared Wide-Sleeve Abaya'}),
+  P(3,'عباية كلوش بأكمام واسعة','','عبايات',{hs:'62044400',nameEn:'Flared Wide-Sleeve Abaya',variants:[{name:'مقاس 52',weight:null},{name:'مقاس 54',weight:null},{name:'مقاس 56',weight:0.7},{name:'مقاس 58',weight:null}]}),
   P(4,'عباية ملكية بحرير مطفي','','عبايات',{hs:'62044400',weight:0.8}),
   P(5,'عباية بشت بني فاتح','','عبايات',{hs:'620444',country:'AE'}),
   P(6,'عباية يومية بسيطة — رمادي','','عبايات',{hs:'62044400'}),
-  P(7,'عباية حرير مع شيلة مطابقة','','عبايات',{hs:'62044400',weight:0.9,nameEn:'Silk Abaya with Matching Shayla'}),
+  P(7,'عباية حرير مع شيلة مطابقة','','عبايات',{hs:'62044400',nameEn:'Silk Abaya with Matching Shayla',variants:[{name:'مقاس 54',weight:0.9},{name:'مقاس 56',weight:0.95}]}),
   P(8,'عباية مفتوحة بأزرار لؤلؤ','','عبايات',{hs:'62044400'}),
   P(9,'عباية دبل شيفون كحلي','','عبايات',{hs:'62044400',country:'SA'}),
-  P(10,'عباية كتان صيفية بيج','','عبايات',{}),
+  P(10,'عباية كتان صيفية بيج','','عبايات',{variants:[{name:'مقاس 52',weight:null},{name:'مقاس 54',weight:null},{name:'مقاس 56',weight:null}]}),
   P(11,'عباية رياضية قابلة للطي','','عبايات',{}),
   P(12,'عباية مقلمة نيود','','عبايات',{weight:0.55}),
   P(13,'عباية كاب بقصة كيمونو','','عبايات',{}),
   P(14,'شيلة شيفون سوداء','','شيلات وطرح',{hs:'62143000',weight:0.12,country:'SA',nameEn:'Black Chiffon Shayla',gtin:'6281000012352'}),
   P(15,'شيلة كريب مطرزة','','شيلات وطرح',{hs:'62143000',weight:0.15}),
-  P(16,'طرحة قطن ناعمة — عرض 3','','شيلات وطرح',{}),
+  P(16,'طرحة قطن ناعمة — عرض 3','','شيلات وطرح',{variants:[{name:'أسود',weight:null},{name:'بيج',weight:null},{name:'كحلي',weight:null}]}),
   P(17,'نقاب طبقتين','','شيلات وطرح',{hs:'621430'}),
   P(18,'حزام عباية جلد أسود','','إكسسوارات',{hs:'61178000',weight:0.2,country:'TR',nameEn:'Black Leather Abaya Belt',mpn:'BLT-09'}),
   P(19,'بروش عباية ذهبي','','إكسسوارات',{hs:'71171900',weight:0.05,country:'CN'}),
   P(20,'دبابيس شيلة مغناطيسية (6 قطع)','','إكسسوارات',{country:'CN',sku:''}),
   P(21,'عطر أصايل عود 50 مل','','عطور',{hs:'33030010',weight:0.35,country:'AE',nameEn:'Asayel Oud EDP 50ml',gtin:'6281000019876'}),
   P(22,'بخور عود معتق 100 جم','','عطور',{weight:0.18,country:'SA'}),
-  P(23,'حقيبة يد جلد صناعي — بيج','','حقائب',{hs:'42022200',country:'CN'}),
+  P(23,'حقيبة يد جلد صناعي — بيج','','حقائب',{hs:'42022200',country:'CN',variants:[{name:'صغير',weight:0.35},{name:'كبير',weight:null}]}),
   P(24,'حقيبة كروس صغيرة سوداء','','حقائب',{hs:'420222',weight:0.4,country:'CN',nameEn:'Mini Black Crossbody Bag'}),
 ];
 function seedState(){
   return {
     defaults:{country:'SA',weight:0.5,unit:'kg',hs:''},
-    products: SEED.map(p=>({...p})),
+    products: SEED.map(p=>({...p, variants: p.variants? p.variants.map(v=>({...v})) : undefined})),
   };
 }
 let S = seedState();
@@ -599,15 +623,24 @@ function eff(p,f){
   const d=S.defaults;
   if(f==='hs'){ if(p.hs) return {v:p.hs,src:'custom'}; if(d.hs) return {v:d.hs,src:'default'}; return {v:'',src:'none'}; }
   if(f==='country'){ if(p.country) return {v:p.country,src:'custom'}; if(d.country) return {v:d.country,src:'default'}; return {v:'',src:'none'}; }
-  if(f==='weight'){ if(p.weight!=null&&p.weight!=='') return {v:p.weight,u:p.unit,src:'custom'}; if(d.weight!=null&&d.weight!=='') return {v:d.weight,u:d.unit,src:'default'}; return {v:null,src:'none'}; }
+  if(f==='weight'){ if(hasVars(p)){ let ex=0,cov=0; p.variants.forEach(v=>{const r=vW(p,v); if(r.src==='custom')ex++; if(r.src!=='none')cov++;}); return {v:null,u:p.unit,src: cov<p.variants.length?'none': ex===p.variants.length?'custom':'default', vars:true}; }
+    if(p.weight!=null&&p.weight!=='') return {v:p.weight,u:p.unit,src:'custom'}; if(d.weight!=null&&d.weight!=='') return {v:d.weight,u:d.unit,src:'default'}; return {v:null,src:'none'}; }
 }
 /* Readiness weights — every field the PM named in the Loom counts. Sum = 100. */
+/* Variant weights: a product with options carries one weight per option. */
+const hasVars = p=>Array.isArray(p.variants)&&p.variants.length>0;
+function vW(p,v){ if(v.weight!=null&&v.weight!=='') return {v:v.weight,u:v.unit||p.unit,src:'custom'}; const d=S.defaults; if(d.weight!=null&&d.weight!=='') return {v:d.weight,u:d.unit,src:'default'}; return {v:null,src:'none'}; }
+function wStatus(p){
+  if(!hasVars(p)){ const e=eff(p,'weight'); return {total:1,explicit:e.src==='custom'?1:0,covered:e.src!=='none'?1:0}; }
+  let ex=0,cov=0; p.variants.forEach(v=>{ const r=vW(p,v); if(r.src==='custom')ex++; if(r.src!=='none')cov++; });
+  return {total:p.variants.length,explicit:ex,covered:cov};
+}
 const W = {hs:25,weight:15,country:15,nameAr:5,nameEn:15,sku:10,mpn:5,gtin:10};
 function readiness(p){
   let s=0, todo=[];
   const h=eff(p,'hs');
   if(h.src==='none') todo.push('الرمز الجمركي'); else if(!hsComplete(h.v)){ s+=Math.round(W.hs/2); todo.push('إكمال الرمز الجمركي'); } else s+=W.hs;
-  if(eff(p,'weight').src!=='none') s+=W.weight; else todo.push('الوزن');
+  const ws=wStatus(p); if(ws.covered===ws.total) s+=W.weight; else { s+=Math.round(W.weight*ws.covered/ws.total); todo.push(hasVars(p)?`وزن الخيارات (${ws.covered}/${ws.total})`:'الوزن'); }
   if(eff(p,'country').src!=='none') s+=W.country; else todo.push('بلد المنشأ');
   if(p.name.trim()) s+=W.nameAr; else todo.push('الاسم العربي');
   if(p.nameEn.trim()) s+=W.nameEn; else todo.push('الاسم الإنجليزي');
@@ -623,7 +656,7 @@ function isMissing(p,k){
   if(k==='hs') return eff(p,'hs').src==='none';
   if(k==='hsIncomplete') return eff(p,'hs').src!=='none' && !hsComplete(eff(p,'hs').v);
   if(k==='hsAny') return isMissing(p,'hs')||isMissing(p,'hsIncomplete');
-  if(k==='weight') return eff(p,'weight').src==='none';
+  if(k==='weight'){ const ws=wStatus(p); return ws.covered<ws.total; }
   if(k==='country') return eff(p,'country').src==='none';
   if(k==='nameEn') return !p.nameEn.trim();
   if(k==='sku') return !p.sku.trim();
@@ -744,7 +777,7 @@ function renderTable(){
       <td><span class="cb ${ui.selected.has(p.id)?'on':''}" role="checkbox" aria-checked="${ui.selected.has(p.id)}" tabindex="0" aria-label="تحديد ${esc(p.name)}" onclick="toggleSel(${p.id})" onkeydown="if(event.key===' '){event.preventDefault();toggleSel(${p.id})}"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span></td>
       <td><div class="prod"><div class="img sw" style="background:${SWATCH[p.cat]||'var(--gray-300)'}"></div><div style="min-width:0"><div class="nm" title="${esc(p.name)}">${esc(p.name)}</div><div class="meta"><span class="num">${esc(p.sku)}</span><span class="cat">${esc(p.cat)}</span></div></div></div></td>
       <td><div class="cell"><button class="combo sm ${h.src==='default'?'inherit':''} ${h.src!=='none'&&!hsComplete(h.v)?'warn':''}" type="button" onclick="openHsPop(this,{scope:'row',id:${p.id}})">${comboHtml('hs',h.v,{src:h.src,ph:'رمز التنسيق الجمركي'})}</button>${resetBtn('hs',h.src)}</div></td>
-      <td><div class="cell weight-cell"><div class="inp sm ${w.src==='default'?'inherit':''}"><input type="number" min="0" step="0.05" inputmode="decimal" class="num" placeholder="الوزن" value="${w.src==='none'?'':w.v}" aria-label="الوزن الفعلي" oninput="setWeight(${p.id},this.value)"><select aria-label="الوحدة" onchange="setUnit(${p.id},this.value)"><option value="kg" ${w.u!=='g'?'selected':''}>كجم</option><option value="g" ${w.u==='g'?'selected':''}>جم</option></select></div>${w.src==='default'?'<span class="src def">افتراضي</span>':''}${resetBtn('weight',w.src)}</div></td>
+      <td>${hasVars(p)?(()=>{const ws=wStatus(p);return `<div class="cell weight-cell"><button class="opts ${ws.covered<ws.total?'warn':''}" type="button" onclick="openWeightDrawer([${p.id}])" title="الوزن الفعلي لكل خيار"><span>الوزن الفعلي للخيارات</span><b class="num"><bdi>${ws.explicit}/${ws.total}</bdi></b></button>${ws.covered>ws.explicit?'<span class="src def" title="الخيارات بلا وزن تأخذ الوزن الافتراضي">افتراضي</span>':''}</div>`})():`<div class="cell weight-cell"><div class="inp sm ${w.src==='default'?'inherit':''}"><input type="number" min="0" step="0.05" inputmode="decimal" class="num" placeholder="الوزن" value="${w.src==='none'?'':w.v}" aria-label="الوزن الفعلي" oninput="setWeight(${p.id},this.value)"><select aria-label="الوحدة" onchange="setUnit(${p.id},this.value)"><option value="kg" ${w.u!=='g'?'selected':''}>كجم</option><option value="g" ${w.u==='g'?'selected':''}>جم</option></select></div>${w.src==='default'?'<span class="src def">افتراضي</span>':''}${resetBtn('weight',w.src)}</div>`}</td>
       <td><div class="cell"><button class="combo sm ${c.src==='default'?'inherit':''}" type="button" onclick="openCountryPop(this,{scope:'row',id:${p.id}})">${comboHtml('country',c.v,{src:c.src,ph:'بلد المنشأ'})}</button>${resetBtn('country',c.src)}</div></td>
       <td><div class="inp sm ${p.nameEn.trim()?'':'warn'}" style="min-width:165px" dir="auto"><input type="text" value="${esc(p.nameEn)}" placeholder="English product name" aria-label="الاسم بالإنجليزية" style="direction:ltr;text-align:left" oninput="setField(${p.id},'nameEn',this.value);this.parentElement.classList.toggle('warn',!this.value.trim());this.parentElement.nextElementSibling.hidden=!!this.value.trim()"></div><div class="hint" ${p.nameEn.trim()?'hidden':''}>مطلوب للجاهزية · يتناسق مع الرمز الجمركي</div></td>
       <td><button class="idsbtn" type="button" onclick="openProduct(${p.id})" title="تعديل المعرّفات">${idc(!!p.sku,'SKU')}${idc(!!p.mpn,'MPN')}${idc(!!p.gtin,'GTIN')}</button></td>
@@ -805,7 +838,7 @@ const prod = id=>S.products.find(p=>p.id===id);
 function setWeight(id,v){ const p=prod(id); p.weight = v===''?null:+v; refreshRow(id); }
 function setUnit(id,v){ const p=prod(id); p.unit=v; if(p.weight==null){ const d=eff(p,'weight'); if(d.src==='default'){ p.weight=d.v; } } render(); }
 function setField(id,f,v){ prod(id)[f]=v; refreshRow(id); }
-function useDefault(id,f){ const p=prod(id); if(f==='hs') p.hs=''; if(f==='country') p.country=''; if(f==='weight'){p.weight=null;} render(); }
+function useDefault(id,f){ const p=prod(id); if(f==='hs') p.hs=''; if(f==='country') p.country=''; if(f==='weight'){ p.weight=null; if(hasVars(p)) p.variants.forEach(v=>v.weight=null); } render(); }
 function setDefaultWeight(v){ S.defaults.weight = v===''?null:+v; renderDefaults(); renderSummary(); renderFooter(); renderTable(); }
 function setDefaultUnit(v){ S.defaults.unit=v; render(); }
 function clearDefaults(){ S.defaults={country:'',weight:null,unit:'kg',hs:''}; render(); toast('تم مسح القيم الافتراضية — ستظهر المنتجات التي كانت تعتمد عليها كناقصة'); }
@@ -887,7 +920,7 @@ const FIELD_LBL={hs:'رمز التنسيق الجمركي',weight:'الوزن ا
 function applyBulkField(f,val,unit){
   const sel=[...ui.selected].map(prod); if(!sel.length) return;
   const before=JSON.stringify(S.products);
-  sel.forEach(p=>{ if(f==='weight'){ p.weight=(val===''||val==null)?null:+val; if(unit) p.unit=unit; } else p[f]=val; });
+  sel.forEach(p=>{ if(f==='weight'){ const w=(val===''||val==null)?null:+val; if(hasVars(p)) p.variants.forEach(v=>{v.weight=w; if(unit) v.unit=unit;}); else { p.weight=w; if(unit) p.unit=unit; } } else p[f]=val; });
   ui.lastBulk=before; render();
   const shown = f==='weight' ? (val===''||val==null?'القيمة الافتراضية':fmtW(val,unit)) : f==='country' ? (val?ctryOf(val).name:'القيمة الافتراضية') : f==='hs' ? (val?fmtHs(val):'القيمة الافتراضية') : `«${val}»`;
   toast(`تم ضبط ${FIELD_LBL[f]} إلى ${shown} لـ ${prodN(sel.length)}`, ()=>{ S.products=JSON.parse(ui.lastBulk); ui.lastBulk=null; render(); toast('تم التراجع عن التعديل الجماعي'); });
@@ -900,13 +933,6 @@ function openFormPop(anchor,html,onConfirm){
   pop.querySelectorAll('input').forEach(inp=>inp.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); onConfirm(); } }));
   placePop(anchor); setTimeout(()=>pop.querySelector('input')?.focus(),0);
 }
-function openBulkWeight(btn){
-  const n=ui.selected.size;
-  openFormPop(btn,`<div class="ttl">أدخل الوزن الفعلي</div><div class="sub">سيُطبَّق على ${prodN(n)} محدّدة</div>
-    <div class="inp"><input id="fp-w" type="number" min="0" step="0.05" inputmode="decimal" class="num" placeholder="0.00"><select id="fp-u" aria-label="الوحدة"><option value="kg">كجم</option><option value="g">جم</option></select></div>
-    ${(S.defaults.weight!=null&&S.defaults.weight!=='')?`<button class="btn btn-ghost btn-sm" type="button" style="align-self:flex-start" onclick="closePop();applyBulkField('weight',null)">استخدام الوزن الافتراضي (${fmtW(S.defaults.weight,S.defaults.unit)})</button>`:''}`,
-    ()=>{ const v=$('#fp-w').value; if(v===''||+v<=0){ $('#fp-w').focus(); return; } const u=$('#fp-u').value; closePop(); applyBulkField('weight',v,u); });
-}
 function openBulkName(btn){
   const n=ui.selected.size;
   openFormPop(btn,`<div class="ttl">اسم المنتج بالإنجليزية</div><div class="sub">سيُطبَّق الاسم نفسه على ${prodN(n)} محدّدة — مناسب للمنتجات المتطابقة أو خياراتها</div>
@@ -917,6 +943,59 @@ function applySuggestion(){
   const s=suggestion(); if(!s) return; const before=JSON.stringify(S.products);
   s.missing.forEach(p=>p.hs=s.code); ui.lastBulk=before; render();
   toast(`تم تطبيق الرمز ${fmtHs(s.code)} على ${prodN(s.missing.length)}`, ()=>{ S.products=JSON.parse(ui.lastBulk); render(); toast('تم التراجع'); });
+}
+
+/* =====================================================================
+   Weight drawer — product weight + one weight per option; single or bulk
+===================================================================== */
+let wd=null; // draft: {ids, data:{id:{weight,unit} | {variants:[{weight,unit}]}}}
+function openWeightDrawer(ids){
+  ids=[...ids]; if(!ids.length) return;
+  wd={ids,data:{}};
+  ids.forEach(id=>{ const p=prod(id); wd.data[id]=hasVars(p)?{variants:p.variants.map(v=>({weight:v.weight,unit:v.unit||p.unit}))}:{weight:p.weight,unit:p.unit}; });
+  renderWeightDrawer(); showOverlay(); $('#wdrawer').classList.add('show'); $('#wdrawer').setAttribute('aria-hidden','false');
+}
+function wdIcon(w){
+  if(w!=null&&w!==''&&+w>0) return '<span class="wst ok" title="وزن محدّد"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span>';
+  if(S.defaults.weight!=null&&S.defaults.weight!=='') return `<span class="wst def" title="سيأخذ الوزن الافتراضي ${S.defaults.weight} ${wUnit(S.defaults.unit)}"><svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span>`;
+  return '<span class="wst miss" title="بدون وزن"><svg class="i" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span>';
+}
+function wdRow(name,val,unit,idAttr,vi){
+  return `<div class="wrow"><span class="wname">${esc(name)}</span><div class="inp sm"><input type="number" min="0" step="0.05" inputmode="decimal" class="num" placeholder="0.00" value="${val==null?'':val}" aria-label="الوزن الفعلي" oninput="wdSet(${idAttr},${vi},this.value,null)"><select aria-label="الوحدة" onchange="wdSet(${idAttr},${vi},null,this.value)"><option value="kg" ${unit!=='g'?'selected':''}>كجم</option><option value="g" ${unit==='g'?'selected':''}>جم</option></select></div>${wdIcon(val)}</div>`;
+}
+function renderWeightDrawer(){
+  const multi=wd.ids.length>1;
+  $('#wd-title').textContent = multi ? `أدخل الوزن الفعلي — ${prodN(wd.ids.length)}` : (hasVars(prod(wd.ids[0]))?'أدخل الوزن الفعلي لخيارات المنتج':'أدخل الوزن الفعلي للمنتج');
+  let html='';
+  const rows=wd.ids.reduce((a,id)=>a+(wd.data[id].variants?wd.data[id].variants.length:1),0);
+  if(multi||rows>1) html+=`<div class="wquick"><div class="t">وزن موحّد</div><div class="row"><div class="inp sm"><input id="wq-w" type="number" min="0" step="0.05" inputmode="decimal" class="num" placeholder="0.00" aria-label="وزن موحّد"><select id="wq-u" aria-label="الوحدة"><option value="kg">كجم</option><option value="g">جم</option></select></div><button class="btn btn-primary btn-sm" type="button" onclick="wdFillAll()">تطبيق على ${multi?'كل المحدد':'كل الخيارات'}</button></div><div style="font-size:12px;color:var(--dark-200)">يملأ كل الحقول أدناه (${rows} ${rows===2?'حقلان':rows<=10?'حقول':'حقلًا'}) ويمكنك تعديل أي منها قبل التأكيد.</div></div>`;
+  wd.ids.forEach(id=>{
+    const p=prod(id), d=wd.data[id];
+    if(d.variants){
+      html+=`<div class="wsec"><div class="wh">${multi?esc(p.name):'خيارات المنتج'}<span class="sub">${multi?`· ${d.variants.length===2?'خياران':d.variants.length+' خيارات'}`:''}</span></div><div class="cols"><span>خيارات المنتج</span><span>الوزن الفعلي</span><span></span></div>${d.variants.map((v,vi)=>wdRow(p.variants[vi].name,v.weight,v.unit,id,vi)).join('')}</div>`;
+    } else {
+      html+=`<div class="wsec"><div class="wh">${multi?esc(p.name):'المنتج'}</div><div class="cols"><span>${multi?'':'المنتج'}</span><span>الوزن الفعلي</span><span></span></div>${wdRow(multi?'':p.name,d.weight,d.unit,id,-1)}</div>`;
+    }
+  });
+  $('#wd-body').innerHTML=html;
+}
+function wdSet(id,vi,val,unit){
+  const d=wd.data[id]; const t = vi>=0 ? d.variants[vi] : d;
+  if(val!==null) t.weight = val===''?null:+val;
+  if(unit!==null) t.unit=unit;
+  if(val!==null){ const row=event&&event.target&&event.target.closest('.wrow'); if(row){ row.querySelector('.wst').outerHTML=wdIcon(t.weight); } }
+}
+function wdFillAll(){
+  const v=$('#wq-w').value, u=$('#wq-u').value; if(v===''||+v<=0){ $('#wq-w').focus(); return; }
+  Object.values(wd.data).forEach(d=>{ if(d.variants) d.variants.forEach(x=>{x.weight=+v;x.unit=u;}); else { d.weight=+v; d.unit=u; } });
+  renderWeightDrawer(); $('#wq-w').value=v; $('#wq-u').value=u;
+}
+function confirmWeightDrawer(){
+  const multi=wd.ids.length>1; const before=JSON.stringify(S.products);
+  wd.ids.forEach(id=>{ const p=prod(id), d=wd.data[id]; if(d.variants){ d.variants.forEach((x,i)=>{ p.variants[i].weight=x.weight; p.variants[i].unit=x.unit; }); } else { p.weight=d.weight; p.unit=d.unit; } });
+  const n=wd.ids.length; closeAll(); render();
+  if(multi){ ui.lastBulk=before; toast(`تم تحديث الوزن الفعلي لـ ${prodN(n)}`, ()=>{ S.products=JSON.parse(ui.lastBulk); ui.lastBulk=null; render(); toast('تم التراجع'); }); }
+  else toast('تم تحديث الوزن الفعلي');
 }
 
 /* =====================================================================
@@ -938,7 +1017,7 @@ function openProduct(id){
     <h4>بيانات الجمارك</h4>
     <div class="field"><label>الرمز الجمركي</label><button class="combo ${eff(p,'hs').src==='default'?'inherit':''}" type="button" onclick="openHsPop(this,{scope:'row',id:${id}})">${comboHtml('hs',eff(p,'hs').v,{src:eff(p,'hs').src})}</button></div>
     <div class="twocol">
-      <div class="field"><label for="pd-w">الوزن الفعلي</label><div class="inp ${eff(p,'weight').src==='default'?'inherit':''}"><input id="pd-w" type="number" min="0" step="0.05" class="num" value="${eff(p,'weight').src==='none'?'':eff(p,'weight').v}" oninput="setWeight(${id},this.value)"><span class="unit">${wUnit(eff(p,'weight').u||p.unit)}</span></div><div class="help">${eff(p,'weight').src==='default'?'قيمة افتراضية':''}</div></div>
+      <div class="field"><label for="pd-w">الوزن الفعلي</label>${hasVars(p)?(()=>{const ws=wStatus(p);return `<button class="opts ${ws.covered<ws.total?'warn':''}" type="button" style="width:100%;height:42px" onclick="closeAll();openWeightDrawer([${id}])"><span>الوزن لكل خيار</span><b class="num"><bdi>${ws.explicit}/${ws.total}</bdi></b></button><div class="help">هذا المنتج له ${ws.total===2?'خياران':ws.total+' خيارات'} — لكل خيار وزنه.</div>`})():`<div class="inp ${eff(p,'weight').src==='default'?'inherit':''}"><input id="pd-w" type="number" min="0" step="0.05" class="num" value="${eff(p,'weight').src==='none'?'':eff(p,'weight').v}" oninput="setWeight(${id},this.value)"><span class="unit">${wUnit(eff(p,'weight').u||p.unit)}</span></div><div class="help">${eff(p,'weight').src==='default'?'قيمة افتراضية':''}</div>`}</div>
       <div class="field"><label>بلد المنشأ</label><button class="combo ${eff(p,'country').src==='default'?'inherit':''}" type="button" onclick="openCountryPop(this,{scope:'row',id:${id}})">${comboHtml('country',eff(p,'country').v,{src:eff(p,'country').src})}</button></div>
     </div>
   </div>`;
@@ -970,7 +1049,7 @@ function renderFilterDrawer(){
 function saveAll(){ saved=JSON.stringify({defaults:S.defaults,products:S.products}); render(); toast('تم حفظ التغييرات'); }
 function cancelAll(){ const sv=JSON.parse(saved); S.defaults=sv.defaults; S.products=sv.products; render(); toast('تم التراجع عن التغييرات غير المحفوظة'); }
 function showOverlay(){ $('#overlay').classList.add('show'); }
-function closeAll(){ closePop(); $('#overlay').classList.remove('show'); ['pdrawer','fdrawer'].forEach(i=>{$('#'+i).classList.remove('show');$('#'+i).setAttribute('aria-hidden','true')}); ['notes'].forEach(i=>$('#'+i).classList.remove('show')); }
+function closeAll(){ closePop(); $('#overlay').classList.remove('show'); ['pdrawer','fdrawer','wdrawer'].forEach(i=>{$('#'+i).classList.remove('show');$('#'+i).setAttribute('aria-hidden','true')}); ['notes'].forEach(i=>$('#'+i).classList.remove('show')); }
 let toastT;
 function toast(msg,undo){
   const t=$('#toast'); t.innerHTML=`<svg class="i ok" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>${msg}</span>${undo?'<button type="button" id="undo">تراجع</button>':''}`;
@@ -1014,7 +1093,7 @@ function openNotes(){
     <tr><td>حقول Merchant Product Identifier (SKU الموجود أصلًا) و Manufacturer Product Identifier و Standardized Product Identifier (ISBN/GTIN/EAN) — كلها في الجاهزية.</td><td>شارات SKU / MPN / GTIN في الجدول تفتح لوحة المنتج، وكل معرّف له وزن (10 / 5 / 10).</td></tr>
     <tr><td>انعكاس الحقول الجديدة في التصفية بحسب البيانات الناقصة.</td><td>التصفية تضم: بدون رمز، رمز غير مكتمل، بدون وزن، بدون بلد، بدون اسم إنجليزي، بدون SKU، بدون MPN، بدون معرّف قياسي + مصدر القيمة. وبطاقات الملخّص تصفّي بنقرة.</td></tr></table>
     <h3>افتراضات صمّمت عليها</h3>
-    <ul><li>الوزن الافتراضي يُطبَّق على مستوى المنتج؛ المنتجات ذات الخيارات (variants) تحتاج وزنًا لكل خيار — خارج نطاق هذا النموذج.</li>
+    <ul><li>المنتجات ذات الخيارات لها وزن لكل خيار (كما في الصفحة الحالية)، ويُعرض في الجدول كعدّاد «3/5» يفتح لوحة الخيارات. الوزن الافتراضي يغطي أي خيار بلا وزن. التعديل الجماعي للوزن يفتح اللوحة نفسها لكل المحدّد مع «وزن موحّد» يملأ الكل بضغطة.</li>
     <li>أوزان الجاهزية (30/25/20/15/10) اقتراح لضبطه مع فريق الشحن حسب ما تطلبه شركات الشحن فعليًا.</li>
     <li>القيم الافتراضية على مستوى المتجر كله (لا على مستوى التصنيف) — الاقتراح الذكي يغطي حالة التصنيف دون تعقيد الإعدادات.</li></ul>
     <h3>أسئلة للـ PM (كل سؤال يغيّر ما سيُبنى)</h3>
@@ -1022,7 +1101,7 @@ function openNotes(){
     <div class="q"><b>2.</b> ما الحد الأدنى من الحقول الذي تشترطه واجهة DHL / Aramex Landed Cost فعليًا (هل MPN و GTIN إلزامية أم اختيارية)؟ <i>يحدد أوزان الجاهزية وهل «مكتمل» = 100% أم عتبة أقل تكفي لحساب الرسوم.</i></div>
     <div class="q"><b>3.</b> هل تتوفر لدينا قائمة الرموز الجمركية الكاملة (8–10 أرقام) من هيئة الزكاة والضريبة والجمارك أو التعرفة الخليجية للبحث فيها، أم يكتب التاجر الرمز الكامل يدويًا؟ <i>يحدد ما إذا كان البحث يقترح البند الجمركي تلقائيًا بعد الـ 6 أرقام.</i></div>
     <div class="q"><b>4.</b> الرموز الحالية المحفوظة بـ 6 أرقام: هل تُعرض «غير مكتملة» (كما هنا) أم تُحتسب كأنها غير موجودة؟ <i>يحدد نسبة الجاهزية التي سيراها التجار الحاليون يوم الإطلاق.</i></div>
-    <div class="q"><b>5.</b> هل حساب الرسوم في صفحة الدفع سيحتاج الوزن لكل خيار (variant) أم يكفي وزن المنتج؟ <i>يحدد ما إذا كان الوزن الافتراضي يُطبَّق على الخيارات.</i></div>
+    <div class="q"><b>5.</b> الوزن لكل خيار مدعوم هنا. هل تحتاج واجهة Landed Cost وزن الخيار المطلوب فعليًا، أم يكفي وزن المنتج عند تساوي الخيارات؟ <i>يحدد ما إذا كان الوزن الافتراضي يكفي لاعتبار الخيارات «مكتملة».</i></div>
     <div class="q"><b>6.</b> ما القيمة الفعلية لنسبة المنتجات المكتملة اليوم في Looker؟ <i>يحدد الهدف الرقمي للمقياس الأساسي: رفع نسبة المنتجات المكتملة البيانات.</i></div>
     <div class="q"><b>7.</b> هل الاسم الإنجليزي يُعبَّأ تلقائيًا من ترجمة المتجر إن وُجدت، أم يبقى فارغًا حتى يعبّئه التاجر؟ <i>يحدد خطوة تعبئة أولى قد ترفع الجاهزية دون أي إدخال.</i></div>
     <p style="margin-top:14px;color:var(--dark-100);font-size:12.5px">بيانات هذا النموذج تجريبية (متجر عبايات افتراضي «أصايل لاين») لتوضيح سيناريو المنتجات المتشابهة.</p>`;
